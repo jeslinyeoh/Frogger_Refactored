@@ -23,10 +23,10 @@ public abstract class World extends Pane {
     	
     	sceneProperty().addListener(new ChangeListener<Scene>() {
 
-			@Override
-			public void changed(ObservableValue<? extends Scene> observable, Scene oldValue, Scene newValue) {
-				if (newValue != null) {
-					newValue.setOnKeyReleased(new EventHandler<KeyEvent>() {
+    		@Override
+    		public void changed(ObservableValue<? extends Scene> observable, Scene oldValue, Scene newValue) {
+    			if (newValue != null) {
+    				newValue.setOnKeyReleased(new EventHandler<KeyEvent>() {
 
 						@Override
 						public void handle(KeyEvent event) {
@@ -57,13 +57,14 @@ public abstract class World extends Pane {
 						}
 						
 					});
-				}
+    			}
 				
-			}
+    		}
     		
-		});
+    	});
     }
 
+    
     public void createTimer() {
         timer = new AnimationTimer() {
             @Override
@@ -79,32 +80,40 @@ public abstract class World extends Pane {
         };
     }
 
+    
     public void start() {
     	createTimer();
         timer.start();
     }
 
+    
     public void stop() {
         timer.stop();
     }
+    
     
     public void add(Actor actor) {
         getChildren().add(actor);
     }
 
+    
     public void remove(Actor actor) {
         getChildren().remove(actor);
     }
 
+    
     public <A extends Actor> List<A> getObjects(Class<A> cls) {
         ArrayList<A> someArray = new ArrayList<A>();
+        
         for (Node n: getChildren()) {
             if (cls.isInstance(n)) {
                 someArray.add((A)n);
             }
         }
+        
         return someArray;
     }
 
+    
     public abstract void act(long now);
 }
