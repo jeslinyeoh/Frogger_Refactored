@@ -29,9 +29,9 @@ public class Main extends Application {
 	    
 		primaryStage.setTitle("Frogger");
 		
-	    b1.runBackground();
+	    b1.runGameBackground();
 	    
-	    Scene scene  = new Scene(b1.background,600,800);
+	    Scene scene  = new Scene(b1.background,565,800);
 	    
 	    animal = new Animal("file:Images/froggerUp.png");
 		b1.background.add(animal);

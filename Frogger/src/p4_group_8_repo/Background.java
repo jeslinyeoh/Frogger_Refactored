@@ -1,24 +1,24 @@
 package p4_group_8_repo;
 
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 
 public class Background {
 	MyStage background = new MyStage();
 	Animal animal;
+	StackPane layout = new StackPane();
+	Button startButton;
 	
 	
-	public void runBackground() {
-		
-		String log3, logs, car1Left, truck1, truck2Right;
-		
-	    
+	public void runGameBackground() {	    
 	    
 	    //Obstacle obstacle = new Obstacle("file:Images/truck1Right.png", 25, 25, 3);
 		//Obstacle obstacle1 = new Obstacle("file:Images/truck2Right.png", 100, 100,2 );
 		//Obstacle obstacle2 = new Obstacle("file:Images/truck1Right.png",0,  150, 1);
 
 
-		BackgroundImage froggerback = new BackgroundImage("file:Images/Screen Shot 2017-05-29 at 10.02.14 PM.png");
+		BackgroundImage froggerback = new BackgroundImage("file:Images/iKogsKW.png");
 	    
 		background.add(froggerback);
 		
@@ -68,11 +68,11 @@ public class Background {
 		//End end5 = new End();
 		
 		
-		background.add(new End(13,96));
-		background.add(new End(141,96));
-		background.add(new End(141 + 141-13,96));
-		background.add(new End(141 + 141-13+141-13+1,96));
-		background.add(new End(141 + 141-13+141-13+141-13+3,96));
+		background.add(new End(10,94));
+		background.add(new End(130,94));
+		background.add(new End(130 + 130-10,94));
+		background.add(new End(130 + 2*(130-10)+1,94));
+		background.add(new End(130 + 3*(130-10)+3,94));
 		
 		background.add(new Obstacle("file:Images/truck1"+"Right.png", 0, 649, 1, 120, 120));
 		background.add(new Obstacle("file:Images/truck1"+"Right.png", 300, 649, 1, 120, 120));
@@ -92,6 +92,18 @@ public class Background {
 		
 		
 		background.start();
+	}
+	
+	public void runMenuBackground() {
+		
+		BackgroundImage menuback = new BackgroundImage("file:Images/menubackground.gif");
+	    
+		background.add(menuback);
+		
+		startButton = new Button("Start");
+
+		
+		
 	}
 	
 	
