@@ -1,15 +1,18 @@
 package p4_group_8_repo;
 
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.PopupWindow;
 
 public class Background {
 	MyStage background = new MyStage();
 	Animal animal;
-	StackPane layout = new StackPane();
-	Button startButton;
-	
+	Button startButton, insButton;
+	PopupWindow popup;
 	
 	public void runGameBackground() {	    
 	    
@@ -100,11 +103,34 @@ public class Background {
 	    
 		background.add(menuback);
 		
-		startButton = new Button("Start");
-
+		startButton = new Button();
+		insButton = new Button();
+		
+		Text text1 = new Text();
+		text1.setText("Welcome to Frogger");
+		text1.setX(70);
+		text1.setY(120);
+		text1.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 40));
+		
+		startButton.setLayoutX(240);
+		startButton.setLayoutY(250);
+		startButton.setText("Start");
+		startButton.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
+		startButton.setStyle("-fx-font-size: 20");
+		
+		insButton.setLayoutX(210);
+		insButton.setLayoutY(300);
+		insButton.setText("Instructions");
+		insButton.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
+		insButton.setStyle("-fx-font-size: 20");
+		
+		background.getChildren().addAll(startButton, insButton, text1);
 		
 		
 	}
+	
+	
+	
 	
 	
 }
