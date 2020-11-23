@@ -18,12 +18,10 @@ public class Main extends Application {
 	AnimationTimer timer;
 	Background b1 = new Background();
 	Animal animal;
-	
 	public static void main(String[] args) {
 		launch(args);
 	}
 
-	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	    
@@ -64,29 +62,24 @@ public class Main extends Application {
         };
     }
 	
-	
 	public void start() {
 		b1.background.playMusic();
     	createTimer();
         timer.start();
     }
 
-	
     public void stop() {
         timer.stop();
     }
     
-    
     public void setNumber(int n) {
-    	
     	int shift = 0;
-    	
     	while (n > 0) {
     		  int d = n / 10;
     		  int k = n - d * 10;
     		  n = d;
-    		  b1.background.add(new Digit(k, 30, 360 - shift, 25));
-    		  shift+=30;
-    	}
+    		  b1.background.add(new Digit(k, 30, 530 - shift, 25));
+    		  shift += 30;
+    		}
     }
 }

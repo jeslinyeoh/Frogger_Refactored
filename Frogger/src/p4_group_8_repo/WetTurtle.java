@@ -30,7 +30,7 @@ public class WetTurtle extends Actor{
 	@Override
 	public void act(long now) {
 		
-		int turn = (int) now/900000000  % 4;
+		int turn = (int) (now/900000000  % 4);
 		
 		switch(turn) {
 			

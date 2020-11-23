@@ -12,26 +12,29 @@ public class PopUpInstructions {
     
 	public static void display() {
 		
-		Stage popupwindow = new Stage();
+		Stage popupins = new Stage();
       
-		popupwindow.initModality(Modality.APPLICATION_MODAL);
-		popupwindow.setTitle("Instructions");
+		popupins.initModality(Modality.APPLICATION_MODAL);
+		popupins.setTitle("Instructions");
+		popupins.setX(458);
+		popupins.setY(170);
+		
       
       
-		Label label1= new Label("Pop up window now displayed");
-      
+		BackgroundImage insBackground = new BackgroundImage("file:Images/Instructions.png");
+		
 		VBox layout= new VBox(10);
      
       
-		layout.getChildren().add(label1);
+		layout.getChildren().add(insBackground);
       
 		layout.setAlignment(Pos.CENTER);
       
-		Scene popupScene= new Scene(layout, 300, 250);
+		Scene popupScene = new Scene(layout, 550, 280);
       
-		popupwindow.setScene(popupScene);
+		popupins.setScene(popupScene);
       
-		popupwindow.showAndWait();
+		popupins.showAndWait();
        
 	}
 

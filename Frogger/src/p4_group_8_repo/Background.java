@@ -1,7 +1,11 @@
 package p4_group_8_repo;
 
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -21,7 +25,7 @@ public class Background {
 		//Obstacle obstacle2 = new Obstacle("file:Images/truck1Right.png",0,  150, 1);
 
 
-		BackgroundImage froggerback = new BackgroundImage("file:Images/iKogsKW.png");
+		BackgroundImage froggerback = new BackgroundImage("file:Images/froggerBackground.png");
 	    
 		background.add(froggerback);
 		
@@ -88,7 +92,7 @@ public class Background {
 		background.add(new Obstacle("file:Images/truck2Right.png", 0, 540, 1, 200, 200));
 		background.add(new Obstacle("file:Images/truck2Right.png", 500, 540, 1, 200, 200));
 		background.add(new Obstacle("file:Images/car1Left.png", 500, 490, -5, 50, 50));
-		background.add(new Digit(0, 30, 360, 25));
+		background.add(new Digit(0, 30, 530, 25));
 		//background.add(obstacle);
 		//background.add(obstacle1);
 		//background.add(obstacle2);
@@ -103,28 +107,20 @@ public class Background {
 	    
 		background.add(menuback);
 		
+		BackgroundImage froggerTxt = new BackgroundImage("file:Images/froggerTxt.png");
+		
+		froggerTxt.setLayoutX(15);
+		froggerTxt.setLayoutY(60);
+		
 		startButton = new Button();
 		insButton = new Button();
+		ButtonController startButtonCon = new ButtonController(startButton);
+		ButtonController insButtonCon = new ButtonController(insButton);
 		
-		Text text1 = new Text();
-		text1.setText("Welcome to Frogger");
-		text1.setX(70);
-		text1.setY(120);
-		text1.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 40));
+		startButtonCon.setButton("Start", 250, 250);
+		insButtonCon.setButton("Instructions", 220, 300);
 		
-		startButton.setLayoutX(240);
-		startButton.setLayoutY(250);
-		startButton.setText("Start");
-		startButton.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
-		startButton.setStyle("-fx-font-size: 20");
-		
-		insButton.setLayoutX(210);
-		insButton.setLayoutY(300);
-		insButton.setText("Instructions");
-		insButton.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
-		insButton.setStyle("-fx-font-size: 20");
-		
-		background.getChildren().addAll(startButton, insButton, text1);
+		background.getChildren().addAll(startButton, insButton, froggerTxt);
 		
 		
 	}

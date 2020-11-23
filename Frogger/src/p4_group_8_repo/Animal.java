@@ -261,8 +261,8 @@ public class Animal extends Actor {
 				setImage(new Image("file:Images/froggerUp.png", imgSize, imgSize, true, true));
 				noMove = false;
 				
-				if (points>50) {
-					points-=50;
+				if (points > 50) {
+					points -= 50;
 					changeScore = true;
 				}
 				
@@ -272,7 +272,7 @@ public class Animal extends Actor {
 			
 		}
 		
-		if (getX() > 600) {
+		if (getX() > 530) {
 			move(-movement*2, 0);
 		}
 		
