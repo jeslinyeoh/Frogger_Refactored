@@ -1,58 +1,69 @@
 package com.menu;
 
 
+import com.game.Timer;
 import com.game.Frogger;
 import com.game.background.Background;
 
 import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 
-public class Menu extends Application{
+public class Menu{
 	
-	Animation timer1;
+	Timer timer;
 	Background bmenu = new Background();
 	Background bgame = new Background();
 	Frogger frogger;
 	Scene menuScene, gameScene;
+	private Stage stage;
 	boolean startGame = false;
-	
 
-	public static void main(String[] args) {
-		launch(args);
-	}
-	
-	public void start(Stage primaryStage) throws Exception {
+	public void show() {
 		
-		primaryStage.setTitle("Frogger Arcade Game");
-		
+		stage.setTitle("Frogger Arcade Game");
 		
 		bmenu.runMenuBackground();
-		menuScene = new Scene(bmenu.background, 565, 455);
+		menuScene = new Scene(bmenu.myStage, 565, 455);
 
-		primaryStage.setX(450);
-		primaryStage.setY(50);
-		primaryStage.setScene(menuScene);
-		primaryStage.show();
+		stage.setX(450);
+		stage.setY(50);
+		stage.setScene(menuScene);
+		stage.show();
 		
 		bgame.runGameBackground();
 		frogger = new Frogger("file:Images/froggerUp.png");
-		bgame.background.add(frogger);
-		gameScene = new Scene(bgame.background, 565, 800);
+		bgame.myStage.add(frogger);
+		gameScene = new Scene(bgame.myStage, 565, 800);
 		
 
-		bmenu.startButton.setOnAction(e -> primaryStage.setScene(gameScene));
 		bmenu.insButton.setOnAction(e -> PopUpInstructions.display());
 		
 		
+		bmenu.startButton.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event){
+				stage.setScene(gameScene);
+				timer = new Timer(frogger, bgame);
+			} // end of handle()
+			
+		});	
+		
+	
+	}
+	
+	public void setStage(Stage stage) {
+		this.stage = stage;
 	}
 	
 	

@@ -22,8 +22,8 @@ public class Frogger extends Actor {
 	int end = 0;
 	private boolean second = false;
 	boolean noMove = false;
-	double movement = 13.3333333*2;
-	double movementX = 10.666666*2;
+	double moveY = 13.3333333*2;
+	double moveX = 10.666666*2;
 	int imgSize = 40;
 	boolean carDeath = false;
 	boolean waterDeath = false;
@@ -34,11 +34,12 @@ public class Frogger extends Actor {
 	ArrayList<End> inter = new ArrayList<End>();
 	
 	
+	
 	public Frogger(String imageLink) {
 		
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
 		setX(300);
-		setY(679.8+movement);
+		setY(679.8+ moveY);
 		imgW1 = new Image("file:Images/froggerUp.png", imgSize, imgSize, true, true);
 		imgA1 = new Image("file:Images/froggerLeft.png", imgSize, imgSize, true, true);
 		imgS1 = new Image("file:Images/froggerDown.png", imgSize, imgSize, true, true);
@@ -61,26 +62,26 @@ public class Frogger extends Actor {
 						switch(event.getCode()) {
 						
 							case W: 
-								move(0, -movement);
+								move(0, -moveY);
 								changeScore = false;
 								setImage(imgW1);
 								second = false;
 								break;
 			                
 							case A:
-								move(-movementX, 0);
+								move(-moveX, 0);
 			            		setImage(imgA1);
 			            		second = false;
 			            		break;
 			            				            
 							case S: 
-								move(0, movement);
+								move(0, moveY);
 			            		setImage(imgS1);
 			            		second = false;
 			            		break;
 			            	
 							case D: 
-								move(movementX, 0);
+								move(moveX, 0);
 			            		setImage(imgD1);
 			            		second = false;
 			            		break;
@@ -96,25 +97,25 @@ public class Frogger extends Actor {
 						switch(event.getCode()) {
 						
 							case W:
-								move(0, -movement);
+								move(0, -moveY);
 				                setImage(imgW2);
 				                second = true;
 				                break;
 				                
 							case A:
-								move(-movementX, 0);
+								move(-moveX, 0);
 				            	setImage(imgA2);
 				            	second = true;
 				            	break;
 								
 							case S:
-								move(0, movement);
+								move(0, moveY);
 				            	setImage(imgS2);
 				            	second = true;
 				            	break;
 				            	
 							case D:
-								move(movementX, 0);
+								move(moveX, 0);
 				            	setImage(imgD2);
 				            	second = true;
 				            	break;
@@ -143,28 +144,28 @@ public class Frogger extends Actor {
 								points += 10;
 							}
 							
-			                move(0, -movement);
+			                move(0, -moveY);
 			                setImage(imgW1);
 			                second = false;
 			                break;
 			                
 			                
 						case A:
-							move(-movementX, 0);
+							move(-moveX, 0);
 			            	setImage(imgA1);
 			            	second = false;
 			            	break;
 			            	
 			            	
 						case S:
-							move(0, movement);
+							move(0, moveY);
 			            	setImage(imgS1);
 			            	second = false;
 			            	break;
 			            	
 			            	
 						case D:
-							move(movementX, 0);
+							move(moveX, 0);
 			            	setImage(imgD1);
 			            	second = false;
 			            	break;
@@ -187,11 +188,11 @@ public class Frogger extends Actor {
 		
 		if (getY() < 0 || getY() > 734) {
 			setX(300);
-			setY(679.8+movement);
+			setY(679.8 + moveY);
 		}
 		
 		if (getX() < 0) {
-			move(movement*2, 0);
+			move(moveY*2, 0);
 		}
 		
 		if (carDeath) {
@@ -215,7 +216,7 @@ public class Frogger extends Actor {
 					
 				case 4: 
 					setX(300);
-					setY(679.8+movement);
+					setY(679.8 + moveY);
 					carDeath = false;
 					carD = 0;
 					setImage(new Image("file:Images/froggerUp.png", imgSize, imgSize, true, true));
@@ -255,7 +256,7 @@ public class Frogger extends Actor {
 				
 			case 5: 
 				setX(300);
-				setY(679.8+movement);
+				setY(679.8 + moveY);
 				waterDeath = false;
 				carD = 0;
 				setImage(new Image("file:Images/froggerUp.png", imgSize, imgSize, true, true));
@@ -273,7 +274,7 @@ public class Frogger extends Actor {
 		}
 		
 		if (getX() > 530) {
-			move(-movement*2, 0);
+			move(-moveY*2, 0);
 		}
 		
 		if (getX() == 240 && getY() == 82) {
@@ -336,7 +337,7 @@ public class Frogger extends Actor {
 			getIntersectingObjects(End.class).get(0).setEnd();
 			end++;
 			setX(300);
-			setY(679.8+movement);
+			setY(679.8 + moveY);
 		}
 		
 		else if (getY() < 413){

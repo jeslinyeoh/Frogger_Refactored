@@ -6,6 +6,7 @@ import java.util.List;
 import com.game.Frogger;
 import com.game.background.Background;
 import com.game.background.Digit;
+import com.menu.*;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -19,71 +20,17 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Main extends Application {
-	AnimationTimer timer;
-	Background b1 = new Background();
-	Frogger frogger;
+	
+	MenuView menuView = new MenuView();
+	Menu menu = new Menu();
+	MenuController menuCon = new MenuController(menu, menuView);
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
-
-	@Override
+	
 	public void start(Stage primaryStage) throws Exception {
-	    
-		primaryStage.setTitle("Frogger");
-		
-	    b1.runGameBackground();
-	    
-	    Scene scene  = new Scene(b1.background,565,800);
-	    
-	    frogger = new Frogger("file:Images/froggerUp.png");
-		b1.background.add(frogger);
-	    
-		primaryStage.setScene(scene);
-		primaryStage.show();
-		start();  
+		menuCon.setStage(primaryStage);
+		menuView.view(menuCon);
 	}
-	
-
-	public void createTimer() {
-        timer = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-            	if (frogger.changeScore()) {
-            		setNumber(frogger.getPoints());
-            	}
-            	if (frogger.getStop()) {
-            		System.out.print("STOPP:");
-            		b1.background.stopMusic();
-            		stop();
-            		b1.background.stop();
-            		Alert alert = new Alert(AlertType.INFORMATION);
-            		alert.setTitle("You Have Won The Game!");
-            		alert.setHeaderText("Your High Score: "+ frogger.getPoints()+"!");
-            		alert.setContentText("Highest Possible Score: 800");
-            		alert.show();
-            	}
-            }
-        };
-    }
-	
-	public void start() {
-		b1.background.playMusic();
-    	createTimer();
-        timer.start();
-    }
-
-    public void stop() {
-        timer.stop();
-    }
-    
-    public void setNumber(int n) {
-    	int shift = 0;
-    	while (n > 0) {
-    		  int d = n / 10;
-    		  int k = n - d * 10;
-    		  n = d;
-    		  b1.background.add(new Digit(k, 30, 530 - shift, 25));
-    		  shift += 30;
-    		}
-    }
 }

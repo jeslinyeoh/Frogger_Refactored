@@ -17,7 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.PopupWindow;
 
 public class Background {
-	public MyStage background = new MyStage();
+	public MyStage myStage = new MyStage();
 	public Button startButton, insButton;
 	public PopupWindow popup;
 	
@@ -30,85 +30,62 @@ public class Background {
 
 		BackgroundImage froggerback = new BackgroundImage("file:Images/froggerBackground.png");
 	    
-		background.add(froggerback);
+		myStage.add(froggerback);
 		
-		background.add(new Log("file:Images/log3.png", 150, 0, 166, 0.75));
-		background.add(new Log("file:Images/log3.png", 150, 220, 166, 0.75));
-		background.add(new Log("file:Images/log3.png", 150, 440, 166, 0.75));
+		myStage.add(new Log("file:Images/log3.png", 150, 0, 166, 0.75));
+		myStage.add(new Log("file:Images/log3.png", 150, 220, 166, 0.75));
+		myStage.add(new Log("file:Images/log3.png", 150, 440, 166, 0.75));
 		
-		//background.add(new Log("file:Images/log3.png", 150, 0, 166, 0.75));
+		//myStage.add(new Log("file:Images/log3.png", 150, 0, 166, 0.75));
 		
-		background.add(new Log("file:Images/logs.png", 300, 0, 276, -2));
-		background.add(new Log("file:Images/logs.png", 300, 400, 276, -2));
+		myStage.add(new Log("file:Images/logs.png", 300, 0, 276, -2));
+		myStage.add(new Log("file:Images/logs.png", 300, 400, 276, -2));
 		
-		//background.add(new Log("file:Images/logs.png", 300, 800, 276, -2));
+		//myStage.add(new Log("file:Images/logs.png", 300, 800, 276, -2));
 		
-		background.add(new Log("file:Images/log3.png", 150, 50, 329, 0.75));
-		background.add(new Log("file:Images/log3.png", 150, 270, 329, 0.75));
-		background.add(new Log("file:Images/log3.png", 150, 490, 329, 0.75));
+		myStage.add(new Log("file:Images/log3.png", 150, 50, 329, 0.75));
+		myStage.add(new Log("file:Images/log3.png", 150, 270, 329, 0.75));
+		myStage.add(new Log("file:Images/log3.png", 150, 490, 329, 0.75));
 		
-		//background.add(new Log("file:Images/log3.png", 150, 570, 329, 0.75));
+		//myStage.add(new Log("file:Images/log3.png", 150, 570, 329, 0.75));
 		
-		background.add(new TurtleA(500, 376, -1, 130, 130));
-		background.add(new TurtleA(300, 376, -1, 130, 130));
-		background.add(new TurtleA(700, 376, -1, 130, 130));
-		background.add(new TurtleB(600, 217, -1, 130, 130));
-		background.add(new TurtleA(400, 217, -1, 130, 130));
-		background.add(new TurtleB(200, 217, -1, 130, 130));
-		
-		
-		//background.add(new Log("file:Images/log2.png", 200, 100, 1));
-		//background.add(new Log("file:Images/log2.png", 0, 100, 1));
-		//background.add(new Log("file:Images/log2.png", 100, 120, -1));
-		//background.add(new Log("file:Images/log2.png", 200, 120, -1));
-		//background.add(new Log("file:Images/log2.png", 100, 140, 1));
-		//background.add(new Log("file:Images/log2.png", 200, 140, 1));
-		//background.add(new Log("file:Images/log2.png", 100, 160, -1));
-		//background.add(new Log("file:Images/log2.png", 300, 160, -1));
-		//background.add(new Log("file:Images/log2.png", 100, 180, 1));
-		//background.add(new Log("file:Images/log2.png", 200, 180, 1));
-		//background.add(new Log("file:Images/log2.png", 100, 200, -1));
-		//background.add(new Log("file:Images/log2.png", 200, 200, -1));
-		//background.add(new Log("file:Images/log2.png", 100, 220, 1));
-		//background.add(new Log("file:Images/log2.png", 200, 220, 1));
-		//background.add(new Log("file:Images/log2.png", 400, 220, 1));
-		//End end2 = new End();
-		//End end3 = new End();
-		//End end4 = new End();
-		//End end5 = new End();
+		myStage.add(new TurtleA(500, 376, -1, 130, 130));
+		myStage.add(new TurtleA(300, 376, -1, 130, 130));
+		myStage.add(new TurtleA(700, 376, -1, 130, 130));
+		myStage.add(new TurtleB(600, 217, -1, 130, 130));
+		myStage.add(new TurtleA(400, 217, -1, 130, 130));
+		myStage.add(new TurtleB(200, 217, -1, 130, 130));
 		
 		
-		background.add(new End(10,94));
-		background.add(new End(130,94));
-		background.add(new End(130 + 130-10,94));
-		background.add(new End(130 + 2*(130-10)+1,94));
-		background.add(new End(130 + 3*(130-10)+3,94));
+		myStage.add(new End(10,94));
+		myStage.add(new End(130,94));
+		myStage.add(new End(130 + 130-10,94));
+		myStage.add(new End(130 + 2*(130-10)+1,94));
+		myStage.add(new End(130 + 3*(130-10)+3,94));
 		
-		background.add(new Vehicle("file:Images/truck1"+"Right.png", 0, 649, 1, 120, 120));
-		background.add(new Vehicle("file:Images/truck1"+"Right.png", 300, 649, 1, 120, 120));
-		background.add(new Vehicle("file:Images/truck1"+"Right.png", 600, 649, 1, 120, 120));
-		//background.add(new Obstacle("file:Images/truck1"+"Right.png", 720, 649, 1, 120, 120));
-		background.add(new Vehicle("file:Images/car1Left.png", 100, 597, -1, 50, 50));
-		background.add(new Vehicle("file:Images/car1Left.png", 250, 597, -1, 50, 50));
-		background.add(new Vehicle("file:Images/car1Left.png", 400, 597, -1, 50, 50));
-		background.add(new Vehicle("file:Images/car1Left.png", 550, 597, -1, 50, 50));
-		background.add(new Vehicle("file:Images/truck2Right.png", 0, 540, 1, 200, 200));
-		background.add(new Vehicle("file:Images/truck2Right.png", 500, 540, 1, 200, 200));
-		background.add(new Vehicle("file:Images/car1Left.png", 500, 490, -5, 50, 50));
-		background.add(new Digit(0, 30, 530, 25));
-		//background.add(obstacle);
-		//background.add(obstacle1);
-		//background.add(obstacle2);
+		myStage.add(new Vehicle("file:Images/truck1Right.png", 0, 649, 1, 120, 120));
+		myStage.add(new Vehicle("file:Images/truck1Right.png", 300, 649, 1, 120, 120));
+		myStage.add(new Vehicle("file:Images/truck1Right.png", 600, 649, 1, 120, 120));
+	
+		myStage.add(new Vehicle("file:Images/car1Left.png", 100, 597, -1, 50, 50));
+		myStage.add(new Vehicle("file:Images/car1Left.png", 250, 597, -1, 50, 50));
+		myStage.add(new Vehicle("file:Images/car1Left.png", 400, 597, -1, 50, 50));
+		myStage.add(new Vehicle("file:Images/car1Left.png", 550, 597, -1, 50, 50));
+		myStage.add(new Vehicle("file:Images/truck2Right.png", 0, 540, 1, 200, 200));
+		myStage.add(new Vehicle("file:Images/truck2Right.png", 500, 540, 1, 200, 200));
+		myStage.add(new Vehicle("file:Images/car1Left.png", 500, 490, -5, 50, 50));
+		myStage.add(new Digit(0, 30, 530, 25));
+	
 		
 		
-		background.start();
+		myStage.start();
 	}
 	
 	public void runMenuBackground() {
 		
-		BackgroundImage menuback = new BackgroundImage("file:Images/menubackground.gif");
+		BackgroundImage menuback = new BackgroundImage("file:Images/menuBackground.gif");
 	    
-		background.add(menuback);
+		myStage.add(menuback);
 		
 		BackgroundImage froggerTxt = new BackgroundImage("file:Images/froggerTxt.png");
 		
@@ -123,7 +100,7 @@ public class Background {
 		startButtonCon.setButton("Start", 250, 250);
 		insButtonCon.setButton("Instructions", 220, 300);
 		
-		background.getChildren().addAll(startButton, insButton, froggerTxt);
+		myStage.getChildren().addAll(startButton, insButton, froggerTxt);
 		
 		
 	}
