@@ -1,4 +1,6 @@
-package p4_group_8_repo;
+package com.game.background;
+
+import com.application.Actor;
 
 import javafx.scene.image.Image;
 

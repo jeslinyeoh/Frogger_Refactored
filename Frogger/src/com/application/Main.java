@@ -1,7 +1,11 @@
-package p4_group_8_repo;
+package com.application;
 
 import java.io.File;
 import java.util.List;
+
+import com.game.Frogger;
+import com.game.background.Background;
+import com.game.background.Digit;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -17,7 +21,7 @@ import javafx.util.Duration;
 public class Main extends Application {
 	AnimationTimer timer;
 	Background b1 = new Background();
-	Animal animal;
+	Frogger frogger;
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -31,8 +35,8 @@ public class Main extends Application {
 	    
 	    Scene scene  = new Scene(b1.background,565,800);
 	    
-	    animal = new Animal("file:Images/froggerUp.png");
-		b1.background.add(animal);
+	    frogger = new Frogger("file:Images/froggerUp.png");
+		b1.background.add(frogger);
 	    
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -44,17 +48,17 @@ public class Main extends Application {
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-            	if (animal.changeScore()) {
-            		setNumber(animal.getPoints());
+            	if (frogger.changeScore()) {
+            		setNumber(frogger.getPoints());
             	}
-            	if (animal.getStop()) {
+            	if (frogger.getStop()) {
             		System.out.print("STOPP:");
             		b1.background.stopMusic();
             		stop();
             		b1.background.stop();
             		Alert alert = new Alert(AlertType.INFORMATION);
             		alert.setTitle("You Have Won The Game!");
-            		alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
+            		alert.setHeaderText("Your High Score: "+ frogger.getPoints()+"!");
             		alert.setContentText("Highest Possible Score: 800");
             		alert.show();
             	}

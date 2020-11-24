@@ -1,5 +1,8 @@
-package p4_group_8_repo;
+package com.menu;
 
+
+import com.game.Frogger;
+import com.game.background.Background;
 
 import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
@@ -18,7 +21,7 @@ public class Menu extends Application{
 	Animation timer1;
 	Background bmenu = new Background();
 	Background bgame = new Background();
-	Animal animal;
+	Frogger frogger;
 	Scene menuScene, gameScene;
 	boolean startGame = false;
 	
@@ -41,8 +44,8 @@ public class Menu extends Application{
 		primaryStage.show();
 		
 		bgame.runGameBackground();
-		animal = new Animal("file:Images/froggerUp.png");
-		bgame.background.add(animal);
+		frogger = new Frogger("file:Images/froggerUp.png");
+		bgame.background.add(frogger);
 		gameScene = new Scene(bgame.background, 565, 800);
 		
 

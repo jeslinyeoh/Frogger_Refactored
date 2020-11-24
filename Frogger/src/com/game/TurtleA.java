@@ -1,21 +1,24 @@
-package p4_group_8_repo;
+package com.game;
+
+import com.application.Actor;
 
 import javafx.scene.image.Image;
 
-public class WetTurtle extends Actor{
-	Image turtle1;
-	Image turtle2;
-	Image turtle3;
-	Image turtle4;
+public class TurtleA extends Actor{
+	Image turtle1a, turtle1b, turtle1c;
+	Image turtle2, turtle3, turtle4;
 	private int speed;
 	int i = 1;
 	boolean bool = true;
 	boolean sunk = false;
 	
 	
-	public WetTurtle(int xpos, int ypos, int s, int w, int h) {
+	public TurtleA(int xpos, int ypos, int s, int w, int h) {
 		
-		turtle1 = new Image("file:Images/TurtleAnimation1.png", w, h, true, true);
+		turtle1a = new Image("file:Images/TurtleAnimation1.png", w, h, true, true);
+		turtle1b = new Image("file:Images/TurtleAnimation2.png", w, h, true, true);
+		turtle1c = new Image("file:Images/TurtleAnimation3.png", w, h, true, true);
+		
 		turtle2 = new Image("file:Images/TurtleAnimation2Wet.png", w, h, true, true);
 		turtle3 = new Image("file:Images/TurtleAnimation3Wet.png", w, h, true, true);
 		turtle4 = new Image("file:Images/TurtleAnimation4Wet.png", w, h, true, true);
@@ -30,7 +33,7 @@ public class WetTurtle extends Actor{
 	@Override
 	public void act(long now) {
 		
-		int turn = (int) (now/900000000  % 4);
+		int turn = (int) (now/900000000 % 6);
 		
 		switch(turn) {
 			
@@ -40,16 +43,26 @@ public class WetTurtle extends Actor{
 				break;
 				
 			case 1: 
-				setImage(turtle1);
+				setImage(turtle1a);
 				sunk = false;
 				break;
 				
-			case 2:
-				setImage(turtle3);
+			case 2: 
+				setImage(turtle1b);
 				sunk = false;
 				break;
 				
 			case 3: 
+				setImage(turtle1c);
+				sunk = false;
+				break;
+				
+			case 4:
+				setImage(turtle3);
+				sunk = false;
+				break;
+				
+			case 5: 
 				setImage(turtle4);
 				sunk = true;
 				break;
