@@ -7,13 +7,13 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-public class Timer {
+public class Score {
 	
 	AnimationTimer animTimer;
 	Frogger frogger;
 	Background background;
 	
-	public Timer(Frogger frogger, Background background) {
+	public Score(Frogger frogger, Background background) {
 		this.frogger = frogger;
 		this.background = background;
 		start();
@@ -23,12 +23,12 @@ public class Timer {
         animTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-            	if (frogger.changeScore()) {
+            	if (frogger.getChangeScore()) {
             		setNumber(frogger.getPoints());
             	}
+            	
             	if (frogger.getStop()) {
             		System.out.print("STOPP:");
-            		background.myStage.stopMusic();
             		stop();
             		background.myStage.stop();
             		Alert alert = new Alert(AlertType.INFORMATION);
@@ -43,7 +43,6 @@ public class Timer {
 	
 	
 	public void start() {
-		background.myStage.playMusic();
     	createTimer();
         animTimer.start();
     }
@@ -52,7 +51,6 @@ public class Timer {
     public void stop() {
         animTimer.stop();
     }
-    
     
     public void setNumber(int n) {
     	int shift = 0;
@@ -64,5 +62,6 @@ public class Timer {
     		  shift += 30;
     		}
     }
+    
     
 }

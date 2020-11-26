@@ -23,18 +23,15 @@ public class Background {
 	
 	public void runGameBackground() {	    
 	    
-	    //Obstacle obstacle = new Obstacle("file:Images/truck1Right.png", 25, 25, 3);
-		//Obstacle obstacle1 = new Obstacle("file:Images/truck2Right.png", 100, 100,2 );
-		//Obstacle obstacle2 = new Obstacle("file:Images/truck1Right.png",0,  150, 1);
-
+	    
 
 		BackgroundImage froggerback = new BackgroundImage("file:Images/froggerBackground.png");
 	    
 		myStage.add(froggerback);
 		
-		myStage.add(new Log("file:Images/log3.png", 150, 0, 166, 0.75));
-		myStage.add(new Log("file:Images/log3.png", 150, 220, 166, 0.75));
-		myStage.add(new Log("file:Images/log3.png", 150, 440, 166, 0.75));
+		myStage.add(new Log("file:Images/log3.png", 150, 0, 170, 0.75));
+		myStage.add(new Log("file:Images/log3.png", 150, 220, 170, 0.75));
+		myStage.add(new Log("file:Images/log3.png", 150, 440, 170, 0.75));
 		
 		//myStage.add(new Log("file:Images/log3.png", 150, 0, 166, 0.75));
 		

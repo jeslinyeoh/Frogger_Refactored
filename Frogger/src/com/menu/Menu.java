@@ -1,8 +1,7 @@
 package com.menu;
 
 
-import com.game.Timer;
-import com.game.Frogger;
+import com.game.*;
 import com.game.background.Background;
 
 import javafx.animation.Animation;
@@ -22,7 +21,8 @@ import javafx.scene.layout.StackPane;
 
 public class Menu{
 	
-	Timer timer;
+	Score score;
+	Music music;
 	Background bmenu = new Background();
 	Background bgame = new Background();
 	Frogger frogger;
@@ -43,7 +43,7 @@ public class Menu{
 		stage.show();
 		
 		bgame.runGameBackground();
-		frogger = new Frogger("file:Images/froggerUp.png");
+		frogger = new Frogger();
 		bgame.myStage.add(frogger);
 		gameScene = new Scene(bgame.myStage, 565, 800);
 		
@@ -54,7 +54,8 @@ public class Menu{
 		bmenu.startButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event){
 				stage.setScene(gameScene);
-				timer = new Timer(frogger, bgame);
+				score = new Score(frogger, bgame);
+				music = new Music(frogger);
 			} // end of handle()
 			
 		});	

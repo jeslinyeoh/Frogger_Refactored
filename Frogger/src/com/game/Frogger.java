@@ -6,6 +6,7 @@ import com.application.Actor;
 import com.game.background.End;
 import com.game.*;
 
+import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 
 import javafx.scene.image.Image;
@@ -20,7 +21,6 @@ public class Frogger extends Actor {
 	Image imgD1, imgD2;
 	int points = 0;
 	int end = 0;
-	private boolean second = false;
 	boolean noMove = false;
 	double moveY = 13.3333333*2;
 	double moveX = 10.666666*2;
@@ -28,17 +28,19 @@ public class Frogger extends Actor {
 	boolean carDeath = false;
 	boolean waterDeath = false;
 	boolean stop = false;
-	boolean changeScore = false;
+	
+	private boolean changeScore = false;
 	int carD = 0;
-	double w = 800;
+	private double w = 800;
 	ArrayList<End> inter = new ArrayList<End>();
+	AnimationTimer animTimer;
+	Movement mv;
+
 	
-	
-	
-	public Frogger(String imageLink) {
-		
-		setImage(new Image(imageLink, imgSize, imgSize, true, true));
-		setX(300);
+	public Frogger() {
+
+		setImage(new Image("file:Images/froggerUp.png", imgSize, imgSize, true, true));
+		setX(280);
 		setY(679.8+ moveY);
 		imgW1 = new Image("file:Images/froggerUp.png", imgSize, imgSize, true, true);
 		imgA1 = new Image("file:Images/froggerLeft.png", imgSize, imgSize, true, true);
@@ -49,137 +51,48 @@ public class Frogger extends Actor {
 		imgS2 = new Image("file:Images/froggerDownJump.png", imgSize, imgSize, true, true);
 		imgD2 = new Image("file:Images/froggerRightJump.png", imgSize, imgSize, true, true);
 		
+		startCheckMovement();
 		
+	} // end of constructor
+	
+	
+	public void startCheckMovement() {
+		createCheckMovementTimer();
+		animTimer.start();
+	}
+	
+	
+	public void createCheckMovementTimer() {
+		mv = new Movement(this);
+		animTimer = new AnimationTimer() {
+            
+			@Override
+            public void handle(long now) {
+				
+				if(!getStop()) {
+					checkKeyEntered();
+				}
+				
+		
+            }
+		};
+	}
+	
+	
+	public void checkKeyEntered() {
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event){
-				
-				// if not dead
-				if (!noMove) {
-					
-					// if in second part of animation
-					if (second) {
-					
-						switch(event.getCode()) {
-						
-							case W: 
-								move(0, -moveY);
-								changeScore = false;
-								setImage(imgW1);
-								second = false;
-								break;
-			                
-							case A:
-								move(-moveX, 0);
-			            		setImage(imgA1);
-			            		second = false;
-			            		break;
-			            				            
-							case S: 
-								move(0, moveY);
-			            		setImage(imgS1);
-			            		second = false;
-			            		break;
-			            	
-							case D: 
-								move(moveX, 0);
-			            		setImage(imgD1);
-			            		second = false;
-			            		break;
-					
-						} //end of switch	
-		   
-					} // end of if
-				
-					
-					//else in first part of animation
-					else {
-						
-						switch(event.getCode()) {
-						
-							case W:
-								move(0, -moveY);
-				                setImage(imgW2);
-				                second = true;
-				                break;
-				                
-							case A:
-								move(-moveX, 0);
-				            	setImage(imgA2);
-				            	second = true;
-				            	break;
-								
-							case S:
-								move(0, moveY);
-				            	setImage(imgS2);
-				            	second = true;
-				            	break;
-				            	
-							case D:
-								move(moveX, 0);
-				            	setImage(imgD2);
-				            	second = true;
-				            	break;
-						
-						} // end of switch
-					
-					} // end of else 
-	            
-				} // end of if
-				
-			} // end of handle()
-			
-		});	
-		
-		setOnKeyReleased(new EventHandler<KeyEvent>() {
-			
-			public void handle(KeyEvent event) {
-				if (!noMove) {
-				
-					switch(event.getCode()) {
-					
-						case W:
-							if (getY() < w) {
-								changeScore = true;
-								w = getY();
-								points += 10;
-							}
-							
-			                move(0, -moveY);
-			                setImage(imgW1);
-			                second = false;
-			                break;
-			                
-			                
-						case A:
-							move(-moveX, 0);
-			            	setImage(imgA1);
-			            	second = false;
-			            	break;
-			            	
-			            	
-						case S:
-							move(0, moveY);
-			            	setImage(imgS1);
-			            	second = false;
-			            	break;
-			            	
-			            	
-						case D:
-							move(moveX, 0);
-			            	setImage(imgD1);
-			            	second = false;
-			            	break;
-					
-					} // end of switch
-				
-	            } //end of if
-	            
-	        } //end of handle()
-			
+				mv.handleKeyPressed(event);
+
+			}
 		});
 		
-	} // end of setOnKeyPressed()
-	
+		setOnKeyReleased(new EventHandler<KeyEvent>() {
+			public void handle(KeyEvent event) {
+				mv.handleKeyReleased(event);
+			}
+		});
+	}
 	
 	@Override
 	public void act(long now) {
@@ -285,6 +198,7 @@ public class Frogger extends Actor {
 		boolean intersectLog = (getIntersectingObjects(Log.class).size() >= 1)? true: false;
 		boolean intersectTurtleA = (getIntersectingObjects(TurtleA.class).size() >= 1)? true: false;
 		boolean intersectTurtleB = (getIntersectingObjects(TurtleB.class).size() >= 1)? true: false;
+		boolean intersectEnd = (getIntersectingObjects(End.class).size() >= 1)? true: false;
 		
 		
 		if (intersectVehicle) {
@@ -333,7 +247,7 @@ public class Frogger extends Actor {
 			}
 			points += 50;
 			changeScore = true;
-			w=800;
+			w = 800;
 			getIntersectingObjects(End.class).get(0).setEnd();
 			end++;
 			setX(300);
@@ -347,29 +261,33 @@ public class Frogger extends Actor {
 		}
 	}
 	
+	public void setChangeScore(boolean bool) {
+		changeScore = bool;
+	}
 	
+	public boolean getChangeScore() {
+		return changeScore;
+	}
+	
+	public void addPoints() {
+		points += 10;
+	}
+	
+	public void setW(double w) {
+		this.w = w;
+	}
+	
+	public double getW() {
+		return w;
+	}
 	
 	public boolean getStop() {
-		return end==5;
+		return end == 5;
 	}
 	
 	
 	public int getPoints() {
 		return points;
-	}
-	
-	
-	public boolean changeScore() {
-		
-		if (changeScore) {
-			changeScore = false;
-			return true;
-		}
-		
-		else {
-			return false;
-		}
-		
 	}
 	
 
