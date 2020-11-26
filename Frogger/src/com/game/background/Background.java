@@ -23,8 +23,6 @@ public class Background {
 	
 	public void runGameBackground() {	    
 	    
-	    
-
 		BackgroundImage froggerback = new BackgroundImage("file:Images/froggerBackground.png");
 	    
 		myStage.add(froggerback);
