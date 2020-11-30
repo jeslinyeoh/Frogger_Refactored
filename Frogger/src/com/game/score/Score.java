@@ -1,5 +1,6 @@
-package com.game;
+package com.game.score;
 
+import com.game.Frogger;
 import com.game.background.Background;
 import com.game.background.Digit;
 
@@ -9,9 +10,10 @@ import javafx.scene.control.Alert.AlertType;
 
 public class Score {
 	
-	AnimationTimer animTimer;
-	Frogger frogger;
-	Background background;
+	private AnimationTimer animTimer;
+	private Frogger frogger;
+	private Background background;
+	private Highscore highscore;
 	
 	public Score(Frogger frogger, Background background) {
 		this.frogger = frogger;
@@ -28,6 +30,7 @@ public class Score {
             	}
             	
             	if (frogger.getStop()) {
+            		highscore.addScore(frogger.getPoints());
             		System.out.print("STOPP:");
             		stop();
             		background.myStage.stop();

@@ -3,6 +3,7 @@ package com.menu;
 
 import com.game.*;
 import com.game.background.Background;
+import com.game.score.Score;
 
 import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
