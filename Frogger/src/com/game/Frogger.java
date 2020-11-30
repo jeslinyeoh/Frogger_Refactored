@@ -115,7 +115,7 @@ public class Frogger extends FroggerProperties{
 	
 	public boolean getStop() {
 		
-		if (setStop()) {
+		if (stop) {
 			return true;
 		}
 		
@@ -125,8 +125,8 @@ public class Frogger extends FroggerProperties{
 		
 	}
 	
-	public boolean setStop() {
-		return true;
+	public void setStop() {
+		stop = true;
 	}
 	
 	public int getPoints() {

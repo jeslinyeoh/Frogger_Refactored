@@ -3,6 +3,7 @@ package com.menu;
 
 import com.game.*;
 import com.game.background.Background;
+import com.game.score.PopUpHighscore;
 import com.game.score.Score;
 
 import javafx.animation.Animation;
@@ -18,6 +19,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 
 public class Menu{
@@ -30,6 +32,7 @@ public class Menu{
 	Scene menuScene, gameScene;
 	private Stage stage;
 	boolean startGame = false;
+	PopUpHighscore pophighscore = new PopUpHighscore();
 
 	public void show() {
 		
@@ -48,9 +51,18 @@ public class Menu{
 		bgame.myStage.add(frogger);
 		gameScene = new Scene(bgame.myStage, 565, 800);
 		
-
-		bmenu.insButton.setOnAction(e -> PopUpInstructions.display());
+		VBox layout = new VBox();
+		pophighscore.setRanking(layout);
 		
+		
+
+		//bmenu.insButton.setOnAction(e -> PopUpInstructions.display());
+		bmenu.insButton.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event){
+				PopUpHighscore.display(layout);
+			} // end of handle()
+			
+		});	
 		
 		bmenu.startButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event){

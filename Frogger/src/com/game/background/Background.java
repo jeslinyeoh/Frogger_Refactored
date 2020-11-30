@@ -31,18 +31,12 @@ public class Background {
 		myStage.add(new Log("file:Images/log3.png", 150, 220, 170, 0.75));
 		myStage.add(new Log("file:Images/log3.png", 150, 440, 170, 0.75));
 		
-		//myStage.add(new Log("file:Images/log3.png", 150, 0, 166, 0.75));
-		
 		myStage.add(new Log("file:Images/logs.png", 300, 0, 276, -2));
 		myStage.add(new Log("file:Images/logs.png", 300, 400, 276, -2));
-		
-		//myStage.add(new Log("file:Images/logs.png", 300, 800, 276, -2));
 		
 		myStage.add(new Log("file:Images/log3.png", 150, 50, 329, 0.75));
 		myStage.add(new Log("file:Images/log3.png", 150, 270, 329, 0.75));
 		myStage.add(new Log("file:Images/log3.png", 150, 490, 329, 0.75));
-		
-		//myStage.add(new Log("file:Images/log3.png", 150, 570, 329, 0.75));
 		
 		myStage.add(new TurtleA(500, 376, -1, 130, 130));
 		myStage.add(new TurtleA(300, 376, -1, 130, 130));
@@ -78,15 +72,22 @@ public class Background {
 	
 	public void runMenuBackground() {
 		
-		BackgroundImage menuback = new BackgroundImage("file:Images/menuBackground.gif");
-	    
-		myStage.add(menuback);
+		Image menuback = new Image("file:Images/menuBackground.gif");
+		ImageView menubackV = new ImageView();
 		
-		BackgroundImage froggerTxt = new BackgroundImage("file:Images/froggerTxt.png");
+		menubackV.setImage(menuback);
+		preserveImage(menubackV);
 		
-		froggerTxt.setLayoutX(15);
-		froggerTxt.setLayoutY(60);
 		
+		Image froggerTxt = new Image("file:Images/froggerTxt.png");
+		ImageView froggerV = new ImageView();
+		
+		froggerV.setImage(froggerTxt);
+		froggerV.setFitWidth(500);
+		froggerV.setFitHeight(450);
+		preserveImage(froggerV);
+		froggerV.setX(30);
+		froggerV.setY(80);
 		startButton = new Button();
 		insButton = new Button();
 		ButtonController startButtonCon = new ButtonController(startButton);
@@ -95,12 +96,16 @@ public class Background {
 		startButtonCon.setButton("Start", 250, 250);
 		insButtonCon.setButton("Instructions", 220, 300);
 		
-		myStage.getChildren().addAll(startButton, insButton, froggerTxt);
+		myStage.getChildren().addAll(menubackV, startButton, insButton, froggerV);
 		
 		
 	}
 	
-	
+	public void preserveImage(ImageView imgV) {
+		imgV.setPreserveRatio(true);
+		imgV.setSmooth(true);
+		imgV.setCache(true);
+	}
 	
 	
 	

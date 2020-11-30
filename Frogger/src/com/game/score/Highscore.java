@@ -34,14 +34,8 @@ public class Highscore {
 			  }
 			  
 			  System.out.println("\nread from file\n");
-			  for(i = 0; i < n; i++){
-				    
-				    if(highs[i] == 0){
-				        break;
-				    }
-				    
-				    System.out.printf("%d is %d\n", i, highs[i]);
-			  }
+			 
+			  convertInt(hs);
 				
 	    }
 	    
@@ -81,14 +75,6 @@ public class Highscore {
 			System.out.println("IO Exception: " + ioe);
 		}
 		
-		for(int i = 0; i < 10; i++){
-		    
-		    if(hs[i] == 0){
-		        continue;
-		    }
-		    
-		    System.out.printf("%d is %d\n", i, hs[i]);
-		}
 		
 	     
 	}
@@ -123,7 +109,7 @@ public class Highscore {
 			}
 		}
 		
-		sortHighscore(hs);	
+		sortHighscore(hs);
 		
 		
 	} //end of addScore()
@@ -149,17 +135,34 @@ public class Highscore {
 	        }
 	    } //end for loop
 		
+		convertInt(arr);
+		
+	}
+	
+	
+	public void convertInt(int arr[]) {
 		highScore = new Integer[arr.length];
 		
 		//convert int to Integer
-		for(i = 0; i < arr.length; i++) {
+		for(int i = 0; i < arr.length; i++) {
 			highScore[i] = Integer.valueOf(arr[i]);
 		}
 		
 	}
 		
+	public void tryPrint() {
+		
+		for(int i = 0; i < highScore.length; i++) {
+			
+			if(highScore[i] == 0) {
+				break;
+			}
+			
+			System.out.printf("%d is %d\n", i, highScore[i]);
+		}
+	}
 	
-	public int[] getHighScores() {
-		return hs;
+	public Integer[] getHighScores() {
+		return highScore;
 	}
 }

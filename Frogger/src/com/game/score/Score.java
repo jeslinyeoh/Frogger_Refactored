@@ -13,7 +13,7 @@ public class Score {
 	private AnimationTimer animTimer;
 	private Frogger frogger;
 	private Background background;
-	private Highscore highscore;
+	private Highscore highscore = new Highscore();
 	
 	public Score(Frogger frogger, Background background) {
 		this.frogger = frogger;
@@ -31,6 +31,7 @@ public class Score {
             	
             	if (frogger.getStop()) {
             		highscore.addScore(frogger.getPoints());
+            		
             		System.out.print("STOPP:");
             		stop();
             		background.myStage.stop();

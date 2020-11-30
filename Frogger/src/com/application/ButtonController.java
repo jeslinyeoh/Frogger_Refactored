@@ -25,4 +25,6 @@ public class ButtonController {
 		button.setLayoutX(xPos);
 		button.setLayoutY(yPos);
 	}
+	
+	
 }

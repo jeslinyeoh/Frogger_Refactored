@@ -4,6 +4,8 @@ import com.game.background.BackgroundImage;
 
 import javafx.geometry.Pos;
 import javafx.scene.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.*;
 
@@ -12,25 +14,36 @@ public class PopUpInstructions {
     
 	public static void display() {
 		
-		Stage popupins = new Stage();
-      
-		popupins.initModality(Modality.APPLICATION_MODAL);
-		popupins.setTitle("Instructions");
-		popupins.setX(455);
-		popupins.setY(170);
-      
-		BackgroundImage insBackground = new BackgroundImage("file:Images/Instructions.png");
+		
+		Image insBackground = new Image("file:Images/Instructions.png");
+		ImageView insV = new ImageView();
+		insV.setImage(insBackground);
+		insV.setFitWidth(555);
+		insV.setFitHeight(280);
+        insV.setPreserveRatio(true);
+        insV.setSmooth(true);
+        insV.setCache(true);
+		
 		
 		VBox layout = new VBox(10);
-     
-		layout.getChildren().add(insBackground);
+ 
+		layout.getChildren().add(insV);
 		layout.setAlignment(Pos.CENTER);
-      
-		Scene popupScene = new Scene(layout, 555, 280);
-      
+  
+		
+		Scene popupScene = new Scene(layout, 550, 280);
+		
+		Stage popupins = new Stage();
+		
+		popupins.initModality(Modality.APPLICATION_MODAL);
+		popupins.setTitle("Highscore");
+		popupins.setX(458);
+		popupins.setY(170);
+  
 		popupins.setScene(popupScene);
-      
+  
 		popupins.showAndWait();
+   
        
 	}
 
