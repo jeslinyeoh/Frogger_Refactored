@@ -1,9 +1,13 @@
-package com.game;
+package com.game.actor;
 
 import java.util.ArrayList;
 
 import com.application.Actor;
 import com.game.background.End;
+import com.game.background.Log;
+import com.game.background.TurtleA;
+import com.game.background.TurtleB;
+import com.game.background.Vehicle;
 
 import javafx.scene.image.Image;
 
@@ -35,7 +39,7 @@ public class DeathController extends FroggerProperties{
 			
 			frogger.setNoMove(true);
 			
-			if (now % 11 == 0) {
+			if (now % 7 == 0) {
 				deathAnim++;
 			}
 			
@@ -71,7 +75,7 @@ public class DeathController extends FroggerProperties{
 			
 			frogger.setNoMove(true);
 			
-			if (now % 11 == 0) {
+			if (now % 7 == 0) {
 				deathAnim++;
 			}
 			
@@ -138,7 +142,16 @@ public class DeathController extends FroggerProperties{
 			} 
 			
 			else {
-				frogger.move(-1,0);
+				
+				if(frogger.getIntersectingObjects(TurtleA.class).get(0).getLeft()) {
+					frogger.move(-1,0);
+				}
+
+				
+				else {
+					frogger.move(0.75,0);				
+				}
+
 			}
 		}
 		
@@ -150,7 +163,16 @@ public class DeathController extends FroggerProperties{
 			} 
 			
 			else {
-				frogger.move(-1,0);
+				
+				if(frogger.getIntersectingObjects(TurtleA.class).get(0).getLeft()) {
+					frogger.move(-1,0);
+				}
+
+				
+				else {
+					frogger.move(0.75,0);				
+				}
+
 			}
 		}
 		

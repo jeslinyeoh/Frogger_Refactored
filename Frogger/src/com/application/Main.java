@@ -3,7 +3,7 @@ package com.application;
 import java.io.File;
 import java.util.List;
 
-import com.game.Frogger;
+import com.game.actor.Frogger;
 import com.game.background.Background;
 import com.game.background.Digit;
 import com.menu.*;

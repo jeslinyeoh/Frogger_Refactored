@@ -1,12 +1,13 @@
 package com.game.score;
 
-import com.game.Frogger;
+import com.game.actor.Frogger;
 import com.game.background.Background;
 import com.game.background.Digit;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.VBox;
 
 public class Score {
 	
@@ -14,33 +15,55 @@ public class Score {
 	private Frogger frogger;
 	private Background background;
 	private Highscore highscore = new Highscore();
+	private PopUpHighscore pophighscore = new PopUpHighscore();
+	private long lastUpdate = 0;
 	
 	public Score(Frogger frogger, Background background) {
 		this.frogger = frogger;
 		this.background = background;
 		start();
+		
+		VBox layout = new VBox();
+		pophighscore.setRanking(layout);
+		
 	}
 	
 	public void createTimer() {
         animTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-            	if (frogger.getChangeScore()) {
-            		setNumber(frogger.getPoints());
+            	
+            	if(now - lastUpdate >= 50_000_000) {
+            		
+            		if (frogger.getChangeScore()) {
+                		setNumber(frogger.getPoints());
+                	}
+                	
+                	if (frogger.getStop()) {
+                		highscore.readFromFile();
+                		highscore.addScore(frogger.getPoints());
+                		VBox layout = new VBox();
+                		pophighscore.setRanking(layout);
+                		
+                		
+                		System.out.print("STOPP:");
+                		stop();
+                		background.myStage.stop();
+     
+                		
+                		Alert alert = new Alert(AlertType.CONFIRMATION);
+                		alert.setTitle("Continue");
+                		alert.setHeaderText("Proceed to Next Level?");
+                		alert.setContentText("Highest Possible Score: 800");
+                		alert.show();
+                		
+                		PopUpHighscore.display(layout);
+                	}
+                	
+                	lastUpdate = now;
             	}
             	
-            	if (frogger.getStop()) {
-            		highscore.addScore(frogger.getPoints());
-            		
-            		System.out.print("STOPP:");
-            		stop();
-            		background.myStage.stop();
-            		Alert alert = new Alert(AlertType.INFORMATION);
-            		alert.setTitle("You Have Won The Game!");
-            		alert.setHeaderText("Your High Score: "+ frogger.getPoints()+"!");
-            		alert.setContentText("Highest Possible Score: 800");
-            		alert.show();
-            	}
+            	
             }
         };
     }

@@ -18,6 +18,7 @@ import javafx.scene.layout.StackPane;
 
 public abstract class World extends Pane {
     private AnimationTimer timer;
+    private long lastUpdate = 0;
     
     public World() {
     	
@@ -69,13 +70,17 @@ public abstract class World extends Pane {
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                act(now);
-                List<Actor> actors = getObjects(Actor.class);
+            	
+            	if(now - lastUpdate >= 1_000_000) {
+            		act(now);
+            		List<Actor> actors = getObjects(Actor.class);
                 
-                for (Actor anActor: actors) {
-                	anActor.act(now);
-                }
-      
+            		for (Actor anActor: actors) {
+            			anActor.act(now);
+            		}
+            		
+            		lastUpdate = now;
+            	}
             }
         };
     }

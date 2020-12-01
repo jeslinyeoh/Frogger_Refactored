@@ -1,11 +1,12 @@
-package com.game;
+package com.game.background;
 
 import com.application.Actor;
 
 import javafx.scene.image.Image;
 
 public class Log extends Actor {
-
+	
+	
 	private double speed;
 	@Override
 	public void act(long now) {
@@ -23,7 +24,7 @@ public class Log extends Actor {
 	}
 	
 	
-	public Log(String imageLink, int size, int xpos, int ypos, double s) {
+	public Log(String imageLink, int xpos, int ypos, double s, int size) {
 		
 		setImage(new Image(imageLink, size,size, true, true));
 		setX(xpos);

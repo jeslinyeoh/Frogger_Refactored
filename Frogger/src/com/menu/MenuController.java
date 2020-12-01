@@ -4,27 +4,27 @@ import javafx.stage.Stage;
 
 public class MenuController {
 	
-	private Menu model;
-	private MenuView view;
+	private Menu m;
+	private MenuView mv;
 	private Stage stage;
 	
 	
 	public MenuController(Menu menu, MenuView menuView){
-		model = menu;
-		view = menuView;
+		m = menu;
+		mv = menuView;
 	}
 	
 	public void setStage(Stage stage) {
 		this.stage = stage;
-		model.setStage(stage);
+		m.setStage(stage);
 	}
 	
 	public MenuView getMenuView() {
-		return view;
+		return mv;
 	}
 	
 	
 	public Menu getMenu() {
-		return model;
+		return m;
 	}
 }

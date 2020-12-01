@@ -5,9 +5,10 @@ public class HighscoreTest {
 public static void main (String args[]) {
 		
 	Highscore h = new Highscore();
-	
-		h.addScore(3);
-		h.addScore(1);
+		
+		h.readFromFile();
+		h.addScore(4);
+		h.addScore(5);
 		h.addScore(10);
 		
 		h.writeToFile();

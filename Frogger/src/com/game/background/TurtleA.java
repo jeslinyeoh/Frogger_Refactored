@@ -1,19 +1,19 @@
-package com.game;
+package com.game.background;
 
 import com.application.Actor;
 
 import javafx.scene.image.Image;
 
 public class TurtleA extends Actor{
-	Image turtle1a, turtle1b, turtle1c;
-	Image turtle2, turtle3, turtle4;
-	private int speed;
+	private Image turtle1a, turtle1b, turtle1c;
+	private Image turtle2, turtle3, turtle4;
+	private double speed;
 	int i = 1;
 	boolean bool = true;
 	boolean sunk = false;
 	
 	
-	public TurtleA(int xpos, int ypos, int s, int w, int h) {
+	public TurtleA(int xpos, int ypos, double s, int w, int h) {
 		
 		turtle1a = new Image("file:Images/TurtleAnimation1.png", w, h, true, true);
 		turtle1b = new Image("file:Images/TurtleAnimation2.png", w, h, true, true);
@@ -83,5 +83,9 @@ public class TurtleA extends Actor{
 	
 	public boolean isSunk() {
 		return sunk;
+	}
+	
+	public boolean getLeft() {
+		return speed < 0;
 	}
 }

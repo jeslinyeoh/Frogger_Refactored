@@ -1,9 +1,9 @@
-package com.game;
+package com.game.background;
 
 import java.io.File;
 
 import com.application.Actor;
-import com.game.background.Background;
+import com.game.actor.Frogger;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.media.Media;
@@ -17,7 +17,6 @@ public class Music extends Actor {
 	
 	public Music(Frogger frogger) {
 		this.frogger = frogger;
-		startMusic();
 	}
 	
 	public void startMusic() {

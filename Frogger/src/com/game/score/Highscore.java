@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Highscore {
 	
-	private int n = 10;
+	private int n = 3;
 	private int hs[] = new int[n];
 	private Integer highScore[];
 	
@@ -84,7 +84,9 @@ public class Highscore {
 		
 		int i;
 		
-		//check if newscore exist in the existing highscore list
+		readFromFile();
+		
+		//check if new score exist in the existing highscore list
 		for(i = 0; i < hs.length; i++) {
 	        
 	        if(s == hs[i]){
@@ -110,6 +112,7 @@ public class Highscore {
 		}
 		
 		sortHighscore(hs);
+		writeToFile();
 		
 		
 	} //end of addScore()

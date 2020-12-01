@@ -1,9 +1,10 @@
-package com.game;
+package com.game.actor;
 
 import java.util.ArrayList;
 
 import com.application.Actor;
 import com.game.background.End;
+import com.game.score.PopUpHighscore;
 import com.game.*;
 
 import javafx.animation.AnimationTimer;
@@ -12,6 +13,7 @@ import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.VBox;
 
 
 public class Frogger extends FroggerProperties{
@@ -20,13 +22,14 @@ public class Frogger extends FroggerProperties{
 	private int end = 0;
 	
 	private boolean noMove = false;
-
 	private boolean carDeath = false;
 	private boolean waterDeath = false;
 	private boolean stop = false;
-	
 	private boolean changeScore = false;
+
 	private double w = 800;
+	
+	private long lastUpdate = 0;
 
 	private MovementController moveCon;
 	private DeathController deathCon;
@@ -38,6 +41,7 @@ public class Frogger extends FroggerProperties{
 		setY(679.8+ moveY);
 		
 		initialiseClasses();
+
 	} // end of constructor
 	
 	
@@ -62,9 +66,15 @@ public class Frogger extends FroggerProperties{
 		});
 	}
 	
+	
 	@Override
 	public void act(long now) {
-		checkKeyEntered();
+		
+		if(now - lastUpdate >= 50_000_000) {
+			checkKeyEntered();
+			lastUpdate = now;
+		}
+		
 		
 		if (getY() < 0 || getY() > 734) {
 			setX(300);
@@ -74,9 +84,11 @@ public class Frogger extends FroggerProperties{
 		if (getX() < 0) {
 			move(moveY*2, 0);
 		}
+
 		
 		deathCon.handleDeath(now);
 		deathCon.checkDeath();
+
 		
 		if (getX() > 530) {
 			move(-moveY*2, 0);

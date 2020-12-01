@@ -30,12 +30,10 @@ public class PopUpHighscore {
 		popuphs.initModality(Modality.APPLICATION_MODAL);
 		popuphs.setTitle("Highscore");
 		popuphs.setX(545);
-		popuphs.setY(170);
-		
+		popuphs.setY(150);
 		
 		popuphs.setScene(popupScene);
-  
-		popuphs.showAndWait();
+		popuphs.show();
    
 	}
 	

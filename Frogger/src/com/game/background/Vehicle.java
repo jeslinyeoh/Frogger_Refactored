@@ -1,11 +1,11 @@
-package com.game;
+package com.game.background;
 
 import com.application.Actor;
 
 import javafx.scene.image.Image;
 
 public class Vehicle extends Actor {
-	private int speed;
+	private double speed;
 	@Override
 	public void act(long now) {
 		
@@ -22,7 +22,7 @@ public class Vehicle extends Actor {
 	}
 	
 	
-	public Vehicle(String imageLink, int xpos, int ypos, int s, int w, int h) {
+	public Vehicle(String imageLink, int xpos, int ypos, double s, int w, int h) {
 		
 		setImage(new Image(imageLink, w,h, true, true));
 		setX(xpos);

@@ -2,7 +2,9 @@ package com.menu;
 
 
 import com.game.*;
+import com.game.actor.Frogger;
 import com.game.background.Background;
+import com.game.background.Music;
 import com.game.score.PopUpHighscore;
 import com.game.score.Score;
 
@@ -24,11 +26,8 @@ import javafx.scene.layout.VBox;
 
 public class Menu{
 	
-	Score score;
-	Music music;
 	Background bmenu = new Background();
 	Background bgame = new Background();
-	Frogger frogger;
 	Scene menuScene, gameScene;
 	private Stage stage;
 	boolean startGame = false;
@@ -46,10 +45,11 @@ public class Menu{
 		stage.setScene(menuScene);
 		stage.show();
 		
-		bgame.runGameBackground();
-		frogger = new Frogger();
-		bgame.myStage.add(frogger);
-		gameScene = new Scene(bgame.myStage, 565, 800);
+		
+		bgame.runLevel(stage, 4);
+		
+		//bgame.myStage.add(frogger);
+		gameScene = new Scene(bgame.myStage, 565, 798);
 		
 		VBox layout = new VBox();
 		pophighscore.setRanking(layout);
@@ -57,18 +57,12 @@ public class Menu{
 		
 
 		//bmenu.insButton.setOnAction(e -> PopUpInstructions.display());
-		bmenu.insButton.setOnAction(new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent event){
-				PopUpHighscore.display(layout);
-			} // end of handle()
-			
-		});	
+		
+		bmenu.insButton.setOnAction(e -> PopUpHighscore.display(layout));
 		
 		bmenu.startButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event){
 				stage.setScene(gameScene);
-				score = new Score(frogger, bgame);
-				music = new Music(frogger);
 			} // end of handle()
 			
 		});	
@@ -80,6 +74,8 @@ public class Menu{
 		this.stage = stage;
 	}
 	
-	
+	public Stage getStage() {
+		return stage;
+	}
 	
 }
