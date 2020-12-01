@@ -15,7 +15,7 @@ public class Score {
 	private Frogger frogger;
 	private Background background;
 	private Highscore highscore = new Highscore();
-	private PopUpHighscore pophighscore = new PopUpHighscore();
+	private PopUpHighscore pophighscore;
 	private long lastUpdate = 0;
 	
 	public Score(Frogger frogger, Background background) {
@@ -24,6 +24,7 @@ public class Score {
 		start();
 		
 		VBox layout = new VBox();
+		pophighscore = new PopUpHighscore(background);
 		pophighscore.setRanking(layout);
 		
 	}
@@ -40,8 +41,8 @@ public class Score {
                 	}
                 	
                 	if (frogger.getStop()) {
-                		highscore.readFromFile();
-                		highscore.addScore(frogger.getPoints());
+                		highscore.readFromFile(background.getLevel());
+                		highscore.addScore(frogger.getPoints(), background.getLevel());
                 		VBox layout = new VBox();
                 		pophighscore.setRanking(layout);
                 		

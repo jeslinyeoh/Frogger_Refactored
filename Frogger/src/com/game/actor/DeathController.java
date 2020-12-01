@@ -164,7 +164,7 @@ public class DeathController extends FroggerProperties{
 			
 			else {
 				
-				if(frogger.getIntersectingObjects(TurtleA.class).get(0).getLeft()) {
+				if(frogger.getIntersectingObjects(TurtleB.class).get(0).getLeft()) {
 					frogger.move(-1,0);
 				}
 

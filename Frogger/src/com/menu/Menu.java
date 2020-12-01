@@ -30,8 +30,7 @@ public class Menu{
 	Background bgame = new Background();
 	Scene menuScene, gameScene;
 	private Stage stage;
-	boolean startGame = false;
-	PopUpHighscore pophighscore = new PopUpHighscore();
+	PopUpHighscore pophighscore = new PopUpHighscore(bgame);
 
 	public void show() {
 		
@@ -46,9 +45,8 @@ public class Menu{
 		stage.show();
 		
 		
-		bgame.runLevel(stage, 4);
+		bgame.runLevel(stage, 2);
 		
-		//bgame.myStage.add(frogger);
 		gameScene = new Scene(bgame.myStage, 565, 798);
 		
 		VBox layout = new VBox();

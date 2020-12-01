@@ -12,12 +12,12 @@ public class Highscore {
 	private boolean isHighscore = false, exist = false;
 	
 	
-	public void readFromFile() {
+	public void readFromFile(int lvl) {
 		
 		int i;
 		
 		try {
-			  Scanner s = new Scanner(new File("src/highscore.txt"));
+			  Scanner s = new Scanner(new File("Highscores/highscore"+ lvl +".txt"));
 			  int []highs = new int[n];
 			  
 			  for (i = 0; i < highs.length; i++) {
@@ -52,10 +52,10 @@ public class Highscore {
 	}
 	
 	
-	public void writeToFile() {
+	public void writeToFile(int lvl) {
 		
 		try {
-			FileWriter writer = new FileWriter("src/highscore.txt");
+			FileWriter writer = new FileWriter("Highscores/highscore"+ lvl +".txt");
 			
 		      
 		     int hslen = highScore.length;
@@ -80,11 +80,11 @@ public class Highscore {
 	}
 	
 	
-	public void addScore(int s) {
+	public void addScore(int s, int lvl) {
 		
 		int i;
 		
-		readFromFile();
+		//readFromFile(lvl);
 		
 		//check if new score exist in the existing highscore list
 		for(i = 0; i < hs.length; i++) {
@@ -112,7 +112,7 @@ public class Highscore {
 		}
 		
 		sortHighscore(hs);
-		writeToFile();
+		writeToFile(lvl);
 		
 		
 	} //end of addScore()

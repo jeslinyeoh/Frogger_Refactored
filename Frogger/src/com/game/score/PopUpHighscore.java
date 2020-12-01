@@ -1,5 +1,6 @@
 package com.game.score;
 
+import com.game.background.Background;
 import com.game.background.BackgroundImage;
 
 import javafx.geometry.Insets;
@@ -19,7 +20,12 @@ public class PopUpHighscore {
 	private Highscore highscore = new Highscore();
 	private int n = 3;
 	private Integer []hs = new Integer[n];
+	private Background background;
 	
+	
+	public PopUpHighscore(Background background) {
+		this.background = background;
+	}
 	
 	public static void display(VBox layout) {
 
@@ -47,10 +53,10 @@ public class PopUpHighscore {
 		hsV.setFitHeight(400);
         hsV.setPreserveRatio(true);
         hsV.setSmooth(true);
-        //hsV.setCache(true);
+        hsV.setCache(true);
  
 		
-		highscore.readFromFile();
+		highscore.readFromFile(background.getLevel());
 		hs = highscore.getHighScores();
 		
 		first = Integer.toString(hs[0]);

@@ -27,7 +27,7 @@ public class Background {
 	public Music music;
 	private Frogger frogger;
 	private Level level;
-	private int lvl;
+	private int lvl = 0;
 	
 	
 	public void runGameBackground() {	    
@@ -109,12 +109,13 @@ public class Background {
 		myStage.add(new Digit(0, 30, 530, 25));
 		myStage.add(frogger);
 		myStage.start();
-		music.startMusic();
+		//music.startMusic();
 
 	}
 	
 	
- 	public void preserveImage(ImageView imgV) {
+	
+	public void preserveImage(ImageView imgV) {
 		imgV.setPreserveRatio(true);
 		imgV.setSmooth(true);
 		imgV.setCache(true);
