@@ -25,15 +25,11 @@ public class Highscore {
 			  }
 			      
 			  for (i = 0; i < highs.length; i++) {
-				  
-				  if(i == n-1) {
-		        	break;
-				  }
+
 				  
 				  hs[i] = highs[i];
-			  }
-			  
-			  System.out.println("\nread from file\n");
+				
+			  }			  
 			 
 			  convertInt(hs);
 				
@@ -81,10 +77,10 @@ public class Highscore {
 	
 	
 	public void addScore(int s, int lvl) {
-		
+
 		int i;
 		
-		//readFromFile(lvl);
+		readFromFile(lvl);
 		
 		//check if new score exist in the existing highscore list
 		for(i = 0; i < hs.length; i++) {
@@ -113,6 +109,7 @@ public class Highscore {
 		
 		sortHighscore(hs);
 		writeToFile(lvl);
+		tryPrint();
 		
 		
 	} //end of addScore()
@@ -148,6 +145,7 @@ public class Highscore {
 		
 		//convert int to Integer
 		for(int i = 0; i < arr.length; i++) {
+			
 			highScore[i] = Integer.valueOf(arr[i]);
 		}
 		
@@ -161,7 +159,6 @@ public class Highscore {
 				break;
 			}
 			
-			System.out.printf("%d is %d\n", i, highScore[i]);
 		}
 	}
 	

@@ -72,31 +72,35 @@ public class Frogger extends FroggerProperties{
 		
 		if(now - lastUpdate >= 50_000_000) {
 			checkKeyEntered();
+			
+			if (getY() < 0 || getY() > 734) {
+				setX(300);
+				setY(679.8 + moveY);
+			}
+			
+			if (getX() < 0) {
+				move(moveY*2, 0);
+			}
+
+			
+			if (getX() > 530) {
+				move(-moveY*2, 0);
+			}
+			
+			if (getX() == 240 && getY() == 82) {
+				stop = true;
+			}
+			
 			lastUpdate = now;
 		}
-		
-		
-		if (getY() < 0 || getY() > 734) {
-			setX(300);
-			setY(679.8 + moveY);
-		}
-		
-		if (getX() < 0) {
-			move(moveY*2, 0);
-		}
-
 		
 		deathCon.handleDeath(now);
 		deathCon.checkDeath();
 
 		
-		if (getX() > 530) {
-			move(-moveY*2, 0);
-		}
 		
-		if (getX() == 240 && getY() == 82) {
-			stop = true;
-		}
+		
+		
 		
 		//put function here
 	}
@@ -114,7 +118,20 @@ public class Frogger extends FroggerProperties{
 	}
 	
 	public void minusPoints() {
-		points -= 50;
+		
+		if(points > 50) {
+			points -= 50;
+		}
+		
+		else {
+			points = 0;
+		}
+		
+	}
+	
+	
+	public int getPoints() {
+		return points;
 	}
 	
 	public void setW(double w) {
@@ -139,10 +156,6 @@ public class Frogger extends FroggerProperties{
 	
 	public void setStop() {
 		stop = true;
-	}
-	
-	public int getPoints() {
-		return points;
 	}
 	
 	public boolean getNoMove() {

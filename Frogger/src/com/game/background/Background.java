@@ -1,37 +1,73 @@
 package com.game.background;
 
 
-import com.application.ButtonController;
 import com.application.MyStage;
-import com.game.*;
 import com.game.actor.Frogger;
 import com.game.score.Score;
 
-import javafx.geometry.Pos;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
-import javafx.stage.PopupWindow;
 import javafx.stage.Stage;
 
 public class Background {
 	public MyStage myStage = new MyStage();
 	public Button startButton, insButton;
-	public PopupWindow popup;
-	public Score score;
-	public Music music;
+
+	private PopUpNextLevel popupNextLevel = new PopUpNextLevel();
+	private Stage stage;
+	private Score score;
+	private Music music;
 	private Frogger frogger;
 	private Level level;
 	private int lvl = 0;
 	
 	
+	
+	
+	public void popNextLevel() {
+		
+		popupNextLevel.display();
+		
+		popupNextLevel.yesButton.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event){
+				
+				System.out.println("reach here");
+				myStage = new MyStage();
+				lvl += 1;
+				runLevel(lvl);
+				Scene scene = new Scene(myStage, 565, 798);
+				stage.setScene(scene);
+				popupNextLevel.close();
+			} 
+			
+		});	
+		
+		popupNextLevel.noButton.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event){
+				popupNextLevel.close();
+				score.getPopUpHighscore().closePopUp();
+				stage.close();
+				Platform.exit();
+			} 
+			
+		});	
+		
+		
+	}
+	
+	
+	public void setStage(Stage stage) {
+		this.stage = stage;
+	}
+	
 	public void runGameBackground() {	    
 	    
+		
 		BackgroundImage froggerback = new BackgroundImage("file:Images/froggerBackground.png");
 		frogger = new Frogger();
 		score = new Score(frogger, this);
@@ -70,8 +106,8 @@ public class Background {
 		ButtonController startButtonCon = new ButtonController(startButton);
 		ButtonController insButtonCon = new ButtonController(insButton);
 		
-		startButtonCon.setButton("Start", 250, 250);
-		insButtonCon.setButton("Instructions", 220, 300);
+		startButtonCon.setButton("Start", 250, 250, "pink, #b6e7c9", 20);
+		insButtonCon.setButton("Instructions", 220, 300, "pink, #b6e7c9", 20);
 		
 		myStage.getChildren().addAll(menubackV, startButton, insButton, froggerV);
 		
@@ -79,13 +115,13 @@ public class Background {
 	}
 	
 	
-	public void runLevel(Stage stage, int lvl) {
+	public void runLevel(int lvl) {
 		
 		this.lvl = lvl;
 		
 		runGameBackground();
 		
-		level = new Level(stage, myStage, frogger);
+		level = new Level(myStage, frogger);
 		
 		switch(lvl) {
 		
@@ -109,8 +145,16 @@ public class Background {
 		myStage.add(new Digit(0, 30, 530, 25));
 		myStage.add(frogger);
 		myStage.start();
-		//music.startMusic();
+		startMusic();
 
+	}
+	
+	public void startMusic() {
+		music.startMusic();
+	}
+	
+	public void stopMusic(){
+		music.stopMusic();
 	}
 	
 	
@@ -125,6 +169,6 @@ public class Background {
  	public int getLevel() {
  		return lvl;
  	}
-	
+ 	
 	
 }

@@ -115,7 +115,7 @@ public class MovementController extends FroggerProperties{
 			switch(event.getCode()) {
 					
 				case W:
-					if (frogger.getY() < frogger.getW()) {
+					if (frogger.getY() < frogger.getW() && frogger.getY() > 100) {
 						frogger.setChangeScore(true);
 						frogger.setW(frogger.getY());
 						frogger.addPoints(10);

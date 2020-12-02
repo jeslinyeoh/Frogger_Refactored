@@ -15,7 +15,7 @@ public class Score {
 	private Frogger frogger;
 	private Background background;
 	private Highscore highscore = new Highscore();
-	private PopUpHighscore pophighscore;
+	private PopUpHighscore popupHighscore;
 	private long lastUpdate = 0;
 	
 	public Score(Frogger frogger, Background background) {
@@ -24,12 +24,14 @@ public class Score {
 		start();
 		
 		VBox layout = new VBox();
-		pophighscore = new PopUpHighscore(background);
-		pophighscore.setRanking(layout);
+		popupHighscore = new PopUpHighscore(background);
+		popupHighscore.setRanking(layout);
 		
 	}
 	
+	
 	public void createTimer() {
+		
         animTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -44,21 +46,25 @@ public class Score {
                 		highscore.readFromFile(background.getLevel());
                 		highscore.addScore(frogger.getPoints(), background.getLevel());
                 		VBox layout = new VBox();
-                		pophighscore.setRanking(layout);
+                		popupHighscore.setRanking(layout);
                 		
-                		
-                		System.out.print("STOPP:");
-                		stop();
                 		background.myStage.stop();
-     
+                		stop();
+                	
+                		popupHighscore.display(layout);
                 		
-                		Alert alert = new Alert(AlertType.CONFIRMATION);
-                		alert.setTitle("Continue");
-                		alert.setHeaderText("Proceed to Next Level?");
-                		alert.setContentText("Highest Possible Score: 800");
-                		alert.show();
+                		if(background.getLevel() != 5) {
+                			background.popNextLevel();            			
+                		}
                 		
-                		PopUpHighscore.display(layout);
+                		else {
+                			Alert alert = new Alert(AlertType.INFORMATION);
+                    		alert.setTitle("End");
+                    		alert.setHeaderText("End of Game");
+                    		alert.setContentText("Thank you for Playing!");
+                    		alert.show();
+                		}
+                		
                 	}
                 	
                 	lastUpdate = now;
@@ -82,13 +88,29 @@ public class Score {
     
     public void setNumber(int n) {
     	int shift = 0;
+    	
+    	if (n == 0) {
+			  background.myStage.add(new Digit(0, 30, 530-30, 25));
+		}
+    	
     	while (n > 0) {
-    		  int d = n / 10;
-    		  int k = n - d * 10;
-    		  n = d;
+    		
+    		int d = n / 10;
+    		int k = n - d * 10;
+    		n = d;
+    		  
+    		if(n < 100) {
+    			background.myStage.add(new Digit(0, 30, 530-60, 25));
+    			  
+    		}
+    		  
     		  background.myStage.add(new Digit(k, 30, 530 - shift, 25));
     		  shift += 30;
-    		}
+    	}
+    }
+    
+    public PopUpHighscore getPopUpHighscore() {
+    	return popupHighscore;
     }
     
     

@@ -1,4 +1,4 @@
-package com.application;
+package com.game.background;
 
 
 
@@ -14,13 +14,13 @@ public class ButtonController {
 		this.button = button;
 	}
 	
-	
-	public void setButton(String butTxt, int xPos, int yPos) {
+
+	public void setButton(String butTxt, int xPos, int yPos, String colour, int size) {
 		
 		button.setText(butTxt);
-		button.setStyle("-fx-background-color: pink, #b6e7c9; "
+		button.setStyle("-fx-background-color: "+ colour +"; "
 				+ "-fx-text-fill: green; "
-				+ "-fx-font-size: 20;");
+				+ "-fx-font-size: "+ size +";");
 		
 		button.setLayoutX(xPos);
 		button.setLayoutY(yPos);

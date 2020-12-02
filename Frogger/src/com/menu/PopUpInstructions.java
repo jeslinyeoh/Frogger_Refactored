@@ -14,7 +14,6 @@ public class PopUpInstructions {
     
 	public static void display() {
 		
-		
 		Image insBackground = new Image("file:Images/Instructions.png");
 		ImageView insV = new ImageView();
 		insV.setImage(insBackground);
@@ -35,14 +34,13 @@ public class PopUpInstructions {
 		
 		Stage popupins = new Stage();
 		
-		popupins.initModality(Modality.APPLICATION_MODAL);
-		popupins.setTitle("Highscore");
+		popupins.setTitle("Instructions");
 		popupins.setX(458);
 		popupins.setY(170);
   
 		popupins.setScene(popupScene);
   
-		popupins.showAndWait();
+		popupins.show();
    
        
 	}

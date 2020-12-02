@@ -30,7 +30,8 @@ public class Menu{
 	Background bgame = new Background();
 	Scene menuScene, gameScene;
 	private Stage stage;
-	PopUpHighscore pophighscore = new PopUpHighscore(bgame);
+	//PopUpHighscore pophighscore = new PopUpHighscore(bgame);
+	
 
 	public void show() {
 		
@@ -45,23 +46,21 @@ public class Menu{
 		stage.show();
 		
 		
-		bgame.runLevel(stage, 2);
+		bgame.runLevel(1);
+		bgame.setStage(stage);
 		
 		gameScene = new Scene(bgame.myStage, 565, 798);
 		
-		VBox layout = new VBox();
-		pophighscore.setRanking(layout);
+		bgame.stopMusic();
 		
-		
+		bmenu.insButton.setOnAction(e -> PopUpInstructions.display());
 
-		//bmenu.insButton.setOnAction(e -> PopUpInstructions.display());
-		
-		bmenu.insButton.setOnAction(e -> PopUpHighscore.display(layout));
 		
 		bmenu.startButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event){
 				stage.setScene(gameScene);
-			} // end of handle()
+				//bgame.startMusic();
+			} 
 			
 		});	
 		

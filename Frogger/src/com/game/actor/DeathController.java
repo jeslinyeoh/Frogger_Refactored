@@ -62,10 +62,10 @@ public class DeathController extends FroggerProperties{
 				setFrogImage(new Image("file:Images/froggerUp.png", imgSize, imgSize, true, true));
 				frogger.setNoMove(false);
 				
-				if (frogger.getPoints() > 50) {
-					frogger.minusPoints();
-					frogger.setChangeScore(true);
-				}
+
+				frogger.minusPoints();
+				frogger.setChangeScore(true);
+				
 				break;
 			}
 			
@@ -101,10 +101,8 @@ public class DeathController extends FroggerProperties{
 				setFrogImage(new Image("file:Images/froggerUp.png", imgSize, imgSize, true, true));
 				frogger.setNoMove(false);
 				
-				if (frogger.getPoints() > 50) {
-					frogger.minusPoints();
-					frogger.setChangeScore(true);
-				}
+				frogger.minusPoints();
+				frogger.setChangeScore(true);
 				
 				break;
 			
@@ -183,13 +181,23 @@ public class DeathController extends FroggerProperties{
 				frogger.minusEnd();
 				frogger.minusPoints();
 			}
+			
+			
 			frogger.addPoints(50);
 			frogger.setChangeScore(true);
 			frogger.setW(800);
 			frogger.getIntersectingObjects(End.class).get(0).setEnd();
+			
 			frogger.addEnd();
+			frogger.addEnd();
+			frogger.addEnd();
+			frogger.addEnd();
+			frogger.addEnd();
+			
 			frogger.setX(300);
 			frogger.setY(679.8 + moveY);
+			
+			
 		}
 		
 		else if (frogger.getY() < 413){

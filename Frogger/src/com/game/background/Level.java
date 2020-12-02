@@ -1,27 +1,27 @@
-package com.game;
+package com.game.background;
 
 import com.application.MyStage;
 import com.game.actor.Frogger;
-import com.game.background.Digit;
-import com.game.background.End;
-import com.game.background.Log;
-import com.game.background.TurtleA;
-import com.game.background.TurtleB;
-import com.game.background.Vehicle;
+import com.game.score.PopUpHighscore;
 
+import javafx.animation.AnimationTimer;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Level {
 	private MyStage myStage;
-	private Stage stage;
 	private Frogger frogger;
+
 	
-	public Level(Stage stage, MyStage myStage, Frogger frogger){
+	public Level(MyStage myStage, Frogger frogger){
 		
-		this.stage = stage;
 		this.myStage = myStage;
 		this.frogger = frogger;
 	}
+	
+
 	
 	public void runLevel1() {
 		

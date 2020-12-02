@@ -18,22 +18,23 @@ public class PopUpHighscore {
 	
 	private String first, second, third;
 	private Highscore highscore = new Highscore();
-	private int n = 3;
+	private int n = 4;
 	private Integer []hs = new Integer[n];
 	private Background background;
+	private Scene popupScene;
+	private Stage popuphs;
 	
 	
 	public PopUpHighscore(Background background) {
 		this.background = background;
 	}
 	
-	public static void display(VBox layout) {
+	public void display(VBox layout) {
 
-		Scene popupScene = new Scene(layout, 380, 395);
+		popupScene = new Scene(layout, 380, 395);
 		
-		Stage popuphs = new Stage();
+		popuphs = new Stage();
 		
-		popuphs.initModality(Modality.APPLICATION_MODAL);
 		popuphs.setTitle("Highscore");
 		popuphs.setX(545);
 		popuphs.setY(150);
@@ -89,6 +90,11 @@ public class PopUpHighscore {
         text.setFill(fill);
         text.setStroke(stroke);
 	}
+	
+	public void closePopUp() {
+		popuphs.close();
+	}
+	
 	
 	
 }
