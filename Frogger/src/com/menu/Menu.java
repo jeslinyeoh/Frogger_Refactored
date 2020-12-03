@@ -30,7 +30,6 @@ public class Menu{
 	Background bgame = new Background();
 	Scene menuScene, gameScene;
 	private Stage stage;
-	//PopUpHighscore pophighscore = new PopUpHighscore(bgame);
 	
 
 	public void show() {
@@ -74,5 +73,7 @@ public class Menu{
 	public Stage getStage() {
 		return stage;
 	}
+
+	
 	
 }

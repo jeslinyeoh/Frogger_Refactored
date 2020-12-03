@@ -9,7 +9,7 @@ public class End extends Actor{
 	@Override
 	public void act(long now) {
 	}
-	
+	 
 	public End(int x, int y) {
 		setX(x);
 		setY(y);

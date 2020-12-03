@@ -36,16 +36,18 @@ public class Background {
 		popupNextLevel.yesButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event){
 				
-				System.out.println("reach here");
+				score.getPopUpHighscore().closePopUp();
 				myStage = new MyStage();
 				lvl += 1;
 				runLevel(lvl);
 				Scene scene = new Scene(myStage, 565, 798);
 				stage.setScene(scene);
 				popupNextLevel.close();
+
 			} 
 			
 		});	
+		
 		
 		popupNextLevel.noButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event){

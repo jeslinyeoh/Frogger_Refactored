@@ -11,8 +11,6 @@ import com.menu.*;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
@@ -26,10 +24,11 @@ public class Main extends Application {
 	MenuController menuCon = new MenuController(menu, menuView);
 	
 	public static void main(String[] args) {
-		launch(args);
+		launch(args); 
 	}
 	
 	public void start(Stage primaryStage) throws Exception {
+		primaryStage.setResizable(false);
 		menuCon.setStage(primaryStage);
 		menuView.view(menuCon);
 	}

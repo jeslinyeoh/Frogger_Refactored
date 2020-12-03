@@ -36,7 +36,7 @@ public class Frogger extends FroggerProperties{
 
 	
 	public Frogger() {
-		setImage(new Image("file:Images/froggerUp.png", imgSize, imgSize, true, true));
+		setImage(imgW1);
 		setX(270);
 		setY(679.8+ moveY);
 		
@@ -96,14 +96,9 @@ public class Frogger extends FroggerProperties{
 		
 		deathCon.handleDeath(now);
 		deathCon.checkDeath();
-
 		
-		
-		
-		
-		
-		//put function here
 	}
+	
 	
 	public void setChangeScore(boolean bool) {
 		changeScore = bool;
@@ -143,20 +138,10 @@ public class Frogger extends FroggerProperties{
 	}
 	
 	public boolean getStop() {
-		
-		if (stop) {
-			return true;
-		}
-		
-		else {
-			return end == 5;
-		}
-		
+
+		return end == 5;
 	}
 	
-	public void setStop() {
-		stop = true;
-	}
 	
 	public boolean getNoMove() {
 		return noMove;

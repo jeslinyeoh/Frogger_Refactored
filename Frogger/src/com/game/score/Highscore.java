@@ -3,7 +3,7 @@ package com.game.score;
 import java.io.*;
 import java.util.Scanner;
 
-public class Highscore {
+public class Highscore{
 	
 	private int n = 3;
 	private int hs[] = new int[n];
@@ -81,6 +81,8 @@ public class Highscore {
 		int i;
 		
 		readFromFile(lvl);
+		//sortHighscore(hs);
+		
 		
 		//check if new score exist in the existing highscore list
 		for(i = 0; i < hs.length; i++) {
@@ -109,7 +111,6 @@ public class Highscore {
 		
 		sortHighscore(hs);
 		writeToFile(lvl);
-		tryPrint();
 		
 		
 	} //end of addScore()
@@ -143,26 +144,20 @@ public class Highscore {
 	public void convertInt(int arr[]) {
 		highScore = new Integer[arr.length];
 		
+
 		//convert int to Integer
 		for(int i = 0; i < arr.length; i++) {
-			
 			highScore[i] = Integer.valueOf(arr[i]);
 		}
 		
 	}
 		
-	public void tryPrint() {
-		
-		for(int i = 0; i < highScore.length; i++) {
-			
-			if(highScore[i] == 0) {
-				break;
-			}
-			
-		}
-	}
 	
 	public Integer[] getHighScores() {
 		return highScore;
+	}
+	
+	public int[] gethighscores() {
+		return hs;
 	}
 }

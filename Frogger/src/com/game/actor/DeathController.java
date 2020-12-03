@@ -21,7 +21,6 @@ public class DeathController extends FroggerProperties{
 	private boolean intersectTurtleB = false;
 	private boolean intersectEnd = false;
 	
-	private ArrayList<End> inter = new ArrayList<End>();
 	private int deathAnim = 0;
 
 	
@@ -175,7 +174,6 @@ public class DeathController extends FroggerProperties{
 		}
 		
 		else if (intersectEnd) {
-			inter = (ArrayList<End>) frogger.getIntersectingObjects(End.class);
 			
 			if (frogger.getIntersectingObjects(End.class).get(0).isActivated()) {
 				frogger.minusEnd();

@@ -16,7 +16,6 @@ public static void main (String args[]) {
 		h.writeToFile(n);
 		
 		h.readFromFile(n);
-		h.tryPrint();
 		
 	}
 	
