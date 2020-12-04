@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.application.Actor;
 import com.game.background.End;
 import com.game.score.PopUpHighscore;
-import com.game.*;
 
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;

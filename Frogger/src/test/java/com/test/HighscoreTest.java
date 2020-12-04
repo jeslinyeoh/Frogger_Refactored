@@ -3,11 +3,10 @@ package com.test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 import com.game.score.Highscore;
 
-public class HighscoreTest{
+class HighscoreTest {
 
 	Highscore highscore;
 
@@ -76,3 +75,5 @@ public class HighscoreTest{
 	
 
 }
+
+

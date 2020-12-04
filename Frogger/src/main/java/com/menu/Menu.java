@@ -1,27 +1,14 @@
 package com.menu;
 
 
-import com.game.*;
-import com.game.actor.Frogger;
-import com.game.background.Background;
-import com.game.background.Music;
-import com.game.score.PopUpHighscore;
-import com.game.score.Score;
 
-import javafx.animation.Animation;
-import javafx.animation.AnimationTimer;
-import javafx.application.Application;
+import com.game.background.Background;
+
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 
 
 public class Menu{
@@ -58,7 +45,7 @@ public class Menu{
 		bmenu.startButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event){
 				stage.setScene(gameScene);
-				//bgame.startMusic();
+				bgame.startMusic();
 			} 
 			
 		});	

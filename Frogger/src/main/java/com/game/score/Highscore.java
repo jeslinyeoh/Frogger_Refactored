@@ -39,11 +39,7 @@ public class Highscore{
 		catch (FileNotFoundException fnfe) {
 			System.out.println("The specified file not found " + fnfe);
 		}
-				
-		catch (IOException ioe) {
-			System.out.println("IO Exception: " + ioe);
-		}
-				
+								
 		
 	}
 	
