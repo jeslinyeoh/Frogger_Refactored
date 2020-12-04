@@ -1,8 +1,6 @@
 package com.game.actor;
 
-import java.util.ArrayList;
 
-import com.application.Actor;
 import com.game.background.End;
 import com.game.background.Log;
 import com.game.background.TurtleA;
@@ -15,17 +13,18 @@ public class DeathController extends FroggerProperties{
 	
 	private Frogger frogger;
 	
-	private boolean intersectVehicle = false;
-	private boolean intersectLog = false;
-	private boolean intersectTurtleA = false;
-	private boolean intersectTurtleB = false;
-	private boolean intersectEnd = false;
+	private boolean intersectVehicle;
+	private boolean intersectLog;
+	private boolean intersectTurtleA;
+	private boolean intersectTurtleB;
+	private boolean intersectEnd;
 	
 	private int deathAnim = 0;
 
 	
 	public DeathController(Frogger frogger) {
 		this.frogger = frogger;
+		
 		
 	}
 	
@@ -112,11 +111,11 @@ public class DeathController extends FroggerProperties{
 	} // end of act()
 	
 	public void checkDeath() {
-		boolean intersectVehicle = (frogger.getIntersectingObjects(Vehicle.class).size() >= 1)? true: false;
-		boolean intersectLog = (frogger.getIntersectingObjects(Log.class).size() >= 1)? true: false;
-		boolean intersectTurtleA = (frogger.getIntersectingObjects(TurtleA.class).size() >= 1)? true: false;
-		boolean intersectTurtleB = (frogger.getIntersectingObjects(TurtleB.class).size() >= 1)? true: false;
-		boolean intersectEnd = (frogger.getIntersectingObjects(End.class).size() >= 1)? true: false;
+		intersectVehicle = (frogger.getIntersectingObjects(Vehicle.class).size() >= 1)? true: false;
+		intersectLog = (frogger.getIntersectingObjects(Log.class).size() >= 1)? true: false;
+		intersectTurtleA = (frogger.getIntersectingObjects(TurtleA.class).size() >= 1)? true: false;
+		intersectTurtleB = (frogger.getIntersectingObjects(TurtleB.class).size() >= 1)? true: false;
+		intersectEnd = (frogger.getIntersectingObjects(End.class).size() >= 1)? true: false;
 		
 		if (intersectVehicle) {
 			frogger.setCarDeath(true);
@@ -128,7 +127,7 @@ public class DeathController extends FroggerProperties{
 			if(frogger.getIntersectingObjects(Log.class).get(0).getLeft())
 				frogger.move(-2,0);
 			else
-				frogger.move (.75,0);
+				frogger.move (1,0);
 		}
 		
 		
@@ -146,7 +145,7 @@ public class DeathController extends FroggerProperties{
 
 				
 				else {
-					frogger.move(0.75,0);				
+					frogger.move(2,0);				
 				}
 
 			}
@@ -207,4 +206,7 @@ public class DeathController extends FroggerProperties{
 	public void setFrogImage(Image image) {
 		frogger.setImage(image);
 	}
+	
+	
+
 }

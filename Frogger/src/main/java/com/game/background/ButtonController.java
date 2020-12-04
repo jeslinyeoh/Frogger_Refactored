@@ -3,7 +3,6 @@ package com.game.background;
 
 
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 
 public class ButtonController {
 	

@@ -32,7 +32,7 @@ public class Menu{
 		stage.show();
 		
 		
-		bgame.runLevel(1);
+		bgame.runLevel(10);
 		bgame.setStage(stage);
 		
 		gameScene = new Scene(bgame.myStage, 565, 798);

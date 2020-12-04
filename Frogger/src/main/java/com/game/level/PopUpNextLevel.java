@@ -1,5 +1,7 @@
-package com.game.background;
+package com.game.level;
 
+
+import com.game.background.ButtonController;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,7 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
-import javafx.scene.paint.Color;
 
 public class PopUpNextLevel {
 

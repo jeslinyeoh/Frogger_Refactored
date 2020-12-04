@@ -3,6 +3,8 @@ package com.game.background;
 
 import com.application.MyStage;
 import com.game.actor.Frogger;
+import com.game.level.Level;
+import com.game.level.PopUpNextLevel;
 import com.game.score.Score;
 
 import javafx.application.Platform;
@@ -59,16 +61,12 @@ public class Background {
 			
 		});	
 		
-		
 	}
 	
 	
-	public void setStage(Stage stage) {
-		this.stage = stage;
-	}
+	
 	
 	public void runGameBackground() {	    
-	    
 		
 		BackgroundImage froggerback = new BackgroundImage("file:Images/froggerBackground.png");
 		frogger = new Frogger();
@@ -112,8 +110,7 @@ public class Background {
 		insButtonCon.setButton("Instructions", 220, 300, "pink, #b6e7c9", 20);
 		
 		myStage.getChildren().addAll(menubackV, startButton, insButton, froggerV);
-		
-		
+	
 	}
 	
 	
@@ -123,7 +120,7 @@ public class Background {
 		
 		runGameBackground();
 		
-		level = new Level(myStage, frogger);
+		level = new Level(myStage);
 		
 		switch(lvl) {
 		
@@ -141,6 +138,21 @@ public class Background {
 				
 			case 5: level.runLevel5();
 				break;
+				
+			case 6: level.runLevel6();
+				break;
+				
+			case 7: level.runLevel7();
+				break;
+				
+			case 8: level.runLevel8();
+				break;
+				
+			case 9: level.runLevel9();
+				break;
+				
+			case 10: level.runLevel10();
+				break;
 		}
 		
 		
@@ -148,12 +160,18 @@ public class Background {
 		myStage.add(frogger);
 		myStage.start();
 		startMusic();
-
 	}
+	
+	
+	public void setStage(Stage stage) {
+		this.stage = stage;
+	}
+	
 	
 	public void startMusic() {
 		music.startMusic();
 	}
+	
 	
 	public void stopMusic(){
 		music.stopMusic();

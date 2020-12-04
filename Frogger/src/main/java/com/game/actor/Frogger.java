@@ -1,18 +1,10 @@
 package com.game.actor;
 
-import java.util.ArrayList;
 
-import com.application.Actor;
-import com.game.background.End;
-import com.game.score.PopUpHighscore;
-
-import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 
-import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
+
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.VBox;
 
 
 public class Frogger extends FroggerProperties{
@@ -69,7 +61,7 @@ public class Frogger extends FroggerProperties{
 	@Override
 	public void act(long now) {
 		
-		if(now - lastUpdate >= 50_000_000) {
+		if(now - lastUpdate >= 35_000_000) {
 			checkKeyEntered();
 			
 			if (getY() < 0 || getY() > 734) {
@@ -126,6 +118,10 @@ public class Frogger extends FroggerProperties{
 	
 	public int getPoints() {
 		return points;
+	}
+	
+	public void setPoints(int points) {
+		this.points = points;
 	}
 	
 	public void setW(double w) {

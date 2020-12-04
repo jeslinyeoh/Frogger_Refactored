@@ -53,13 +53,15 @@ public class Score {
                 	
                 		popupHighscore.display(layout);
                 		
-                		if(background.getLevel() != 5) {
+                		if(background.getLevel() < 10) {
                 			background.popNextLevel();            			
                 		}
                 		
                 		else {
                 			Alert alert = new Alert(AlertType.INFORMATION);
                     		alert.setTitle("End");
+                    		alert.setX(555);
+                    		alert.setY(460);
                     		alert.setHeaderText("End of Game");
                     		alert.setContentText("Thank you for Playing!");
                     		alert.show();
@@ -86,6 +88,7 @@ public class Score {
         animTimer.stop();
     }
     
+    
     public void setNumber(int n) {
     	int shift = 0;
     	
@@ -108,6 +111,7 @@ public class Score {
     		  shift += 30;
     	}
     }
+    
     
     public PopUpHighscore getPopUpHighscore() {
     	return popupHighscore;

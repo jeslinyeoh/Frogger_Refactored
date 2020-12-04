@@ -80,9 +80,8 @@ public class PopUpHighscore {
         
         layout.getChildren().addAll(stack);
 		layout.setAlignment(Pos.CENTER);	
-        
-        
 	}
+	
 	
 	public void setProperties(Text text, String str, int fsize, Color fill, Color stroke) {
 		text.setText(str);
@@ -90,6 +89,7 @@ public class PopUpHighscore {
         text.setFill(fill);
         text.setStroke(stroke);
 	}
+	
 	
 	public void closePopUp() {
 		popuphs.close();
