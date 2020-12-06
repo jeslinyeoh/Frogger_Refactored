@@ -1,4 +1,4 @@
-package com.game.actor;
+package com.game.player;
 
 import com.application.Actor;
 
@@ -7,8 +7,8 @@ import javafx.scene.image.Image;
 public class FroggerProperties extends Actor{
 	
 	final int imgSize = 40;
-	final double moveY = 13.3333333*2;
-	final double moveX = 10.666666*2;
+	final double moveY = 26.66;
+	final double moveX = 21.32;
 	
 	Image imgW1 = new Image("file:Images/froggerUp.png", imgSize, imgSize, true, true);
 	Image imgA1 = new Image("file:Images/froggerLeft.png", imgSize, imgSize, true, true);

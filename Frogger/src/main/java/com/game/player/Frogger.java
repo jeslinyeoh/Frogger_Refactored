@@ -1,9 +1,7 @@
-package com.game.actor;
+package com.game.player;
 
 
 import javafx.event.EventHandler;
-
-
 import javafx.scene.input.KeyEvent;
 
 

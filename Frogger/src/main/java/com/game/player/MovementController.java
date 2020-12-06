@@ -1,14 +1,8 @@
-package com.game.actor;
+package com.game.player;
 
-import java.util.ArrayList;
-
-import com.application.Actor;
-import com.game.background.End;
-
-import javafx.animation.AnimationTimer;
-import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
+
 
 public class MovementController extends FroggerProperties{
 

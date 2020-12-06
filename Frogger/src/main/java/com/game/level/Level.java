@@ -1,25 +1,17 @@
 package com.game.level;
 
 import com.application.MyStage;
-import com.game.actor.Frogger;
 import com.game.background.Log;
 import com.game.background.TurtleA;
 import com.game.background.TurtleB;
 import com.game.background.Vehicle;
-import com.game.score.PopUpHighscore;
 
-import javafx.animation.AnimationTimer;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class Level {
 	private MyStage myStage;
 
 	
 	public Level(MyStage myStage){
-		
 		this.myStage = myStage;
 	}
 	
@@ -217,7 +209,7 @@ public class Level {
 		
 		myStage.add(new TurtleA(100, 165, -1, 130, 130));
 		myStage.add(new TurtleB(300, 165, -1, 130, 130));
-		myStage.add(new TurtleA(700, 165, -1, 130, 130));
+		myStage.add(new TurtleA(550, 165, -1, 130, 130));
 		
 		myStage.add(new TurtleA(200, 220, 2, 130, 130));
 		myStage.add(new TurtleA(400, 220, 2, 130, 130));
@@ -232,15 +224,15 @@ public class Level {
 		myStage.add(new TurtleA(500, 372, 2, 130, 130));
 		
 		
-		myStage.add(new Vehicle("file:Images/truck2Right.png", 0, 500, 3, 350, 350));
+		myStage.add(new Vehicle("file:Images/truck2Right.png", 0, 500, 3.5, 350, 350));
 		
-		myStage.add(new Vehicle("file:Images/car1Left.png", 100, 590, -2.5, 50, 50));
-		myStage.add(new Vehicle("file:Images/car1Left.png", 300, 590, -2.5, 50, 50));
-		myStage.add(new Vehicle("file:Images/car1Left.png", 500, 590, -2.5, 50, 50));
+		myStage.add(new Vehicle("file:Images/car1Left.png", 100, 590, -3, 50, 50));
+		myStage.add(new Vehicle("file:Images/car1Left.png", 300, 590, -3, 50, 50));
+		myStage.add(new Vehicle("file:Images/car1Left.png", 500, 590, -3, 50, 50));
 		
-		myStage.add(new Vehicle("file:Images/truck1Right.png", 0, 649, 1.5, 120, 120));
-		myStage.add(new Vehicle("file:Images/truck1Right.png", 250, 649, 1.5, 120, 120));
-		myStage.add(new Vehicle("file:Images/truck1Right.png", 650, 649, 1.5, 120, 120));
+		myStage.add(new Vehicle("file:Images/truck1Right.png", 0, 649, 2.5, 120, 120));
+		myStage.add(new Vehicle("file:Images/truck1Right.png", 250, 649, 2.5, 120, 120));
+		myStage.add(new Vehicle("file:Images/truck1Right.png", 650, 649, 2.5, 120, 120));
 	}
 	
 	
@@ -314,12 +306,12 @@ public class Level {
 		myStage.add(new Log("file:Images/log3.png", 50, 340, -2, 300));
 		
 		
-		myStage.add(new Vehicle("file:Images/car1Right.png", 100, 485, 2.5, 50, 50));
-		myStage.add(new Vehicle("file:Images/car1Right.png", 250, 485, 2.5, 50, 50));
-		myStage.add(new Vehicle("file:Images/car1Right.png", 500, 485, 2.5, 50, 50));
+		myStage.add(new Vehicle("file:Images/car1Right.png", 100, 485, 3, 50, 50));
+		myStage.add(new Vehicle("file:Images/car1Right.png", 250, 485, 3, 50, 50));
+		myStage.add(new Vehicle("file:Images/car1Right.png", 500, 485, 3, 50, 50));
 		
-		myStage.add(new Vehicle("file:Images/truck1Left.png", 120, 530, -3.5, 100, 150));
-		myStage.add(new Vehicle("file:Images/truck2Left.png", 400, 550, -3.5, 300, 350));
+		myStage.add(new Vehicle("file:Images/truck1Left.png", 120, 530, -4, 100, 150));
+		myStage.add(new Vehicle("file:Images/truck2Left.png", 400, 550, -4, 300, 350));
 	
 		myStage.add(new Vehicle("file:Images/car1Right.png", 500, 620, 5, 100, 100));
 		
@@ -347,8 +339,8 @@ public class Level {
 		myStage.add(new Vehicle("file:Images/car1Right.png", 300, 600, 2.5, 50, 50));
 		myStage.add(new Vehicle("file:Images/car1Right.png", 500, 600, 2.5, 50, 50));
 	
-		myStage.add(new Vehicle("file:Images/truck1Left.png", 0, 650, -3, 120, 120));
-		myStage.add(new Vehicle("file:Images/truck2Left.png", 300, 650, -3, 200, 200));
+		myStage.add(new Vehicle("file:Images/truck1Left.png", 0, 650, -5, 120, 120));
+		myStage.add(new Vehicle("file:Images/truck2Left.png", 300, 650, -5, 200, 200));
 		
 	}
 }

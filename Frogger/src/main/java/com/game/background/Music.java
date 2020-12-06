@@ -3,7 +3,7 @@ package com.game.background;
 import java.io.File;
 
 import com.application.Actor;
-import com.game.actor.Frogger;
+import com.game.player.Frogger;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.media.Media;

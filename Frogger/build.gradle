@@ -9,7 +9,7 @@ repositories {
     mavenCentral()
 }
 
-//sourceCompatibility = 13
+
 
 javafx{
 	version = "15.0.1"

@@ -5,10 +5,11 @@ import com.application.Actor;
 import javafx.scene.image.Image;
 
 public class End extends Actor{
-	boolean activated = false;
+	private boolean activated = false;
+	
+	
 	@Override
-	public void act(long now) {
-	}
+	public void act(long now) {}
 	 
 	public End(int x, int y) {
 		setX(x);

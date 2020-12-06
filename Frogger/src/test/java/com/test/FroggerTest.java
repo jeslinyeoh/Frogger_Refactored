@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import com.game.actor.DeathController;
-import com.game.actor.Frogger;
+import com.game.player.DeathController;
+import com.game.player.Frogger;
 
 import javafx.animation.AnimationTimer;
 import javafx.embed.swing.JFXPanel;

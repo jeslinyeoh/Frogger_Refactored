@@ -1,9 +1,7 @@
 package com.menu;
 
 
-
 import com.game.background.Background;
-
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -32,7 +30,7 @@ public class Menu{
 		stage.show();
 		
 		
-		bgame.runLevel(10);
+		bgame.runLevel(6);
 		bgame.setStage(stage);
 		
 		gameScene = new Scene(bgame.myStage, 565, 798);
@@ -49,18 +47,12 @@ public class Menu{
 			} 
 			
 		});	
-		
 	
 	}
+	
 	
 	public void setStage(Stage stage) {
 		this.stage = stage;
 	}
-	
-	public Stage getStage() {
-		return stage;
-	}
-
-	
 	
 }

@@ -34,6 +34,7 @@ public class PopUpInstructions {
 		
 		Stage popupins = new Stage();
 		
+		popupins.setResizable(false);
 		popupins.setTitle("Instructions");
 		popupins.setX(458);
 		popupins.setY(170);

@@ -2,21 +2,24 @@ package com.game.background;
 
 
 import com.application.MyStage;
-import com.game.actor.Frogger;
+import com.application.World;
 import com.game.level.Level;
 import com.game.level.PopUpNextLevel;
+import com.game.player.Frogger;
 import com.game.score.Score;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class Background {
+public class Background extends World{
 	public MyStage myStage = new MyStage();
 	public Button startButton, insButton;
 
@@ -28,10 +31,32 @@ public class Background {
 	private Level level;
 	private int lvl = 0;
 	
+	@Override
+	public void act(long now) {	
+	}
 	
 	
+	/** display pop up window to access next level if player no-t on last level 
+	 *  display "End of Game"
+	 *  @see com.game.score.Score*/
+	public void checkNextLevel() {
+		if(lvl < 10) {
+			displayPopUpNextLevel();            			
+		}
+		
+		else {
+			Alert alert = new Alert(AlertType.INFORMATION);
+    		alert.setTitle("End");
+    		alert.setX(555);
+    		alert.setY(460);
+    		alert.setHeaderText("End of Game");
+    		alert.setContentText("Thank you for Playing!");
+    		alert.show();
+		}
+	}
+
 	
-	public void popNextLevel() {
+	public void displayPopUpNextLevel() {
 		
 		popupNextLevel.display();
 		
@@ -62,8 +87,6 @@ public class Background {
 		});	
 		
 	}
-	
-	
 	
 	
 	public void runGameBackground() {	    

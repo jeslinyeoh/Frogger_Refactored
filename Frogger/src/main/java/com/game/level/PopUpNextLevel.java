@@ -60,7 +60,6 @@ public class PopUpNextLevel {
   
 		popupNL.setScene(popupScene);
 		popupNL.show();
-   
        
 	}
 	

@@ -1,8 +1,8 @@
 package com.game.score;
 
-import com.game.actor.Frogger;
 import com.game.background.Background;
 import com.game.background.Digit;
+import com.game.player.Frogger;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Alert;
@@ -53,19 +53,7 @@ public class Score {
                 	
                 		popupHighscore.display(layout);
                 		
-                		if(background.getLevel() < 10) {
-                			background.popNextLevel();            			
-                		}
-                		
-                		else {
-                			Alert alert = new Alert(AlertType.INFORMATION);
-                    		alert.setTitle("End");
-                    		alert.setX(555);
-                    		alert.setY(460);
-                    		alert.setHeaderText("End of Game");
-                    		alert.setContentText("Thank you for Playing!");
-                    		alert.show();
-                		}
+                		background.checkNextLevel();
                 		
                 	}
                 	

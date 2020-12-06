@@ -1,7 +1,6 @@
 package com.game.score;
 
 import com.game.background.Background;
-import com.game.background.BackgroundImage;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,7 +10,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class PopUpHighscore {
@@ -35,6 +33,7 @@ public class PopUpHighscore {
 		
 		popuphs = new Stage();
 		
+		popuphs.setResizable(false);
 		popuphs.setTitle("Highscore");
 		popuphs.setX(545);
 		popuphs.setY(150);
@@ -43,6 +42,7 @@ public class PopUpHighscore {
 		popuphs.show();
    
 	}
+	
 	
 	public void setRanking(VBox layout) {
 		

@@ -1,4 +1,4 @@
-package com.game.actor;
+package com.game.player;
 
 
 import com.game.background.End;
@@ -191,7 +191,7 @@ public class DeathController extends FroggerProperties{
 			frogger.addEnd();
 			frogger.addEnd();
 			
-			frogger.setX(300);
+			frogger.setX(270);
 			frogger.setY(679.8 + moveY);
 			
 			
