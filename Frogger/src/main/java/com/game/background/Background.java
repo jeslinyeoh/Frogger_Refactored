@@ -1,10 +1,13 @@
 package com.game.background;
 
 
+import java.io.IOException;
+
 import com.application.MyStage;
 import com.application.World;
 import com.game.level.Level;
 import com.game.level.PopUpNextLevel;
+import com.game.level.ProceedNextLevelView;
 import com.game.player.Frogger;
 import com.game.score.Score;
 
@@ -13,17 +16,15 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class Background extends World{
 	public MyStage myStage = new MyStage();
-	public Button startButton, insButton;
 
 	private PopUpNextLevel popupNextLevel = new PopUpNextLevel();
+	private ProceedNextLevelView proceedNLv = new ProceedNextLevelView();
+	
 	private Stage stage;
 	private Score score;
 	private Music music;
@@ -38,10 +39,11 @@ public class Background extends World{
 	
 	/** display pop up window to access next level if player no-t on last level 
 	 *  display "End of Game"
+	 * @throws IOException 
 	 *  @see com.game.score.Score*/
-	public void checkNextLevel() {
+	public void checkNextLevel() throws IOException {
 		if(lvl < 10) {
-			displayPopUpNextLevel();            			
+			proceedNLv.displayPopUp();            			
 		}
 		
 		else {
@@ -103,37 +105,6 @@ public class Background extends World{
 		myStage.add(new End(130 + 2*(130-10)+1,94));
 		myStage.add(new End(130 + 3*(130-10)+3,94));
 		
-	}
-	
-	
-	public void runMenuBackground() {
-		
-		Image menuback = new Image("file:Images/menuBackground.gif");
-		ImageView menubackV = new ImageView();
-		
-		menubackV.setImage(menuback);
-		preserveImage(menubackV);
-		
-		
-		Image froggerTxt = new Image("file:Images/froggerTxt.png");
-		ImageView froggerV = new ImageView();
-		
-		froggerV.setImage(froggerTxt);
-		froggerV.setFitWidth(500);
-		froggerV.setFitHeight(450);
-		preserveImage(froggerV);
-		froggerV.setX(30);
-		froggerV.setY(80);
-		startButton = new Button();
-		insButton = new Button();
-		ButtonController startButtonCon = new ButtonController(startButton);
-		ButtonController insButtonCon = new ButtonController(insButton);
-		
-		startButtonCon.setButton("Start", 250, 250, "pink, #b6e7c9", 20);
-		insButtonCon.setButton("Instructions", 220, 300, "pink, #b6e7c9", 20);
-		
-		myStage.getChildren().addAll(menubackV, startButton, insButton, froggerV);
-	
 	}
 	
 	
@@ -200,14 +171,6 @@ public class Background extends World{
 		music.stopMusic();
 	}
 	
-	
-	
-	public void preserveImage(ImageView imgV) {
-		imgV.setPreserveRatio(true);
-		imgV.setSmooth(true);
-		imgV.setCache(true);
-	}
-
  	
  	public int getLevel() {
  		return lvl;

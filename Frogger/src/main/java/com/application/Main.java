@@ -1,7 +1,7 @@
 package com.application;
 
 
-import com.menu.*;
+import com.menu.MenuView;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -9,17 +9,23 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	
-	private MenuView menuView = new MenuView();
-	private Menu menu = new Menu();
-	private MenuController menuCon = new MenuController(menu, menuView);
+
 	
 	public static void main(String[] args) {
 		launch(args); 
 	}
 	
 	public void start(Stage primaryStage) throws Exception {
+		
+		MenuView menuV = new MenuView();
+		
+		primaryStage.setTitle("Frogger Arcade Game");
 		primaryStage.setResizable(false);
-		menuCon.setStage(primaryStage);
-		menuView.view(menuCon);
+		primaryStage.setX(455);
+		primaryStage.setY(50);
+		
+		menuV.displayMenu(primaryStage);
+		
+		
 	}
 }

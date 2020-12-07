@@ -57,7 +57,8 @@ public class PopUpNextLevel {
 		popupNL.setTitle("Continue");
 		popupNL.setX(485);
 		popupNL.setY(500);
-  
+		
+		popupNL.setResizable(false);
 		popupNL.setScene(popupScene);
 		popupNL.show();
        

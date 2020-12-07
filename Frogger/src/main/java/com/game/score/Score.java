@@ -1,12 +1,12 @@
 package com.game.score;
 
+import java.io.IOException;
+
 import com.game.background.Background;
 import com.game.background.Digit;
 import com.game.player.Frogger;
 
 import javafx.animation.AnimationTimer;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.VBox;
 
 public class Score {
@@ -17,6 +17,7 @@ public class Score {
 	private Highscore highscore = new Highscore();
 	private PopUpHighscore popupHighscore;
 	private long lastUpdate = 0;
+
 	
 	public Score(Frogger frogger, Background background) {
 		this.frogger = frogger;
@@ -53,7 +54,13 @@ public class Score {
                 	
                 		popupHighscore.display(layout);
                 		
-                		background.checkNextLevel();
+                		try {
+                			background.checkNextLevel();
+                		}
+                		
+                		catch(IOException e){
+                			System.out.println("IO Exception in Score class.");
+                		}
                 		
                 	}
                 	
@@ -66,7 +73,7 @@ public class Score {
     }
 	
 	
-	public void start() {
+ 	public void start() {
     	createTimer();
         animTimer.start();
     }

@@ -19,9 +19,9 @@ public class Level {
 	
 	public void runLevel1() {
 		
-		myStage.add(new Log("file:Images/log3.png", 0, 170, 0.75, 150));
-		myStage.add(new Log("file:Images/log3.png", 220, 170, 0.75, 150));
-		myStage.add(new Log("file:Images/log3.png", 440, 170, 0.75, 150));
+		myStage.add(new Log("file:Images/log3.png", 0, 170, 1, 150));
+		myStage.add(new Log("file:Images/log3.png", 220, 170, 1, 150));
+		myStage.add(new Log("file:Images/log3.png", 440, 170, 1, 150));
 		
 		myStage.add(new TurtleB(600, 217, -1, 130, 130));
 		myStage.add(new TurtleA(400, 217, -1, 130, 130));
@@ -34,9 +34,9 @@ public class Level {
 		myStage.add(new Log("file:Images/log3.png", 270, 329, 1, 150));
 		myStage.add(new Log("file:Images/log3.png", 490, 329, 1, 150));
 		
-		myStage.add(new TurtleA(100, 376, 2, 130, 130));
-		myStage.add(new TurtleA(300, 376, 2, 130, 130));
-		myStage.add(new TurtleA(550, 376, 2, 130, 130));
+		myStage.add(new TurtleA(100, 376, -1, 130, 130));
+		myStage.add(new TurtleA(300, 376, -1, 130, 130));
+		myStage.add(new TurtleB(550, 376, -1, 130, 130));
 		
 		
 		myStage.add(new Vehicle("file:Images/car1Left.png", 500, 490, -5, 50, 50));

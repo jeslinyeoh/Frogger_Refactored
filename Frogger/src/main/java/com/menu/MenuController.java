@@ -1,29 +1,55 @@
 package com.menu;
 
+import java.io.IOException;
+
+import com.game.background.Background;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class MenuController {
-	
-	private Menu m;
-	private MenuView mv;
+	Background bgame = new Background();
 	
 	
-	public MenuController(Menu menu, MenuView menuView){
-		m = menu;
-		mv = menuView;
+	@FXML
+	private void displayInstructions() throws IOException {
+		
+		Parent insParent = FXMLLoader.load(getClass().getResource("PopUpInstructions.fxml"));
+		 
+		Scene insScene = new Scene(insParent);
+		 
+		Stage popupins = new Stage();
+			
+		popupins.setResizable(false);
+		popupins.setTitle("Instructions");
+		popupins.setX(430);
+		popupins.setY(410);
+	  
+		popupins.setScene(insScene);
+	  
+		popupins.show();
 	}
 	
-	public void setStage(Stage stage) {
-
-		m.setStage(stage);
+	
+	@FXML
+	private void startGame(ActionEvent event) {
+		
+		bgame.runLevel(1);
+		
+		Scene gameScene = new Scene(bgame.myStage, 565, 798);
+		
+		Stage currStage =(Stage)((Node)event.getSource()).getScene().getWindow();
+		
+		currStage.setScene(gameScene);
+		currStage.show();
+		
+		bgame.setStage(currStage);
 	}
 	
-	public MenuView getMenuView() {
-		return mv;
-	}
 	
-	
-	public Menu getMenu() {
-		return m;
-	}
 }
