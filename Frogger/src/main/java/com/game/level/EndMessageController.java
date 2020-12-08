@@ -12,32 +12,27 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class ProceedNextLevelController {
+public class EndMessageController {
 	
-	private Background background = new Background();
-	private int lvl = 1;
 	private Stage mainStage = Main.getPrimaryStage();
 	private Stage highscoreStage = PopUpHighscore.gethsStage();
 	
-	
-	public ProceedNextLevelController() {}
-	
+	private Background background = new Background();
 	
 	@FXML
-	private void displayNextLevel(ActionEvent event) {
+	private void replayGame(ActionEvent event) {
+		
 		Stage currStage =(Stage)((Node)event.getSource()).getScene().getWindow();
-	
+		
+		currStage.close();
+		highscoreStage.close();
+		
 		background.setMyStage(new MyStage());
-		lvl += 1;
-		background.runLevel(lvl);
+		background.runLevel(1);
 		
 		Scene gameScene = new Scene(background.getMyStage(), 565, 798);
 		mainStage.setScene(gameScene);
 		mainStage.show();
-		
-		background.setLevel(1);
-		currStage.close();
-		highscoreStage.close();
 	}
 	
 	
@@ -50,6 +45,4 @@ public class ProceedNextLevelController {
 		mainStage.close();
 		Platform.exit();
 	}
-	
-	
 }

@@ -17,7 +17,7 @@
             <Image url="file:Images/froggerTxt.png" />
          </image>
       </ImageView>
-      <Button layoutX="216.0" layoutY="222.0" mnemonicParsing="false" onAction="#startGame" style="-fx-background-color: pink, #b6e7c9; -fx-text-fill: green; -fx-font-size: 20;" text="Start" />
-      <Button layoutX="187.0" layoutY="277.0" mnemonicParsing="false" onAction="#displayInstructions" style="-fx-background-color: pink, #b6e7c9; -fx-text-fill: green; -fx-font-size: 20;" text="Instructions" />
+      <Button layoutX="216.0" layoutY="222.0" mnemonicParsing="false" onAction="#startGame" style="-fx-font-size: 20;" stylesheets="file:CSS/button.css" text="Start" />
+      <Button layoutX="187.0" layoutY="277.0" mnemonicParsing="false" onAction="#displayInstructions" style="-fx-font-size: 20;" stylesheets="file:CSS/button.css" text="Instructions" />
    </children>
 </Pane>

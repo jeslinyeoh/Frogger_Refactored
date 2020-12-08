@@ -5,8 +5,10 @@ import java.io.IOException;
 
 import com.application.MyStage;
 import com.application.World;
+import com.game.level.EndMessageView;
 import com.game.level.Level;
 import com.game.level.PopUpNextLevel;
+import com.game.level.ProceedNextLevelController;
 import com.game.level.ProceedNextLevelView;
 import com.game.player.Frogger;
 import com.game.score.Score;
@@ -24,6 +26,7 @@ public class Background extends World{
 
 	private PopUpNextLevel popupNextLevel = new PopUpNextLevel();
 	private ProceedNextLevelView proceedNLv = new ProceedNextLevelView();
+	private EndMessageView endMsgV = new EndMessageView();
 	
 	private Stage stage;
 	private Score score;
@@ -37,58 +40,45 @@ public class Background extends World{
 	}
 	
 	
-	/** display pop up window to access next level if player no-t on last level 
+	/** display pop up window to access next level if player no on last level 
 	 *  display "End of Game"
-	 * @throws IOException 
-	 *  @see com.game.score.Score*/
-	public void checkNextLevel() throws IOException {
-		if(lvl < 10) {
-			proceedNLv.displayPopUp();            			
+	 * @throws Exception 
+	 * @see com.game.score.Score*/
+	public void checkNextLevel() throws Exception {
+		
+		if(lvl < 10) {	
+			Stage popupNL = new Stage();
+			
+			popupNL.setResizable(false);
+			popupNL.setTitle("Instructions");
+			popupNL.setX(510);
+			popupNL.setY(465);
+			proceedNLv.displayPopUp(popupNL);
+			
 		}
 		
 		else {
+			
+			Stage endS = new Stage();
+			
+			endS.setResizable(false);
+			endS.setTitle("End of Game");
+			endS.setX(510);
+			endS.setY(465);
+			
+			endMsgV.displayPopUp(endS);
+			
+			/*
 			Alert alert = new Alert(AlertType.INFORMATION);
     		alert.setTitle("End");
     		alert.setX(555);
     		alert.setY(460);
     		alert.setHeaderText("End of Game");
     		alert.setContentText("Thank you for Playing!");
-    		alert.show();
+    		alert.show();*/
 		}
 	}
 
-	
-	public void displayPopUpNextLevel() {
-		
-		popupNextLevel.display();
-		
-		popupNextLevel.yesButton.setOnAction(new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent event){
-				
-				score.getPopUpHighscore().closePopUp();
-				myStage = new MyStage();
-				lvl += 1;
-				runLevel(lvl);
-				Scene scene = new Scene(myStage, 565, 798);
-				stage.setScene(scene);
-				popupNextLevel.close();
-
-			} 
-			
-		});	
-		
-		
-		popupNextLevel.noButton.setOnAction(new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent event){
-				popupNextLevel.close();
-				score.getPopUpHighscore().closePopUp();
-				stage.close();
-				Platform.exit();
-			} 
-			
-		});	
-		
-	}
 	
 	
 	public void runGameBackground() {	    
@@ -161,6 +151,10 @@ public class Background extends World{
 		this.stage = stage;
 	}
 	
+	public Stage getStage() {
+		return stage;
+	}
+	
 	
 	public void startMusic() {
 		music.startMusic();
@@ -174,6 +168,22 @@ public class Background extends World{
  	
  	public int getLevel() {
  		return lvl;
+ 	}
+ 	
+ 	public void setLevel(int lvl) {
+ 		this.lvl = lvl;
+ 	}
+ 	
+ 	public Score getScore() {
+ 		return score;
+ 	}
+ 	
+ 	public void setMyStage(MyStage myStage) {
+ 		this.myStage = myStage;
+ 	}
+ 	
+ 	public MyStage getMyStage() {
+ 		return myStage;
  	}
  	
 	

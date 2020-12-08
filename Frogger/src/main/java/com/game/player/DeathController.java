@@ -166,7 +166,7 @@ public class DeathController extends FroggerProperties{
 
 				
 				else {
-					frogger.move(0.75,0);				
+					frogger.move(2,0);				
 				}
 
 			}

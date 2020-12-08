@@ -7,15 +7,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="459.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.game.level.ProceedNextLevelController">
    <children>
       <ImageView fitHeight="300.0" fitWidth="517.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:Images/popup_background.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="306.0" layoutY="117.0" mnemonicParsing="false" style="-fx-font-size: 35; -fx-background-color: pink, #b6e7c9; -fx-text-fill: green;" text="Yes" />
-      <Button layoutX="184.0" layoutY="117.0" mnemonicParsing="false" style="-fx-font-size: 35; -fx-background-color: pink, #b6e7c9; -fx-text-fill: green;" text="No" />
+      <Button layoutX="306.0" layoutY="117.0" mnemonicParsing="false" onAction="#displayNextLevel" style="-fx-font-size: 35;" stylesheets="file:CSS/button.css" text="Yes" />
+      <Button layoutX="184.0" layoutY="117.0" mnemonicParsing="false" onAction="#endGame" style="-fx-font-size: 35;" stylesheets="file:CSS/button.css" text="No" />
       <Text layoutX="37.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Proceed to Next Level?&#10;" wrappingWidth="421.43603515625">
          <font>
             <Font name="Arial" size="37.0" />

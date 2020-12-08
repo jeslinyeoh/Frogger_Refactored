@@ -9,20 +9,14 @@ import javafx.stage.Stage;
 
 public class ProceedNextLevelView {
 
-	public void displayPopUp() throws IOException {
+	public void displayPopUp(Stage stage) throws IOException {
+		
 		Parent nlParent = FXMLLoader.load(getClass().getResource("ProceedNextLevel.fxml"));
-		 
+		
 		Scene nlScene = new Scene(nlParent);
 		 
-		Stage popupNL = new Stage();
-			
-		popupNL.setResizable(false);
-		popupNL.setTitle("Instructions");
-		popupNL.setX(510);
-		popupNL.setY(465);
+		stage.setScene(nlScene);
 	  
-		popupNL.setScene(nlScene);
-	  
-		popupNL.show();
+		stage.show();
 	}
 }

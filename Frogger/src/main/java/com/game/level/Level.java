@@ -326,7 +326,7 @@ public class Level {
 		myStage.add(new Log("file:Images/log3.png", 0, 260, -2, 250));
 		myStage.add(new Log("file:Images/log3.png", 400, 260, -2, 250));
 		
-		myStage.add(new TurtleA(200, 340, 2, 220, 260));
+		myStage.add(new TurtleB(200, 340, 2, 220, 260));
 		myStage.add(new TurtleB(500, 340, 2, 220, 260));
 		
 		
@@ -339,8 +339,8 @@ public class Level {
 		myStage.add(new Vehicle("file:Images/car1Right.png", 300, 600, 2.5, 50, 50));
 		myStage.add(new Vehicle("file:Images/car1Right.png", 500, 600, 2.5, 50, 50));
 	
-		myStage.add(new Vehicle("file:Images/truck1Left.png", 0, 650, -5, 120, 120));
-		myStage.add(new Vehicle("file:Images/truck2Left.png", 300, 650, -5, 200, 200));
+		myStage.add(new Vehicle("file:Images/truck1Left.png", 0, 650, -4, 120, 120));
+		myStage.add(new Vehicle("file:Images/truck2Left.png", 300, 650, -4, 200, 200));
 		
 	}
 }

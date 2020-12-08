@@ -58,9 +58,10 @@ public class Score {
                 			background.checkNextLevel();
                 		}
                 		
-                		catch(IOException e){
-                			System.out.println("IO Exception in Score class.");
-                		}
+                		catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
                 		
                 	}
                 	

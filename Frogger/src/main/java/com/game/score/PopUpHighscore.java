@@ -21,6 +21,7 @@ public class PopUpHighscore {
 	private Background background;
 	private Scene popupScene;
 	private Stage popuphs;
+	private static Stage pophsStage;
 	
 	
 	public PopUpHighscore(Background background) {
@@ -37,6 +38,8 @@ public class PopUpHighscore {
 		popuphs.setTitle("Highscore");
 		popuphs.setX(545);
 		popuphs.setY(150);
+		
+		pophsStage = popuphs;
 		
 		popuphs.setScene(popupScene);
 		popuphs.show();
@@ -91,8 +94,8 @@ public class PopUpHighscore {
 	}
 	
 	
-	public void closePopUp() {
-		popuphs.close();
+	public static Stage gethsStage() {
+		return pophsStage;
 	}
 	
 	

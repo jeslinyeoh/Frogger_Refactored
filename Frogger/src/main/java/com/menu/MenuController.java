@@ -19,10 +19,8 @@ public class MenuController {
 	@FXML
 	private void displayInstructions() throws IOException {
 		
-		Parent insParent = FXMLLoader.load(getClass().getResource("PopUpInstructions.fxml"));
-		 
-		Scene insScene = new Scene(insParent);
-		 
+		PopUpInstructionsView popINSv = new PopUpInstructionsView();
+
 		Stage popupins = new Stage();
 			
 		popupins.setResizable(false);
@@ -30,9 +28,7 @@ public class MenuController {
 		popupins.setX(430);
 		popupins.setY(410);
 	  
-		popupins.setScene(insScene);
-	  
-		popupins.show();
+		popINSv.display(popupins);
 	}
 	
 	

@@ -1,0 +1,9 @@
+.button {
+	-fx-background-color: pink, #b6e7c9;
+	-fx-text-fill: green;
+}
+
+#endbtn {
+	-fx-background-color: red, pink;
+	-fx-text-fill: aqua;
+}

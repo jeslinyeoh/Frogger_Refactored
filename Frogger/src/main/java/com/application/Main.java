@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	
+	private static Stage pStage;
 
 	
 	public static void main(String[] args) {
@@ -16,6 +17,8 @@ public class Main extends Application {
 	}
 	
 	public void start(Stage primaryStage) throws Exception {
+		
+		pStage = primaryStage;
 		
 		MenuView menuV = new MenuView();
 		
@@ -26,6 +29,9 @@ public class Main extends Application {
 		
 		menuV.displayMenu(primaryStage);
 		
-		
+	}
+	
+	public static Stage getPrimaryStage() {
+		return pStage;
 	}
 }
