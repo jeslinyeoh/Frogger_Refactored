@@ -8,17 +8,17 @@
 A. Classes are reallocated into packages according to their functionality to improve readabilty.
   
 - **Application** 
-Contains _Main.java_ and parents classes which are not directly edited during changes.
+contains _Main.java_ and parents classes which are not directly edited during changes.
   
 - **Game**
-Contains all game objects categorised into 4 subpackages which are:
-  - player: contains classes that controls the player's character 
-  - background: contains classes which renders background
-  - level: contains classes which renders each level
-  - score: contains classes which records player's score, adds to highscore board if eligible and display it at the end of each round
+contains all game objects categorised into 4 subpackages which are:
+  - **Player** contains classes that controls the player's character. 
+  - **Background** contains classes which renders background.
+  - **Level** contains classes which renders each level.
+  - **Score** contains classes which records player's score, adds to highscore board if eligible and display it at the end of each round.
 
 - **Menu**
-Contains the main menu and renders PopUp instructions 
+contains the main menu and renders PopUp instructions. 
 
 B. All images and Music are stored in separate folders in the project's root directory.
 
@@ -33,23 +33,23 @@ Classes were renamed to more relatable names for better readability.
 
 ***
 
-3. **Split Classes According to Responsibility**
+3. **Splitting Classes According to Responsibility**
 
 Classes are split into smaller classes to enhance encapsulation and obey the single reponsibility principle.
 
 - _Animal.java_ was renamed and split into:
-- _Frogger.java_: reflects player's actions
-- _MovementController.java_: handles player's input and moves Frogger accordingly
-- _DeathController.java_: checks death conditions and handles it
+  - **_Frogger.java_** reflects player's actions.
+  - **_MovementController.java_** handles player's input and moves Frogger accordingly.
+  - **_DeathController.java_** checks death conditions and handles it.
 
 Both _MovementController.java_ and _DeathController.java_ changes Frogger's properties by using getter and setter methods.
 
 
 - _Main.java_ was split into:
-  - _Main.java_: launches the application by displaying the menu
-  - _Background.java_: handles menu and game backgrounds
-  - _Score.java_: checks current score and feedback real-time score 
-  - _Music.java_: plays and stops music
+  - **_Main.java_** launches the application by displaying the menu.
+  - **_Background.java_** handles menu and game backgrounds.
+  - **_Score.java_** ensures real-time score update. 
+  - **_Music.java_** plays and stops music.
 
 
 - _MyStage.java_'s media functions were added into _Music.java_ and the class became an empty class to store all of each level's objects. 
@@ -57,9 +57,9 @@ Both _MovementController.java_ and _DeathController.java_ changes Frogger's prop
 ***
 
 
-6. **Design Patterns**
+6. **Applying Design Patterns**
 - **Mediator**
-  - _Level.java_ interacts with game object classes (_Log,java_, _TurtleA.java_, _TurtleB.java_ and _Vehicles.java_) on behalf of _Background.java_
+  - _Level.java_ interacts with game object classes (_Log,java_, _TurtleA.java_, _TurtleB.java_ and _Vehicles.java_) on behalf of _Background.java_.
   - Advantage: All the game object classes and _Background.java_ are independent of each other and only collaborates via a mediator which is _Level.java_. As a result, the game objects can be reused in other forms of the application.
 
 - **Factory**
@@ -70,7 +70,7 @@ Both _MovementController.java_ and _DeathController.java_ changes Frogger's prop
   - _Background.java_ will automatically run the next level when the player chooses to proceed after clearing the current level. This is achieved by the following codes in the `displayPopUpNextLevel()` method: 
   ```
   lvl += 1;
-  runLevel(lvl);
+	runLevel(lvl);
   ```
 
   - Advantage: No hardcoding is needed for the transition between levels and _Highscore.java_ is able to read and write to the respective highscore .txt files and display it using _PopUpHighscore.java_. 
@@ -84,7 +84,7 @@ Both _MovementController.java_ and _DeathController.java_ changes Frogger's prop
 ***
 
 8. **JUnit Testing**
-- Added FroggerTest and Highscore Test to aid regression testing.
+- Added _FroggerTest.java_ and _HighscoreTest.java_ to aid regression testing.
 
 ***
 
@@ -94,7 +94,7 @@ Both _MovementController.java_ and _DeathController.java_ changes Frogger's prop
 ***
 
 10. **Slower Refresh Rate**
-- Conditions were added to the `AnimationTimer()` functions in _Score.java_ and _Frogger.java_ to reduce the frequency of the functions
+- Conditions were added to the `AnimationTimer()` functions in _Score.java_ and _Frogger.java_ to reduce the frequency of the functions.
 - Advantage: Smoothen animations and prevents lag.
 
 ***
