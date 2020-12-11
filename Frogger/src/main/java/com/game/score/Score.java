@@ -2,6 +2,7 @@ package com.game.score;
 
 import java.io.IOException;
 
+import com.application.Main;
 import com.game.background.Background;
 import com.game.background.Digit;
 import com.game.player.Frogger;
@@ -44,8 +45,8 @@ public class Score {
                 	}
                 	
                 	if (frogger.getStop()) {
-                		highscore.readFromFile(background.getLevel());
-                		highscore.addScore(frogger.getPoints(), background.getLevel());
+                		highscore.readFromFile(Background.getLevel());
+                		highscore.addScore(frogger.getPoints(), Background.getLevel());
                 		VBox layout = new VBox();
                 		popupHighscore.setRanking(layout);
                 		
@@ -59,7 +60,6 @@ public class Score {
                 		}
                 		
                 		catch (Exception e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
                 		

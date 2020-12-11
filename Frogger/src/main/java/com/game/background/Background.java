@@ -1,30 +1,24 @@
 package com.game.background;
 
 
-import java.io.IOException;
-
 import com.application.MyStage;
 import com.application.World;
 import com.game.level.EndMessageView;
 import com.game.level.Level;
-import com.game.level.PopUpNextLevel;
-import com.game.level.ProceedNextLevelController;
 import com.game.level.ProceedNextLevelView;
 import com.game.player.Frogger;
 import com.game.score.Score;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class Background extends World{
 	public MyStage myStage = new MyStage();
 
-	private PopUpNextLevel popupNextLevel = new PopUpNextLevel();
 	private ProceedNextLevelView proceedNLv = new ProceedNextLevelView();
 	private EndMessageView endMsgV = new EndMessageView();
 	
@@ -33,7 +27,9 @@ public class Background extends World{
 	private Music music;
 	private Frogger frogger;
 	private Level level;
-	private int lvl = 0;
+	private Button restartButton = new Button();
+	
+	private static int lvl = 1;
 	
 	@Override
 	public void act(long now) {	
@@ -47,6 +43,7 @@ public class Background extends World{
 	public void checkNextLevel() throws Exception {
 		
 		if(lvl < 10) {	
+
 			Stage popupNL = new Stage();
 			
 			popupNL.setResizable(false);
@@ -68,14 +65,6 @@ public class Background extends World{
 			
 			endMsgV.displayPopUp(endS);
 			
-			/*
-			Alert alert = new Alert(AlertType.INFORMATION);
-    		alert.setTitle("End");
-    		alert.setX(555);
-    		alert.setY(460);
-    		alert.setHeaderText("End of Game");
-    		alert.setContentText("Thank you for Playing!");
-    		alert.show();*/
 		}
 	}
 
@@ -83,26 +72,44 @@ public class Background extends World{
 	
 	public void runGameBackground() {	    
 		
-		BackgroundImage froggerback = new BackgroundImage("file:Images/froggerBackground.png");
+		BackgroundImage froggerback = new BackgroundImage("file:Resources/Images/froggerBackground.png");
 		frogger = new Frogger();
 		score = new Score(frogger, this);
 		music = new Music(frogger);
 		
+		restartButton.setText("Restart");
+		restartButton.setStyle("-fx-background-color: red, deeppink; "
+				+ "-fx-text-fill: aqua; "
+				+ "-fx-font-size: 18;");
+		
+		restartButton.setLayoutX(475);
+		restartButton.setLayoutY(755);
+		
+		restartButton.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event){
+				restartLevel(event);
+			} 
+			
+		});	
+		
+		
 		myStage.add(froggerback);
+		myStage.getChildren().add(restartButton);
 		myStage.add(new End(10,94));
 		myStage.add(new End(130,94));
 		myStage.add(new End(130 + 130-10,94));
 		myStage.add(new End(130 + 2*(130-10)+1,94));
 		myStage.add(new End(130 + 3*(130-10)+3,94));
 		
+		myStage.add(new Digit(0, 30, 530, 25));
+		startMusic();
+		
 	}
 	
 	
-	public void runLevel(int lvl) {
+	public void runLevel(int l) {
 		
-		this.lvl = lvl;
-		
-		runGameBackground();
+		lvl = l;
 		
 		level = new Level(myStage);
 		
@@ -139,13 +146,29 @@ public class Background extends World{
 				break;
 		}
 		
-		
-		myStage.add(new Digit(0, 30, 530, 25));
 		myStage.add(frogger);
 		myStage.start();
-		startMusic();
+
+		
 	}
 	
+	
+	public void restartLevel(ActionEvent event) {
+		
+		Stage currStage =(Stage)((Node)event.getSource()).getScene().getWindow();
+		stopMusic();
+		myStage.stop();
+		score.stop();
+
+		myStage = new MyStage();
+		runGameBackground();
+		runLevel(lvl);
+		
+		Scene gameScene = new Scene(myStage, 565, 798);
+		currStage.setScene(gameScene);
+		currStage.show();
+		
+	}
 	
 	public void setStage(Stage stage) {
 		this.stage = stage;
@@ -166,14 +189,6 @@ public class Background extends World{
 	}
 	
  	
- 	public int getLevel() {
- 		return lvl;
- 	}
- 	
- 	public void setLevel(int lvl) {
- 		this.lvl = lvl;
- 	}
- 	
  	public Score getScore() {
  		return score;
  	}
@@ -185,6 +200,16 @@ public class Background extends World{
  	public MyStage getMyStage() {
  		return myStage;
  	}
+
+
+	public static int getLevel() {
+		return lvl;
+	}
+
+
+	public static void setLevel(int l) {
+		lvl = l;
+	}
  	
 	
 }

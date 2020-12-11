@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="280.0" fitWidth="555.0" pickOnBounds="true">
          <image>
-            <Image url="file:Images/insBackground.png" />
+            <Image url="file:Resources/Images/insBackground.png" />
          </image>
       </ImageView>
       <Text layoutX="22.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. Cross the highway, median,  and river to reach the swamp.&#10;2. Avoid all vehicles while crossing the highway.&#10;3. Land on logs or turtles to cross the river. &#10;4. Median is the safe area. &#10;5. At the swamp, there are 5 slots which can hold1 frog each.&#10;6. The max score for each round is 800.&#10;7. Each death will incur a 50 points deduction.  " wrappingWidth="350.21630859375">
@@ -21,45 +21,45 @@
       </Text>
       <ImageView fitHeight="168.0" fitWidth="150.0" layoutX="403.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:Images/level_overview.png" />
+            <Image url="file:Resources/Images/level_overview.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="97.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:Images/tick.png" />
+            <Image url="file:Resources/Images/tick.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="36.0" fitWidth="46.0" layoutX="297.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:Images/cross.png" />
+            <Image url="file:Resources/Images/cross.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="16.0" fitWidth="63.0" layoutX="19.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:Images/log3.png" />
+            <Image url="file:Resources/Images/log3.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="27.0" fitWidth="110.0" layoutX="217.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:Images/truck1Left.png" />
+            <Image url="file:Resources/Images/truck1Left.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="28.0" fitWidth="46.0" layoutX="311.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:Images/car1right.png" />
+            <Image url="file:Resources/Images/car1right.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="30.0" fitWidth="109.0" layoutX="89.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:Images/TurtleAnim.png" />
+            <Image url="file:Resources/Images/TurtleAnim.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="366.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:Images/TurtleSunk.png" />
+            <Image url="file:Resources/Images/TurtleSunk.png" />
          </image>
       </ImageView>
-      <Button layoutX="462.0" layoutY="226.0" mnemonicParsing="false" onAction="#returnToMenu" style="-fx-font-size: 20;" stylesheets="file:CSS/button.css" text="Back">
+      <Button layoutX="462.0" layoutY="226.0" mnemonicParsing="false" onAction="#returnToMenu" style="-fx-font-size: 20;" stylesheets="file:Resources/CSS/button.css" text="Back">
          <font>
             <Font name="Arial" size="18.0" />
          </font></Button>

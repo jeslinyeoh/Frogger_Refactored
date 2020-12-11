@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 public class ProceedNextLevelController {
 	
 	private Background background = new Background();
-	private int lvl = 1;
+	private static int lvl = Background.getLevel();
 	private Stage mainStage = Main.getPrimaryStage();
 	private Stage highscoreStage = PopUpHighscore.gethsStage();
 	
@@ -28,14 +28,15 @@ public class ProceedNextLevelController {
 		Stage currStage =(Stage)((Node)event.getSource()).getScene().getWindow();
 	
 		background.setMyStage(new MyStage());
-		lvl += 1;
+		lvl++;
+		background.runGameBackground();
 		background.runLevel(lvl);
+		Background.setLevel(lvl);
 		
 		Scene gameScene = new Scene(background.getMyStage(), 565, 798);
 		mainStage.setScene(gameScene);
 		mainStage.show();
 		
-		background.setLevel(1);
 		currStage.close();
 		highscoreStage.close();
 	}

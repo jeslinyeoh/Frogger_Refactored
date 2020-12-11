@@ -17,7 +17,7 @@ public class Highscore{
 		int i;
 		
 		try {
-			  Scanner s = new Scanner(new File("Highscores/highscore"+ lvl +".txt"));
+			  Scanner s = new Scanner(new File("Resources/Highscores/highscore"+ lvl +".txt"));
 			  int []highs = new int[n];
 			  
 			  for (i = 0; i < highs.length; i++) {
@@ -47,7 +47,7 @@ public class Highscore{
 	public void writeToFile(int lvl) {
 		
 		try {
-			FileWriter writer = new FileWriter("Highscores/highscore"+ lvl +".txt");
+			FileWriter writer = new FileWriter("Resources/Highscores/highscore"+ lvl +".txt");
 			
 		      
 		     int hslen = highScore.length;
@@ -76,9 +76,7 @@ public class Highscore{
 
 		int i;
 		
-		readFromFile(lvl);
-		//sortHighscore(hs);
-		
+		readFromFile(lvl);		
 		
 		//check if new score exist in the existing highscore list
 		for(i = 0; i < hs.length; i++) {

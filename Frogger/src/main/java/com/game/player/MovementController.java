@@ -13,14 +13,14 @@ public class MovementController extends FroggerProperties{
 	public MovementController(Frogger frogger){
 		this.frogger = frogger;
 		
-		imgW1 = new Image("file:Images/froggerUp.png", imgSize, imgSize, true, true);
-		imgA1 = new Image("file:Images/froggerLeft.png", imgSize, imgSize, true, true);
-		imgS1 = new Image("file:Images/froggerDown.png", imgSize, imgSize, true, true);
-		imgD1 = new Image("file:Images/froggerRight.png", imgSize, imgSize, true, true);
-		imgW2 = new Image("file:Images/froggerUpJump.png", imgSize, imgSize, true, true);
-		imgA2 = new Image("file:Images/froggerLeftJump.png", imgSize, imgSize, true, true);
-		imgS2 = new Image("file:Images/froggerDownJump.png", imgSize, imgSize, true, true);
-		imgD2 = new Image("file:Images/froggerRightJump.png", imgSize, imgSize, true, true);
+		imgW1 = new Image("file:Resources/Images/froggerUp.png", imgSize, imgSize, true, true);
+		imgA1 = new Image("file:Resources/Images/froggerLeft.png", imgSize, imgSize, true, true);
+		imgS1 = new Image("file:Resources/Images/froggerDown.png", imgSize, imgSize, true, true);
+		imgD1 = new Image("file:Resources/Images/froggerRight.png", imgSize, imgSize, true, true);
+		imgW2 = new Image("file:Resources/Images/froggerUpJump.png", imgSize, imgSize, true, true);
+		imgA2 = new Image("file:Resources/Images/froggerLeftJump.png", imgSize, imgSize, true, true);
+		imgS2 = new Image("file:Resources/Images/froggerDownJump.png", imgSize, imgSize, true, true);
+		imgD2 = new Image("file:Resources/Images/froggerRightJump.png", imgSize, imgSize, true, true);
 		
 	}
 	

@@ -11,11 +11,11 @@
    <children>
       <ImageView fitHeight="300.0" fitWidth="517.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:Images/popup_background.jpg" />
+            <Image url="file:Resources/Images/popup_background.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="306.0" layoutY="117.0" mnemonicParsing="false" onAction="#displayNextLevel" style="-fx-font-size: 35;" stylesheets="file:CSS/button.css" text="Yes" />
-      <Button layoutX="184.0" layoutY="117.0" mnemonicParsing="false" onAction="#endGame" style="-fx-font-size: 35;" stylesheets="file:CSS/button.css" text="No" />
+      <Button layoutX="306.0" layoutY="117.0" mnemonicParsing="false" onAction="#displayNextLevel" style="-fx-font-size: 35;" stylesheets="file:Resources/CSS/button.css" text="Yes" />
+      <Button layoutX="184.0" layoutY="117.0" mnemonicParsing="false" onAction="#endGame" style="-fx-font-size: 35;" stylesheets="file:Resources/CSS/button.css" text="No" />
       <Text layoutX="37.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Proceed to Next Level?&#10;" wrappingWidth="421.43603515625">
          <font>
             <Font name="Arial" size="37.0" />

@@ -14,11 +14,11 @@ public class End extends Actor{
 	public End(int x, int y) {
 		setX(x);
 		setY(y);
-		setImage(new Image("file:Images/End.png", 60, 60, true, true));
+		setImage(new Image("file:Resources/Images/End.png", 60, 60, true, true));
 	}
 	
 	public void setEnd() {
-		setImage(new Image("file:Images/FrogEnd.png", 60, 60, true, true));
+		setImage(new Image("file:Resources/Images/FrogEnd.png", 60, 60, true, true));
 		activated = true;
 	}
 	

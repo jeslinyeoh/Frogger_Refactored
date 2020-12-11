@@ -35,6 +35,7 @@ public class MenuController {
 	@FXML
 	private void startGame(ActionEvent event) {
 		
+		bgame.runGameBackground();
 		bgame.runLevel(1);
 		
 		Scene gameScene = new Scene(bgame.myStage, 565, 798);

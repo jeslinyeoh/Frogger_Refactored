@@ -11,9 +11,11 @@ import javafx.scene.media.MediaPlayer;
 
 public class Music extends Actor {
 	
-	Frogger frogger;
-	AnimationTimer animTimer;
-	MediaPlayer mediaPlayer;
+	private Frogger frogger;
+	private AnimationTimer animTimer;
+	private MediaPlayer mediaPlayer;
+
+	private long lastUpdate = 0;
 	
 	public Music(Frogger frogger) {
 		this.frogger = frogger;
@@ -26,12 +28,19 @@ public class Music extends Actor {
 	}
 	
 	public void createStopMusicTimer() {
+		
 		animTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-            	if (frogger.getStop()) {
-        			stopMusic();
-        		}
+            	
+            	if(now - lastUpdate >= 50_000_000) {
+            		if (frogger.getStop()) {
+            			stopMusic();
+            		}
+            		
+            		lastUpdate = now;
+            	}
+            	
             }
 		};
 	}
@@ -42,7 +51,7 @@ public class Music extends Actor {
 	
 	public void playMusic() {
 		
-		String musicFile = "Music/Frogger Main Song Theme (loop).mp3";   
+		String musicFile = "Resources/Music/Frogger Main Song Theme (loop).mp3";   
 		Media sound = new Media(new File(musicFile).toURI().toString());
 		
 		mediaPlayer = new MediaPlayer(sound);

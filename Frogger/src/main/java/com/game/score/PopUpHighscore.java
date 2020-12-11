@@ -50,7 +50,7 @@ public class PopUpHighscore {
 	public void setRanking(VBox layout) {
 		
 		StackPane stack = new StackPane();
-		Image hsBackground = new Image("file:Images/highscoreboard.png");
+		Image hsBackground = new Image("file:Resources/Images/highscoreboard.png");
 		ImageView hsV = new ImageView();
 		hsV.setImage(hsBackground);
 		hsV.setFitWidth(380);
@@ -60,7 +60,7 @@ public class PopUpHighscore {
         hsV.setCache(true);
  
 		
-		highscore.readFromFile(background.getLevel());
+		highscore.readFromFile(Background.getLevel());
 		hs = highscore.getHighScores();
 		
 		first = Integer.toString(hs[0]);

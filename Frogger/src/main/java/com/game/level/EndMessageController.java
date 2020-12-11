@@ -27,7 +27,7 @@ public class EndMessageController {
 		currStage.close();
 		highscoreStage.close();
 		
-		background.setMyStage(new MyStage());
+		background.runGameBackground();
 		background.runLevel(1);
 		
 		Scene gameScene = new Scene(background.getMyStage(), 565, 798);

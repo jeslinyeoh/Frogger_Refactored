@@ -12,7 +12,7 @@ public class Digit extends Actor{
 	public void act(long now) {	}
 	
 	public Digit(int n, int dim, int x, int y) {
-		im1 = new Image("file:Images/"+n+".png", dim, dim, true, true);
+		im1 = new Image("file:Resources/Images/"+n+".png", dim, dim, true, true);
 		setImage(im1);
 		setX(x);
 		setY(y);

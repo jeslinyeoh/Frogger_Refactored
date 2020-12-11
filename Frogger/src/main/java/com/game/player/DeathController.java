@@ -43,13 +43,13 @@ public class DeathController extends FroggerProperties{
 			
 			switch (deathAnim) {
 			
-			case 0: setFrogImage(new Image("file:Images/cardeath1.png", imgSize, imgSize, true, true));
+			case 0: setFrogImage(new Image("file:Resources/Images/cardeath1.png", imgSize, imgSize, true, true));
 				break;
 				
-			case 1: setFrogImage(new Image("file:Images/cardeath2.png", imgSize, imgSize, true, true));
+			case 1: setFrogImage(new Image("file:Resources/Images/cardeath2.png", imgSize, imgSize, true, true));
 				break;
 				
-			case 2: setFrogImage(new Image("file:Images/cardeath3.png", imgSize, imgSize, true, true));
+			case 2: setFrogImage(new Image("file:Resources/Images/cardeath3.png", imgSize, imgSize, true, true));
 				break;
 				
 			case 3: 
@@ -57,7 +57,7 @@ public class DeathController extends FroggerProperties{
 				frogger.setY(679.8 + moveY);
 				frogger.setCarDeath(false);
 				deathAnim = 0;
-				setFrogImage(new Image("file:Images/froggerUp.png", imgSize, imgSize, true, true));
+				setFrogImage(new Image("file:Resources/Images/froggerUp.png", imgSize, imgSize, true, true));
 				frogger.setNoMove(false);
 				
 
@@ -79,16 +79,16 @@ public class DeathController extends FroggerProperties{
 			
 			switch(deathAnim) {
 			
-			case 0: setFrogImage(new Image("file:Images/waterdeath1.png", imgSize,imgSize , true, true));
+			case 0: setFrogImage(new Image("file:Resources/Images/waterdeath1.png", imgSize,imgSize , true, true));
 				break;
 				
-			case 1: setFrogImage(new Image("file:Images/waterdeath2.png", imgSize,imgSize , true, true));
+			case 1: setFrogImage(new Image("file:Resources/Images/waterdeath2.png", imgSize,imgSize , true, true));
 				break;
 				
-			case 2: setFrogImage(new Image("file:Images/waterdeath3.png", imgSize,imgSize , true, true));
+			case 2: setFrogImage(new Image("file:Resources/Images/waterdeath3.png", imgSize,imgSize , true, true));
 				break;
 				
-			case 3: setFrogImage(new Image("file:Images/waterdeath4.png", imgSize,imgSize , true, true));
+			case 3: setFrogImage(new Image("file:Resources/Images/waterdeath4.png", imgSize,imgSize , true, true));
 				break;
 				
 			case 5: 
@@ -96,7 +96,7 @@ public class DeathController extends FroggerProperties{
 				frogger.setY(679.8 + moveY);
 				frogger.setWaterDeath(false);
 				deathAnim = 0;
-				setFrogImage(new Image("file:Images/froggerUp.png", imgSize, imgSize, true, true));
+				setFrogImage(new Image("file:Resources/Images/froggerUp.png", imgSize, imgSize, true, true));
 				frogger.setNoMove(false);
 				
 				frogger.minusPoints();
