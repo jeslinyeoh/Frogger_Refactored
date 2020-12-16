@@ -4,6 +4,11 @@ import com.application.Actor;
 
 import javafx.scene.image.Image;
 
+/**
+ * Initialises Frogger's properties.
+ * @author hcywy2
+ *
+ */
 public class FroggerProperties extends Actor{
 	
 	final int imgSize = 40;
@@ -19,6 +24,10 @@ public class FroggerProperties extends Actor{
 	Image imgS2 = new Image("file:Resources/Images/froggerDownJump.png", imgSize, imgSize, true, true);
 	Image imgD2 = new Image("file:Resources/Images/froggerRightJump.png", imgSize, imgSize, true, true);
 	
+	
+	/**
+	 * Unused.
+	 */
 	@Override
 	public void act(long now) {}
 

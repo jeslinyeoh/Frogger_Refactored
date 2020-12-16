@@ -35,11 +35,19 @@ test{
 }
 
 
-
 run {
 	if(javafx.platform.classifier == 'win'){
 		systemProperty "java.library.path", "C:\tmp"
 	}
+	
+	
+sourceSets {
+  main {
+    resources {
+        srcDirs = ["src/main/java"]
+    }
+  }
+}
 
 
 }

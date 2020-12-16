@@ -3,13 +3,19 @@ package com.game.player;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 
-
+/**
+ * Controls the Frogger's movement according to the player's input.
+ * @author hcywy2
+ *
+ */
 public class MovementController extends FroggerProperties{
 
-	private boolean second = false;
 	private Frogger frogger;
 	
-	
+	/**
+	 * Initialises {@link com.game.player.Frogger} object 
+	 * and all the images of Frogger's movement.
+	 */
 	public MovementController(Frogger frogger){
 		this.frogger = frogger;
 		
@@ -24,121 +30,83 @@ public class MovementController extends FroggerProperties{
 		
 	}
 	
+	
+	/**
+	 * Handles Frogger's movement animation when a specific key is pressed.
+	 * @param event Receives input from player's keyboard.
+	 */
 	public void handleKeyPressed(KeyEvent event) {
 		
 		// if not dead
-		if (!frogger.getNoMove()) {				
+		if (!frogger.noMove) {				
 						
-			// if in second part of animation
-			if (second) {
+			switch(event.getCode()) {
 						
-				switch(event.getCode()) {
+				case W:
+					moveUp();
+			        setFrogImage(imgW2);
+			        break;
+			                
+				case A:
+					moveLeft();
+			        setFrogImage(imgA2);
+			        break;
 							
-					case W: 
-						moveUp();
-						frogger.setChangeScore(false);
-						setFrogImage(imgW1);
-						second = false;
-						break;
-				                
-					case A:
-						moveLeft();
-				        setFrogImage(imgA1);
-				        second = false;
-				        break;
-				            				            
-					case S: 
-						moveDown();
-				        setFrogImage(imgS1);
-				        second = false;
-				        break;
-				            	
-					case D: 
-						moveRight();
-				        setFrogImage(imgD1);
-				        second = false;
-				        break;
-						
-				} //end of switch	
-			   
-			} // end of if
+				case S:
+					moveDown();
+			        setFrogImage(imgS2);
+			        break;
+			            	
+				case D:
+					moveRight();
+			        setFrogImage(imgD2);
+			        break;
 					
-			
-			//else in first part of animation
-			else {
-						
-				switch(event.getCode()) {
-						
-					case W:
-						moveUp();
-				        setFrogImage(imgW2);
-				        second = true;
-				        break;
-				                
-					case A:
-						moveLeft();
-				        setFrogImage(imgA2);
-				        second = true;
-				        break;
-								
-					case S:
-						moveDown();
-				        setFrogImage(imgS2);
-				        second = true;
-				        break;
-				            	
-					case D:
-						moveRight();
-				        setFrogImage(imgD2);
-				        second = true;
-				        break;
-						
-				} // end of switch
-					
-			} // end of else 
-	            
+			} // end of switch
+            
 		} // end of if
-				
-	} // end of handleKeyPressed();
-				 
+			
+	} // end of handleKeyPressed()
+			 
+						
 
+	/**
+	 * Handles current score when a specific key is released.
+	 * @param event Receives input from player's keyboard.
+	 */
 	public void handleKeyReleased(KeyEvent event) {	
 		
-		if (!frogger.getNoMove()) {
+		if (!frogger.noMove) {
 				
 			switch(event.getCode()) {
 					
 				case W:
-					if (frogger.getY() < frogger.getW() && frogger.getY() > 100) {
-						frogger.setChangeScore(true);
-						frogger.setW(frogger.getY());
+					if (frogger.getY() < frogger.w && frogger.getY() > 100) {
+						frogger.changeScore = true;
+						frogger.w = frogger.getY();
 						frogger.addPoints(10);
 					}
 							
 			        moveUp();
 			        setFrogImage(imgW1);
-			        second = false;
 			        break;
 			                
 			                
 				case A:
 					moveLeft();
 			        setFrogImage(imgA1);
-			        second = false;
 			        break;
 			            	
 			            	
 				case S:
 					moveDown();
 			        setFrogImage(imgS1);
-			        second = false;
 			        break;
 			            	
 			            	
 				case D:
 					moveRight();
 			        setFrogImage(imgD1);
-			        second = false;
 			        break;
 					
 			} // end of switch
@@ -148,27 +116,49 @@ public class MovementController extends FroggerProperties{
 	} // end of handleKeyReleased()
 	
 	
+	/**
+	 * Frogger moves upwards.
+	 */
 	public void moveUp() {
 		frogger.move(0, -moveY);
 	} 
 	
+	
+	/**
+	 * Frogger moves downwards.
+	 */
 	public void moveDown() {
 		frogger.move(0, moveY);
 	}
 	
+	
+	/**
+	 * Frogger moves to the left.
+	 */
 	public void moveLeft() {
 		frogger.move(-moveX, 0);
 	}
 	
+	
+	/**
+	 * Frogger moves to the right.
+	 */
 	public void moveRight() {
 		frogger.move(moveX, 0);
 	}
 	
-
+	
+	/**
+	 * Sets {@link com.game.player.Frogger} object's image.
+	 */
 	public void setFrogImage(Image image) {
 		frogger.setImage(image);
 	}
 
+	
+	/**
+	 * Unused.
+	 */
 	@Override
 	public void act(long now) {
 		// TODO Auto-generated method stub

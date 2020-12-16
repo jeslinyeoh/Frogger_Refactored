@@ -4,10 +4,38 @@ import com.application.Actor;
 
 import javafx.scene.image.Image;
 
+/**
+ * 
+ * Renders movable log images in the game. 
+ *
+ */
 public class Log extends Actor {
 	
 	private double speed;
 	
+	
+	/**
+	 * Initialises the log's image.
+	 * @param imageLink File path of the image used.
+	 * @param xpos x-position of the image.
+	 * @param ypos y-position of the image.
+	 * @param s Speed of the image.
+	 * @param dim x and y dimensions of the image.
+	 */
+	public Log(String imageLink, int xpos, int ypos, double s, int dim) {
+		
+		setImage(new Image(imageLink, dim, dim, true, true));
+		setX(xpos);
+		setY(ypos);
+		
+		speed = s;
+		
+	}
+	
+	
+	/**
+	 * Continuously moves the log in the horizontal direction. 
+	 */
 	@Override
 	public void act(long now) {
 		
@@ -24,17 +52,9 @@ public class Log extends Actor {
 	}
 	
 	
-	public Log(String imageLink, int xpos, int ypos, double s, int size) {
-		
-		setImage(new Image(imageLink, size,size, true, true));
-		setX(xpos);
-		setY(ypos);
-		
-		speed = s;
-		
-	}
-	
-	
+	/**
+	 * Checks if the log is moving to the left.
+	 */
 	public boolean getLeft() {
 		return speed < 0;
 	}

@@ -4,16 +4,28 @@ import com.application.Actor;
 
 import javafx.scene.image.Image;
 
+/**
+ * Initialises turtle's properties.
+ * @author hcywy2
+ *
+ */
 public class Turtle extends Actor{
 	Image turtle1, turtle2, turtle3, turtle4;
 	Image turtle1b, turtle1c;
 	double speed;
-	int i = 1;
 	boolean bool = true;
 	boolean sunk = false;
 	
 	public Turtle() {}
 	
+	/**
+	 * Initialises all the turtle images.
+	 * @param xpos x-position of the image.
+	 * @param ypos y-position of the image.
+	 * @param s Speed of the image.
+	 * @param w Width of the image.
+	 * @param h Height of the image.
+	 */
 	public Turtle(int xpos, int ypos, double s, int w, int h) {
 		
 		turtle1 = new Image("file:Resources/Images/TurtleAnimation1.png", w, h, true, true);
@@ -31,15 +43,26 @@ public class Turtle extends Actor{
 	}
 	
 	
-	@Override
-	public void act(long now) {	} // end of act()
-	
-	
+	/**
+	 * Checks if the turtle is sunk.
+	 */
 	public boolean isSunk() {
 		return sunk;
 	}
 	
+	
+	/**
+	 * Checks if the log is moving to the left.
+	 */
 	public boolean getLeft() {
 		return speed < 0;
 	}
+	
+	
+	/**
+	 * To be overwritten by child classes.
+	 */
+	@Override
+	public void act(long now) {	} 
+	
 }

@@ -4,19 +4,23 @@ package com.game.player;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 
-
+/**
+ * Handles and reflects player's input.
+ * @author hcywy2
+ *
+ */
 public class Frogger extends FroggerProperties{
 	
 	private int points = 0;
-	private int end = 0;
+	int end = 0;
 	
-	private boolean noMove = false;
-	private boolean carDeath = false;
-	private boolean waterDeath = false;
 	private boolean stop = false;
-	private boolean changeScore = false;
+	boolean noMove = false;
+	boolean carDeath = false;
+	boolean waterDeath = false;
+	boolean changeScore = false;
 
-	private double w = 800;
+	double w = 800;
 	
 	private long lastUpdate = 0;
 
@@ -24,6 +28,10 @@ public class Frogger extends FroggerProperties{
 	private DeathController deathCon;
 
 	
+	/**
+	 * Initialises the initial Frogger image
+	 * and calls {@link #initialiseClasses()}.
+	 */
 	public Frogger() {
 		setImage(imgW1);
 		setX(270);
@@ -34,12 +42,20 @@ public class Frogger extends FroggerProperties{
 	} // end of constructor
 	
 	
+	/**
+	 * Initialises {@link com.game.player.MovementController}
+	 * and {@link com.game.player.DeathController} objects.
+	 */
 	public void initialiseClasses() {
 		moveCon = new MovementController(this);
 		deathCon = new DeathController(this);
 	}
 	
 	
+	/**
+	 * Calls {@link com.game.player.MovementController}'s methods. 
+	 * to handle player's input.
+	 */
 	public void checkKeyEntered() {
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event){
@@ -56,6 +72,14 @@ public class Frogger extends FroggerProperties{
 	}
 	
 	
+	/**
+	 * Continuously handles player's input and checks if death conditions are met.
+	 * Calls {@link #checkKeyEntered()}, 
+	 * {@link com.game.player.DeathController#handleDeath(long)} and
+	 * {@link com.game.player.DeathController#checkDeath()}
+	 * Conditions were added to slow down the refresh rate of the AnimationTimer.
+	 * @param now The timestamp of the current frame given in nanoseconds.
+	 */
 	@Override
 	public void act(long now) {
 		
@@ -83,24 +107,32 @@ public class Frogger extends FroggerProperties{
 			lastUpdate = now;
 		}
 		
-		deathCon.handleDeath(now);
 		deathCon.checkDeath();
+		deathCon.handleDeath(now);
+		
 		
 	}
 	
 	
-	public void setChangeScore(boolean bool) {
-		changeScore = bool;
-	}
-	
+	/**
+	 * @return {@link Frogger#changeScore}.
+	 */
 	public boolean getChangeScore() {
 		return changeScore;
 	}
 	
-	public void addPoints(int x) {
-		points += x;
+	
+	/**
+	 * @param p Points to add.
+	 */
+	public void addPoints(int p) {
+		points += p;
 	}
 	
+	
+	/**
+	 * Checks if current points is more than 50 and handles both cases.
+	 */
 	public void minusPoints() {
 		
 		if(points > 50) {
@@ -114,57 +146,41 @@ public class Frogger extends FroggerProperties{
 	}
 	
 	
-	public int getPoints() {
-		return points;
-	}
-	
+	/**
+	 * Sets {@link Frogger#points}.
+	 * @param points New Points.
+	 */
 	public void setPoints(int points) {
 		this.points = points;
 	}
 	
-	public void setW(double w) {
-		this.w = w;
+	
+	/**
+	 * Gets {@link Frogger#points}.
+	 */
+	public int getPoints() {
+		return points;
 	}
 	
-	public double getW() {
-		return w;
-	}
-	
+	/**
+	 * Check if the level is cleared.
+	 * @return True when all 5 Froggers has reached the end point.
+	 */
 	public boolean getStop() {
-
 		return end == 5;
 	}
 	
 	
-	public boolean getNoMove() {
-		return noMove;
-	}
-	
-	public void setNoMove(boolean bool) {
-		noMove = bool;
-	}
-	
-	public void setWaterDeath(boolean bool) {
-		waterDeath = bool;
-	}
-	
-	public boolean getWaterDeath() {
-		return waterDeath;
-	}
-	
-	public void setCarDeath(boolean bool) {
-		carDeath = bool;
-	}
-	
-	public boolean getCarDeath() {
-		return carDeath;
-	}
-	
+	/**
+	 * Adds {@link Frogger#end}.
+	 */
 	public void addEnd() {
 		end++;
 	}
 	
-	public void minusEnd() {
-		end--;
-	}
+
+
+	
+	
+	
 }

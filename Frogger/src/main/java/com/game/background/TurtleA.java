@@ -1,8 +1,20 @@
 package com.game.background;
 
-
+/**
+ * Renders movable turtle images in the game.
+ * @author hcywy2
+ *
+ */
 public class TurtleA extends Turtle{
 	
+	/**
+	 * Initialises the initial turtle image.
+	 * @param xpos x-position of the image.
+	 * @param ypos y-position of the image.
+	 * @param s Speed of the image.
+	 * @param w Width of the image.
+	 * @param h Height of the image.
+	 */
 	public TurtleA(int xpos, int ypos, double s, int w, int h) {
 		
 		super(xpos, ypos, s, w, h);
@@ -11,6 +23,11 @@ public class TurtleA extends Turtle{
 	}
 	
 	
+	
+	/**
+	 * Continuously switches image and moves the turtle in the horizontal direction. 
+	 *  More images to switch to as compared to {@link com.game.background.TurtleB}.
+	 */
 	@Override
 	public void act(long now) {
 		

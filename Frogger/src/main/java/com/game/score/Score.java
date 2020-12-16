@@ -1,8 +1,5 @@
 package com.game.score;
 
-import java.io.IOException;
-
-import com.application.Main;
 import com.game.background.Background;
 import com.game.background.Digit;
 import com.game.player.Frogger;
@@ -10,6 +7,11 @@ import com.game.player.Frogger;
 import javafx.animation.AnimationTimer;
 import javafx.scene.layout.VBox;
 
+/**
+ * Ensures real time score update during the game.
+ * @author hcywy2
+ *
+ */
 public class Score {
 	
 	private AnimationTimer animTimer;
@@ -20,6 +22,10 @@ public class Score {
 	private long lastUpdate = 0;
 
 	
+	/**
+	 * Initialises classes, starts the AnimationTimer and 
+	 * calls {@link com.game.score.PopUpHighscore#setRanking(VBox)}. 
+	 */
 	public Score(Frogger frogger, Background background) {
 		this.frogger = frogger;
 		this.background = background;
@@ -32,6 +38,14 @@ public class Score {
 	}
 	
 	
+	/**
+	 * Displays Pop-Up Highscore window and 
+	 * calls {@link com.game.background.Background#checkNextLevel()}.
+	 * Conditions were added to slow down the refresh rate of the AnimationTimer.
+	 * 
+	 * @see com.game.score.Highscore
+	 * @see com.game.score.PopUpHighscore
+	 */
 	public void createTimer() {
 		
         animTimer = new AnimationTimer() {
@@ -45,7 +59,6 @@ public class Score {
                 	}
                 	
                 	if (frogger.getStop()) {
-                		highscore.readFromFile(Background.getLevel());
                 		highscore.addScore(frogger.getPoints(), Background.getLevel());
                 		VBox layout = new VBox();
                 		popupHighscore.setRanking(layout);
@@ -74,17 +87,27 @@ public class Score {
     }
 	
 	
+	/**
+	 * Creates and starts AnimationTimer.
+	 */
  	public void start() {
     	createTimer();
         animTimer.start();
     }
 
 	
+ 	/**
+ 	 * Stops AnimationTimer.
+ 	 */
     public void stop() {
         animTimer.stop();
     }
     
     
+    /**
+     * Displays the real time score in the game.
+     * @param n Current score.
+     */
     public void setNumber(int n) {
     	int shift = 0;
     	
@@ -109,6 +132,9 @@ public class Score {
     }
     
     
+    /**
+     * Gets {@link com.game.score.PopUpHighscore} object.
+     */
     public PopUpHighscore getPopUpHighscore() {
     	return popupHighscore;
     }

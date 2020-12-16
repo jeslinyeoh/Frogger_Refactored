@@ -1,6 +1,4 @@
 # COMP2042_CW_hcywy2
-## Project originated from https://github.com/hirish99/Frogger-Arcade-Game
-
 
 
 ### 1. **File Organisation**
@@ -59,10 +57,11 @@ Both _MovementController.java_ and _DeathController.java_ changes Frogger's prop
 
 - **State**
   - _ProceedNextLevelController.java_ will automatically run the next level when the player chooses to proceed after clearing the current level. This is achieved by the following codes in the `displayNextLevel()` method: 
-  ```
-  	lvl += 1;
+    ```
+	lvl += 1;
+	background.runGameBackground();
 	background.runLevel(lvl);
-  ```
+    ```
 
   - Advantage: No hardcoding is needed for the transition between levels. Also, _Highscore.java_ is able to read and write to the respective highscore .txt files and display it using _PopUpHighscore.java_. 
 
@@ -85,7 +84,7 @@ Both _MovementController.java_ and _DeathController.java_ changes Frogger's prop
 ***
 
 ### 7. **Slower Refresh Rate**
-- Conditions were added to the `AnimationTimer()` functions in _World.java_, _Score.java_ and _Frogger.java_ to reduce the frequency of the functions.
+- Conditions were added to the `AnimationTimer()` functions ( _World.java_, _Score.java_, _Music.java_ )and `act()` function in _Frogger.java_ to reduce the frequency of the functions.
 - Advantage: Smoothen animations and prevents lag.
 
 ***

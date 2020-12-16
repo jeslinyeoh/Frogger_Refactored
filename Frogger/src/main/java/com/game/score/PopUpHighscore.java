@@ -12,11 +12,17 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
 
+
+/**
+ * Renders the Pop-up Highscore window.
+ * @author hcywy2
+ *
+ */
 public class PopUpHighscore {
 	
 	private String first, second, third;
 	private Highscore highscore = new Highscore();
-	private int n = 4;
+	private int n = 3;
 	private Integer []hs = new Integer[n];
 	private Background background;
 	private Scene popupScene;
@@ -24,10 +30,19 @@ public class PopUpHighscore {
 	private static Stage pophsStage;
 	
 	
+
+	/**
+	 * Initialises {@link com.game.background.Background} object.
+	 */
 	public PopUpHighscore(Background background) {
 		this.background = background;
 	}
 	
+	
+	/**
+	 * Displays the Pop-up Highscore window.
+	 * Gets called by {@link com.game.score.Score#createTimer()}.
+	 */
 	public void display(VBox layout) {
 
 		popupScene = new Scene(layout, 380, 395);
@@ -47,6 +62,12 @@ public class PopUpHighscore {
 	}
 	
 	
+	/**
+	 * Initialises the Pop-up Highscore window's properties.
+	 * This method gets highscores from file 
+	 * and adds it to the Pop-up Highscore window.
+	 * Gets called by {@link com.game.score.Score#createTimer()}.
+	 */
 	public void setRanking(VBox layout) {
 		
 		StackPane stack = new StackPane();
@@ -71,9 +92,9 @@ public class PopUpHighscore {
 		Text secondtxt = new Text();
 		Text thirdtxt = new Text();
 		
-        setProperties(firsttxt, first, 38, Color.GOLD, Color.BLACK);
-        setProperties(secondtxt, second, 34, Color.SILVER, Color.BLACK);
-        setProperties(thirdtxt, third, 30, Color.SIENNA, Color.BLACK);
+        setTextProperties(firsttxt, first, 38, Color.GOLD, Color.BLACK);
+        setTextProperties(secondtxt, second, 34, Color.SILVER, Color.BLACK);
+        setTextProperties(thirdtxt, third, 30, Color.SIENNA, Color.BLACK);
         
         
         stack.getChildren().addAll(hsV, firsttxt, secondtxt, thirdtxt);
@@ -86,7 +107,15 @@ public class PopUpHighscore {
 	}
 	
 	
-	public void setProperties(Text text, String str, int fsize, Color fill, Color stroke) {
+	/**
+	 * Sets some properties of the Text object.
+	 * @param text Text object.
+	 * @param str Text's content.
+	 * @param fsize Font size.
+	 * @param fill Text fill colour.
+	 * @param stroke Stroke colour.
+	 */
+	public void setTextProperties(Text text, String str, int fsize, Color fill, Color stroke) {
 		text.setText(str);
         text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, fsize));
         text.setFill(fill);
@@ -94,6 +123,10 @@ public class PopUpHighscore {
 	}
 	
 	
+	/**
+	 * Allows other classes to have access to the Pop-up Highscore Stage.
+	 * @return pophsStage
+	 */
 	public static Stage gethsStage() {
 		return pophsStage;
 	}

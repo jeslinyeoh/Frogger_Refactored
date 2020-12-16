@@ -6,12 +6,23 @@ import org.junit.jupiter.api.Test;
 
 import com.game.score.Highscore;
 
-class HighscoreTest {
+import javafx.embed.swing.JFXPanel;
+
+/**
+ * To test {@link com.game.score.Highscore} class.
+ * @author hcywy2
+ *
+ */
+public class HighscoreTest {
 
 	Highscore highscore;
 
 	int arr[] = {20,60,50};
 
+	
+	/**
+	 * To test if the sample array is sorted in descending order.
+	 */
 	@Test
 	public void testSortHighscores() {
 		int arr2[] = {60,50,20};
@@ -22,6 +33,10 @@ class HighscoreTest {
 		
 	}
 
+	
+	/**
+	 * To test if the score is written to the file. 
+	 */
 	@Test
 	public void testWriteToFile() {
 		int lvl = 1;
@@ -39,6 +54,9 @@ class HighscoreTest {
 	}
 	
 	
+	/**
+	 * To test if adding existing score will make no change to the highscore list.
+	 */
 	@Test
 	public void testAddExistingScores() {
 		int lvl = 1;
@@ -57,6 +75,9 @@ class HighscoreTest {
 	}
 	
 	
+	/**
+	 * To test if a new highscore is added into the highscore list.
+	 */
 	@Test
 	public void testAddScore() {
 		int lvl = 1;

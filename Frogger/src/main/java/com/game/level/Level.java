@@ -1,22 +1,31 @@
 package com.game.level;
 
-import com.application.MyStage;
 import com.game.background.Log;
+import com.game.background.MyStage;
 import com.game.background.TurtleA;
 import com.game.background.TurtleB;
 import com.game.background.Vehicle;
 
-
+/**
+ * Renders specific level's background objects.
+ * @author hcywy2
+ *
+ */
 public class Level {
 	private MyStage myStage;
 
 	
+	/**
+	 * Initialises {@link com.game.background.MyStage} object.
+	 */
 	public Level(MyStage myStage){
 		this.myStage = myStage;
 	}
 	
 
-	
+	/**
+	 * Adds all the movable background objects into the game according to level. 
+	 */
 	public void runLevel1() {
 		
 		myStage.add(new Log("file:Resources/Images/log3.png", 0, 170, 1, 150));
@@ -56,6 +65,9 @@ public class Level {
 	}
 	
 	
+	/**
+	 * Adds all the movable background objects into the game according to level. 
+	 */
 	public void runLevel2() {
 		
 		myStage.add(new Log("file:Resources/Images/log3.png", 0, 170, 1, 150));
@@ -95,6 +107,9 @@ public class Level {
 	}
 	
 	
+	/**
+	 * Adds all the movable background objects into the game according to level. 
+	 */
 	public void runLevel3() {
 		
 		myStage.add(new TurtleA(200, 165, 2, 130, 130));
@@ -132,6 +147,9 @@ public class Level {
 	}
 	
 	
+	/**
+	 * Adds all the movable background objects into the game according to level. 
+	 */
 	public void runLevel4() {
 		
 		myStage.add(new TurtleA(200, 165, 2, 130, 130));
@@ -169,6 +187,9 @@ public class Level {
 	}
 	
 	
+	/**
+	 * Adds all the movable background objects into the game according to level. 
+	 */
 	public void runLevel5() {
 		
 		myStage.add(new TurtleA(200, 165, 2, 130, 130));
@@ -205,6 +226,9 @@ public class Level {
 	}
 	
 	
+	/**
+	 * Adds all the movable background objects into the game according to level. 
+	 */
 	public void runLevel6() {
 		
 		myStage.add(new TurtleA(100, 165, -1, 130, 130));
@@ -236,6 +260,9 @@ public class Level {
 	}
 	
 	
+	/**
+	 * Adds all the movable background objects into the game according to level. 
+	 */
 	public void runLevel7() {
 
 		myStage.add(new TurtleA(135, 170, 2, 220, 260));
@@ -268,6 +295,9 @@ public class Level {
 	}
 	
 	
+	/**
+	 * Adds all the movable background objects into the game according to level. 
+	 */
 	public void runLevel8() {
 
 		myStage.add(new TurtleA(150, 170, 2, 220, 260));
@@ -295,6 +325,9 @@ public class Level {
 	}
 	
 	
+	/**
+	 * Adds all the movable background objects into the game according to level. 
+	 */
 	public void runLevel9() {
 		
 		myStage.add(new TurtleB(100, 170, -1, 130, 130));
@@ -318,6 +351,9 @@ public class Level {
 	}
 	
 	
+	/**
+	 * Adds all the movable background objects into the game according to level. 
+	 */
 	public void runLevel10() {
 		
 		myStage.add(new TurtleA(150, 165, 2, 220, 260));

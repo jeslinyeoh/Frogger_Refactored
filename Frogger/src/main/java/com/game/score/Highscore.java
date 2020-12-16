@@ -3,15 +3,37 @@ package com.game.score;
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * Reads and writes new highscores into their respective files.
+ * @author hcywy2
+ *
+ */
 public class Highscore{
 	
+	/**
+	 * Number of highscores available.
+	 */
 	private int n = 3;
+	
 	private int hs[] = new int[n];
 	private Integer highScore[];
 	
-	private boolean isHighscore = false, exist = false;
+	
+	/**
+	 * True if current score is a highscore.
+	 */
+	private boolean isHighscore = false;
+	
+	/**
+	 * True if current score already exists in the highscore list.
+	 */
+	private boolean exist = false;
 	
 	
+	/**
+	 * Reads the current highscores from the file.
+	 * @param lvl Current level.
+	 */
 	public void readFromFile(int lvl) {
 		
 		int i;
@@ -44,6 +66,10 @@ public class Highscore{
 	}
 	
 	
+	/**
+	 * Writes latest highscores to the file.
+	 * @param lvl Current level.
+	 */
 	public void writeToFile(int lvl) {
 		
 		try {
@@ -72,6 +98,14 @@ public class Highscore{
 	}
 	
 	
+	/**
+	 * Checks if the current score exist in the file 
+	 * and writes to file if it is a highscore. 
+	 * This method calls {@link #readFromFile(int)}, {@link #sortHighscore(int[])}
+	 * and {@link #writeToFile(int)} 
+	 * @param s Current score.
+	 * @param lvl Current level.
+	 */
 	public void addScore(int s, int lvl) {
 
 		int i;
@@ -110,6 +144,10 @@ public class Highscore{
 	} //end of addScore()
 	
 	
+	
+	/**
+	 * Sorts highscores in the descending order.
+	 */
 	public void sortHighscore(int arr[]) {
 		int i, j, temp;
 		
@@ -135,6 +173,9 @@ public class Highscore{
 	}
 	
 	
+	/**
+	 * Converts an int array to an Integer array.
+	 */
 	public void convertInt(int arr[]) {
 		highScore = new Integer[arr.length];
 		
@@ -147,10 +188,18 @@ public class Highscore{
 	}
 		
 	
+	/**
+	 * Gets {@link Highscore#highScore}.
+	 */
 	public Integer[] getHighScores() {
 		return highScore;
 	}
 	
+	
+	
+	/**
+	 * Gets {@link Highscore#hs}.
+	 */
 	public int[] gethighscores() {
 		return hs;
 	}

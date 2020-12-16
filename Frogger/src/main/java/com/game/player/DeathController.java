@@ -9,6 +9,11 @@ import com.game.background.Vehicle;
 
 import javafx.scene.image.Image;
 
+/**
+ * Checks and handles Frogger's death.
+ * @author hcywy2
+ *
+ */
 public class DeathController extends FroggerProperties{
 	
 	private Frogger frogger;
@@ -22,20 +27,25 @@ public class DeathController extends FroggerProperties{
 	private int deathAnim = 0;
 
 	
+	/**
+	 * Initialises {@link com.game.player.Frogger} object.
+	 */
 	public DeathController(Frogger frogger) {
 		this.frogger = frogger;
-		
-		
 	}
 	
-	@Override
-	public void act(long now) {}
 	
+	
+	/**
+	 * Handles the death animation when the Frogger dies.
+	 * This method is called by {@link com.game.player.Frogger#act(long)}.
+	 * @param now The timestamp of the current frame given in nanoseconds.
+	 */
 	public void handleDeath(long now) {
 		
-		if (frogger.getCarDeath()) {
+		if (frogger.carDeath) {
 			
-			frogger.setNoMove(true);
+			frogger.noMove = true;
 			
 			if (now % 7 == 0) {
 				deathAnim++;
@@ -55,23 +65,23 @@ public class DeathController extends FroggerProperties{
 			case 3: 
 				frogger.setX(270);
 				frogger.setY(679.8 + moveY);
-				frogger.setCarDeath(false);
+				frogger.carDeath = false;
 				deathAnim = 0;
 				setFrogImage(new Image("file:Resources/Images/froggerUp.png", imgSize, imgSize, true, true));
-				frogger.setNoMove(false);
+				frogger.noMove = false;
 				
 
 				frogger.minusPoints();
-				frogger.setChangeScore(true);
+				frogger.changeScore = true;
 				
 				break;
 			}
 			
 		} // end of if
 		
-		if (frogger.getWaterDeath()) {
+		if (frogger.waterDeath) {
 			
-			frogger.setNoMove(true);
+			frogger.noMove = true;
 			
 			if (now % 7 == 0) {
 				deathAnim++;
@@ -94,13 +104,13 @@ public class DeathController extends FroggerProperties{
 			case 5: 
 				frogger.setX(270);
 				frogger.setY(679.8 + moveY);
-				frogger.setWaterDeath(false);
+				frogger.waterDeath = false;
 				deathAnim = 0;
 				setFrogImage(new Image("file:Resources/Images/froggerUp.png", imgSize, imgSize, true, true));
-				frogger.setNoMove(false);
+				frogger.noMove = false;
 				
 				frogger.minusPoints();
-				frogger.setChangeScore(true);
+				frogger.changeScore = true;
 				
 				break;
 			
@@ -110,6 +120,12 @@ public class DeathController extends FroggerProperties{
 		
 	} // end of act()
 	
+	
+	/**
+	 * Checks if the Frogger meets the death conditions.
+	 * This method is called by {@link com.game.player.Frogger#act(long)}.
+	 * @param now The timestamp of the current frame given in nanoseconds.
+	 */
 	public void checkDeath() {
 		intersectVehicle = (frogger.getIntersectingObjects(Vehicle.class).size() >= 1)? true: false;
 		intersectLog = (frogger.getIntersectingObjects(Log.class).size() >= 1)? true: false;
@@ -118,11 +134,11 @@ public class DeathController extends FroggerProperties{
 		intersectEnd = (frogger.getIntersectingObjects(End.class).size() >= 1)? true: false;
 		
 		if (intersectVehicle) {
-			frogger.setCarDeath(true);
+			frogger.carDeath = true;
 		}
 		
 		
-		if (intersectLog && !frogger.getNoMove()) {
+		if (intersectLog && !frogger.noMove) {
 			
 			if(frogger.getIntersectingObjects(Log.class).get(0).getLeft())
 				frogger.move(-2,0);
@@ -134,7 +150,7 @@ public class DeathController extends FroggerProperties{
 		else if (intersectTurtleA) {
 			
 			if (frogger.getIntersectingObjects(TurtleA.class).get(0).isSunk()) {
-				frogger.setWaterDeath(true);
+				frogger.waterDeath = true;
 			} 
 			
 			else {
@@ -155,7 +171,7 @@ public class DeathController extends FroggerProperties{
 		else if (intersectTurtleB) {
 			
 			if (frogger.getIntersectingObjects(TurtleB.class).get(0).isSunk()) {
-				frogger.setWaterDeath(true);
+				frogger.waterDeath = true;
 			} 
 			
 			else {
@@ -175,21 +191,17 @@ public class DeathController extends FroggerProperties{
 		else if (intersectEnd) {
 			
 			if (frogger.getIntersectingObjects(End.class).get(0).isActivated()) {
-				frogger.minusEnd();
+				frogger.end--;
 				frogger.minusPoints();
 			}
 			
 			
 			frogger.addPoints(50);
-			frogger.setChangeScore(true);
-			frogger.setW(800);
+			frogger.changeScore = true;
+			frogger.w = 800;
 			frogger.getIntersectingObjects(End.class).get(0).setEnd();
 			
-			frogger.addEnd();
-			frogger.addEnd();
-			frogger.addEnd();
-			frogger.addEnd();
-			frogger.addEnd();
+			frogger.end++;
 			
 			frogger.setX(270);
 			frogger.setY(679.8 + moveY);
@@ -198,15 +210,24 @@ public class DeathController extends FroggerProperties{
 		}
 		
 		else if (frogger.getY() < 413){
-			frogger.setWaterDeath(true);
+			frogger.waterDeath = true;
 		}
 	}
 	
 	
+	/**
+	 * Sets {@link com.game.player.Frogger} object's image.
+	 */
 	public void setFrogImage(Image image) {
 		frogger.setImage(image);
 	}
 	
+	
+	/**
+	 * Unused.
+	 */
+	@Override
+	public void act(long now) {}
 	
 
 }

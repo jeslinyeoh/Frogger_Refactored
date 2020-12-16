@@ -6,18 +6,25 @@ import com.game.background.Background;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * Controller class for Menu.fxml.
+ * @author hcywy2
+ *
+ */
 public class MenuController {
 	Background bgame = new Background();
 	
-	
+	/**
+	 * Displays Instructions as a pop-up window.
+	 * @exception Exception On file not found.
+	 */
 	@FXML
-	private void displayInstructions() throws IOException {
+	private void displayInstructions() throws Exception {
 		
 		PopUpInstructionsView popINSv = new PopUpInstructionsView();
 
@@ -32,6 +39,10 @@ public class MenuController {
 	}
 	
 	
+	/**
+	 * Displays level 1.
+	 * @param event Receives input from the "Start" button.
+	 */
 	@FXML
 	private void startGame(ActionEvent event) {
 		

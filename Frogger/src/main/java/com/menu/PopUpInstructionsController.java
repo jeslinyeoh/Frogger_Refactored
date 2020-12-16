@@ -5,8 +5,18 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * Controller class for PopUpInstructions.fxml.
+ * @author hcywy2
+ *
+ */
 public class PopUpInstructionsController {
 
+	/**
+	 * Displays the Main Menu.
+	 * @param event Receives input from the "Back" button.
+	 */
 	@FXML
 	private void returnToMenu(ActionEvent event) {
 		Stage currStage =(Stage)((Node)event.getSource()).getScene().getWindow();

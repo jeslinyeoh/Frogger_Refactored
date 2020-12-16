@@ -16,10 +16,18 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 
+/**
+ * Parent class of {@link com.game.background.Background}.
+ * 
+ */
 public abstract class World extends Pane {
     private AnimationTimer timer;
     private long lastUpdate = 0;
     
+    /**
+	 * Initialises a listener to make sure that the application
+	 * detects the player's input and handles it accordingly.
+	 */
     public World() {
     	
     	sceneProperty().addListener(new ChangeListener<Scene>() {
@@ -66,6 +74,10 @@ public abstract class World extends Pane {
     }
 
     
+    /**
+     * Calls the act() method in every frame when it is started. 
+     * Conditions were added to slow down the refresh rate of the AnimationTimer.
+     */
     public void createTimer() {
         timer = new AnimationTimer() {
             @Override
@@ -85,28 +97,47 @@ public abstract class World extends Pane {
         };
     }
 
-    
+    /**
+     * Starts the AnimationTimer.
+     */
     public void start() {
     	createTimer();
         timer.start();
     }
 
     
+    /**
+     * Stops the AnimationTimer.
+     */
     public void stop() {
         timer.stop();
     }
     
     
+    /**
+     * Adds child object.
+     * @param actor Object of classes that inherits the {@link com.application.Actor} class.
+     */
     public void add(Actor actor) {
         getChildren().add(actor);
     }
 
     
+    /**
+     * Removes child object.
+     * @param actor Object of classes that inherits the {@link com.application.Actor} class.
+     */
     public void remove(Actor actor) {
         getChildren().remove(actor);
     }
 
     
+    /**
+     * Get an ArrayList object of a class.
+     * @see #World()
+     * @see #createTimer()
+     * @return Array containing {@link com.application.Actor} objects.
+     */
     public <A extends Actor> List<A> getObjects(Class<A> cls) {
         ArrayList<A> someArray = new ArrayList<A>();
         
@@ -120,5 +151,8 @@ public abstract class World extends Pane {
     }
 
     
+    /**
+     * To be overwritten by child classes.
+     */
     public abstract void act(long now);
 }
