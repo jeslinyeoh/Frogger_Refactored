@@ -60,6 +60,7 @@ public class Score {
             		
             		if (frogger.getChangeScore()) {
                 		setNumber(frogger.getPoints());
+                		frogger.setChangeScore(false);
                 	}
                 	
                 	if (frogger.getStop()) {

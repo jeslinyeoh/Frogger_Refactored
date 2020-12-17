@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import com.game.score.Highscore;
 
-import javafx.embed.swing.JFXPanel;
 
 /**
  * To test {@link com.game.score.Highscore} class.

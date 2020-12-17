@@ -2,7 +2,6 @@ package com.game.level;
 
 import com.application.Main;
 import com.game.background.Background;
-import com.game.background.MyStage;
 import com.game.score.PopUpHighscore;
 
 import javafx.application.Platform;

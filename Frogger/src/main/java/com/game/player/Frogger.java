@@ -56,7 +56,8 @@ public class Frogger extends FroggerProperties{
 	
 	
 	/**
-	 * Calls {@link com.game.player.MovementController}'s methods. 
+	 * Calls {@link com.game.player.MovementController#handleKeyPressed(KeyEvent)}
+	 * and {@link com.game.player.MovementController#handleKeyReleased(KeyEvent)}
 	 * to handle player's input.
 	 */
 	public void checkKeyEntered() {
@@ -87,6 +88,7 @@ public class Frogger extends FroggerProperties{
 	public void act(long now) {
 		
 		if(now - lastUpdate >= 35_000_000) {
+			
 			checkKeyEntered();
 			
 			if (getY() < 0 || getY() > 734) {
@@ -110,24 +112,31 @@ public class Frogger extends FroggerProperties{
 			lastUpdate = now;
 		}
 		
+
 		deathCon.checkDeath();
 		deathCon.handleDeath(now);
-		
 		
 	}
 	
 	
 	/**
-	 * Check if the score is changed.
+	 * Checks if the score is changed.
 	 * @return {@link Frogger#changeScore}.
 	 */
 	public boolean getChangeScore() {
 		return changeScore;
 	}
 	
+	/**
+	 * Sets {@link Frogger#changeScore}.
+	 */
+	public void setChangeScore(boolean bool) {
+		changeScore = bool;
+	}
+	
 	
 	/**
-	 * Add points to current score.
+	 * Adds points to current score.
 	 * @param p Points to add.
 	 */
 	public void addPoints(int p) {

@@ -26,8 +26,8 @@ public class FroggerProperties extends Actor{
 	
 	
 	/**
-	 * Unused.
-	 */
+     * To be overwritten by child classes.
+     */
 	@Override
 	public void act(long now) {}
 

@@ -3,7 +3,7 @@
 
 ### 1. **File Organisation**
 
-A. Classes are reallocated into packages according to their functionality to improve readabilty.
+A. Classes are reallocated into packages according to their functionality to improve readability.
   
 - **Application** 
 contains _Main.java_ and parent classes which are not directly edited during changes.
@@ -24,14 +24,12 @@ B. All images, music and CSS files are stored under "Resources" in the project's
 
 ### 2. **Splitting Classes According to Responsibility**
 
-Classes are split into smaller classes to enhance encapsulation and obey the single reponsibility principle.
+Classes are split into smaller classes to enhance encapsulation and obey the single responsibility principle.
 
 - _Animal.java_ was renamed and split into:
   - **_Frogger.java_** reflects player's actions.
   - **_MovementController.java_** handles player's input and moves Frogger accordingly.
   - **_DeathController.java_** checks death conditions and handles it.
-
-Both _MovementController.java_ and _DeathController.java_ changes Frogger's properties by using getter and setter methods.
 
 
 - _Main.java_ was split into:
@@ -41,7 +39,7 @@ Both _MovementController.java_ and _DeathController.java_ changes Frogger's prop
   - **_Music.java_** plays and stops music.
 
 
-- _MyStage.java_'s media functions were added into _Music.java_ and the class became an empty class to store all of each level's objects. 
+- _MyStage.java_'s music functions were added into _Music.java_ and the class became an empty class to store all of each level's objects. 
 
 ***
 
@@ -68,32 +66,24 @@ Both _MovementController.java_ and _DeathController.java_ changes Frogger's prop
 ***
 
 ### 4. **MVC Pattern**
-- Implemented on _Menu.fxml_, _EndMessage.fxml_, ProceedNextLevel.fxml and _PopUpInstructions.fxml_.
+- Implemented on _Menu.fxml_, _EndMessage.fxml_, _ProceedNextLevel.fxml_ and _PopUpInstructions.fxml_.
 - Advantage: Other classes can't make changes to the "Model" class while accessing its "View" class.
 
 ***
 
-### 5. **JUnit Testing**
-- Added _FroggerTest.java_ and _HighscoreTest.java_ to aid regression testing.
+### 5. **Removing Unnecessary Functions**
+- _Actor.java_
+  - `getWidth()`, `getHeight()`, `manageInput(InputEvent)` and `getOneIntersectingObject(java.lang.Class<A>)` are unused.
 
 ***
 
-### 6. **Buildfiles**
-- Gradle was used to eliminate hardcoded dependencies and runtime VM arguments.
-
-***
-
-### 7. **Slower Refresh Rate**
-- Conditions were added to the `AnimationTimer()` functions (_World.java_, _Score.java_, _Music.java_)and `act()` function in _Frogger.java_ to reduce the frequency of the functions.
+### 6. **Slower Refresh Rate**
+- Conditions were added to the `AnimationTimer()` functions (_World.java_, _Score.java_, _Music.java_) and `act()` function in _Frogger.java_ to reduce the frequency of the functions.
 - Advantage: Smoothen animations and prevents lag.
 
 ***
 
-### 8. **More Levels**
+### 7. **More Levels**
 - Added 9 more levels by changing obstacle count, speed and size to increase game difficulty.
 
-***
 
-### 9. **Restart Button**
-- Players can restart the current level whenever they want without having to replay from level 1. 
- 

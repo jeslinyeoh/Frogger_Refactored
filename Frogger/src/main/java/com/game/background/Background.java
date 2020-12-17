@@ -40,6 +40,10 @@ public class Background extends World{
 	private Music music;
 	private Frogger frogger;
 	private Level level;
+	
+	/**
+	 * Button used to restart the current level.
+	 */
 	private Button restartButton = new Button();
 	
 	/**

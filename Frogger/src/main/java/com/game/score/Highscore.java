@@ -112,7 +112,7 @@ public class Highscore{
 		
 		readFromFile(lvl);		
 		
-		//check if new score exist in the existing highscore list
+		//checks if the current score exist in the existing highscore list
 		for(i = 0; i < hs.length; i++) {
 	        
 	        if(s == hs[i]){

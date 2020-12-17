@@ -99,7 +99,7 @@ public class MovementController extends FroggerProperties{
 			        break;
 					
 			} // end of switch
-				
+			
 		} //end of if
 		
 	} // end of handleKeyReleased()

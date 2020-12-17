@@ -122,7 +122,7 @@ public class DeathController extends FroggerProperties{
 	
 	
 	/**
-	 * Checks if the Frogger meets the death conditions.
+	 * Checks if Frogger is intersecting with other game objects and respond accordingly.
 	 * @see com.game.player.Frogger#act(long)
 	 * @param now The timestamp of the current frame given in nanoseconds.
 	 */
@@ -201,10 +201,6 @@ public class DeathController extends FroggerProperties{
 			frogger.w = 800;
 			frogger.getIntersectingObjects(End.class).get(0).setEnd();
 			
-			frogger.end++;
-			frogger.end++;
-			frogger.end++;
-			frogger.end++;
 			frogger.end++;
 			
 			frogger.setX(270);

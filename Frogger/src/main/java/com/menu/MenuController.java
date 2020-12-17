@@ -45,7 +45,7 @@ public class MenuController {
 	private void startGame(ActionEvent event) {
 		
 		bgame.runGameBackground();
-		bgame.runLevel(10);
+		bgame.runLevel(1);
 		
 		Scene gameScene = new Scene(bgame.myStage, 565, 798);
 		
