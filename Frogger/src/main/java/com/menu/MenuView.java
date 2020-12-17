@@ -20,7 +20,6 @@ public class MenuView {
 	 * @see com.application.Main#start(Stage)
 	 * @exception IOException On file not found.
 	 */
-	
 	public void displayMenu(Stage stage) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
 		

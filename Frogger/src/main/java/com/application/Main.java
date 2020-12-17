@@ -16,13 +16,15 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 	
+	MenuView menuV = new MenuView();
+	
 	/**
 	 * Static variable storing the primaryStage.
 	 */
 	private static Stage pStage;
 
 	/**
-	 * The first function that is launched when the program runs.
+	 * The first function that is run when the program launches.
 	 * @param args Unused.
 	 */
 	public static void main(String[] args) {
@@ -39,8 +41,6 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		
 		pStage = primaryStage;
-		
-		MenuView menuV = new MenuView();
 		
 		primaryStage.setTitle("Frogger Arcade Game");
 		primaryStage.setResizable(false);

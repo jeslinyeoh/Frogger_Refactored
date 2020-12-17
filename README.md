@@ -6,7 +6,7 @@
 A. Classes are reallocated into packages according to their functionality to improve readabilty.
   
 - **Application** 
-contains _Main.java_ and parents classes which are not directly edited during changes.
+contains _Main.java_ and parent classes which are not directly edited during changes.
   
 - **Game**
 contains all game objects categorised into 4 subpackages which are:
@@ -18,7 +18,7 @@ contains all game objects categorised into 4 subpackages which are:
 - **Menu**
 contains the main menu and renders instructions. 
 
-B. All images, music and CSS files are stored in separate folders in the project's root directory.
+B. All images, music and CSS files are stored under "Resources" in the project's root directory.
 
 ***
 
@@ -37,7 +37,7 @@ Both _MovementController.java_ and _DeathController.java_ changes Frogger's prop
 - _Main.java_ was split into:
   - **_Main.java_** launches the application by displaying the menu.
   - **_Background.java_** handles menu and game backgrounds.
-  - **_Score.java_** ensures real-time score update. 
+  - **_Score.java_** ensures real time score update. 
   - **_Music.java_** plays and stops music.
 
 
@@ -68,7 +68,7 @@ Both _MovementController.java_ and _DeathController.java_ changes Frogger's prop
 ***
 
 ### 4. **MVC Pattern**
-- Implemented on _Menu.java_, _EndMessage.java_, ProceedNextLevel.java and _PopUpInstructions.java_
+- Implemented on _Menu.fxml_, _EndMessage.fxml_, ProceedNextLevel.fxml and _PopUpInstructions.fxml_.
 - Advantage: Other classes can't make changes to the "Model" class while accessing its "View" class.
 
 ***
@@ -84,10 +84,16 @@ Both _MovementController.java_ and _DeathController.java_ changes Frogger's prop
 ***
 
 ### 7. **Slower Refresh Rate**
-- Conditions were added to the `AnimationTimer()` functions ( _World.java_, _Score.java_, _Music.java_ )and `act()` function in _Frogger.java_ to reduce the frequency of the functions.
+- Conditions were added to the `AnimationTimer()` functions (_World.java_, _Score.java_, _Music.java_)and `act()` function in _Frogger.java_ to reduce the frequency of the functions.
 - Advantage: Smoothen animations and prevents lag.
 
 ***
 
 ### 8. **More Levels**
 - Added 9 more levels by changing obstacle count, speed and size to increase game difficulty.
+
+***
+
+### 9. **Restart Button**
+- Players can restart the current level whenever they want without having to replay from level 1. 
+ 

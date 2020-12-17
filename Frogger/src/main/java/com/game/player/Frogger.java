@@ -22,6 +22,9 @@ public class Frogger extends FroggerProperties{
 
 	double w = 800;
 	
+	/**
+     * Conditions the refresh rate of the AnimationTimer.
+     */
 	private long lastUpdate = 0;
 
 	private MovementController moveCon;
@@ -115,6 +118,7 @@ public class Frogger extends FroggerProperties{
 	
 	
 	/**
+	 * Check if the score is changed.
 	 * @return {@link Frogger#changeScore}.
 	 */
 	public boolean getChangeScore() {
@@ -123,6 +127,7 @@ public class Frogger extends FroggerProperties{
 	
 	
 	/**
+	 * Add points to current score.
 	 * @param p Points to add.
 	 */
 	public void addPoints(int p) {
@@ -131,7 +136,7 @@ public class Frogger extends FroggerProperties{
 	
 	
 	/**
-	 * Checks if current points is more than 50 and handles both cases.
+	 * Checks if current score is more than 50 and minus points accordingly.
 	 */
 	public void minusPoints() {
 		

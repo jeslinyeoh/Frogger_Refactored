@@ -1,15 +1,14 @@
 package com.application;
 
 import javafx.scene.image.ImageView;
-import javafx.scene.input.InputEvent;
 
 import java.util.ArrayList;
 
 
 /**
  * Parent class of all the game objects in {@link com.game.background}
- * except {@link com.game.background.Background} 
- * and {@link com.game.background.BackgroundImage}.
+ * except {@link com.game.background.Background}
+ * and {@link com.game.background.MyStage}. 
  * 
  */
 public abstract class Actor extends ImageView{

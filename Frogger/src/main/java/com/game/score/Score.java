@@ -19,6 +19,10 @@ public class Score {
 	private Background background;
 	private Highscore highscore = new Highscore();
 	private PopUpHighscore popupHighscore;
+	
+	/**
+     * Conditions the refresh rate of the AnimationTimer.
+     */
 	private long lastUpdate = 0;
 
 	
@@ -133,7 +137,7 @@ public class Score {
     
     
     /**
-     * Gets {@link com.game.score.PopUpHighscore} object.
+     * Gets this.{@link com.game.score.PopUpHighscore} object.
      */
     public PopUpHighscore getPopUpHighscore() {
     	return popupHighscore;

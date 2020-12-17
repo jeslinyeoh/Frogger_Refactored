@@ -69,7 +69,7 @@ public class Background extends World{
 			Stage popupNL = new Stage();
 			
 			popupNL.setResizable(false);
-			popupNL.setTitle("Instructions");
+			popupNL.setTitle("Next Level");
 			popupNL.setX(510);
 			popupNL.setY(465);
 			
@@ -213,7 +213,7 @@ public class Background extends World{
 	
 	
 	/**
-	 * Gets {@link Background#stage} object.
+	 * Gets this.{@link Background#stage} object.
 	 */
 	public Stage getStage() {
 		return stage;
@@ -237,7 +237,7 @@ public class Background extends World{
 	
  	
 	/**
-	 * Gets {@link com.game.score.Score} object.
+	 * Gets this.{@link com.game.score.Score} object.
 	 */
  	public Score getScore() {
  		return score;
@@ -253,7 +253,7 @@ public class Background extends World{
  	
  	
  	/**
- 	 * Gets {@link com.game.background.MyStage} object.
+ 	 * Gets this.{@link com.game.background.MyStage} object.
  	 */
  	public MyStage getMyStage() {
  		return myStage;

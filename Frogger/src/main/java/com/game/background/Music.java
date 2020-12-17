@@ -19,7 +19,10 @@ public class Music extends Actor {
 	private Frogger frogger;
 	private AnimationTimer animTimer;
 	private MediaPlayer mediaPlayer;
-
+	
+	/**
+     * Conditions the refresh rate of the AnimationTimer.
+     */
 	private long lastUpdate = 0;
 	
 	/**

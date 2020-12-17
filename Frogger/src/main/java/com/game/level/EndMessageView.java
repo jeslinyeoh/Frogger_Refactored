@@ -15,7 +15,8 @@ public class EndMessageView {
 	
 	
 	/**
-	 * Displays pop-up window that prompts player to play again. 
+	 * Displays pop-up window that prompts player to play again.
+	 * @param stage End Message's stage. 
 	 * @see com.game.background.Background#checkNextLevel()
 	 * @exception Exception On file not found.
 	 */

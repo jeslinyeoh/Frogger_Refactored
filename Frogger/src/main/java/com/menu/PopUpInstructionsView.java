@@ -17,6 +17,7 @@ public class PopUpInstructionsView {
 	
 	/**
 	 * Displays Instructions as a pop-up window.
+	 * @param stage Pop-up Instruction's stage.
 	 * @see com.menu.MenuController#displayInstructions()
 	 * @exception IOException On file not found.
 	 */

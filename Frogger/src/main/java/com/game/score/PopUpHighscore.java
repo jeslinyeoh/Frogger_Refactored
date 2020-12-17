@@ -16,23 +16,52 @@ import javafx.stage.Stage;
 /**
  * Renders the Pop-up Highscore window.
  * @author hcywy2
- *
+ * @see com.game.score.Highscore
  */
 public class PopUpHighscore {
 	
-	private String first, second, third;
+	/**
+	 * 1st Highscore.
+	 */
+	private String first;
+	
+	/**
+	 * 2nd Highscore.
+	 */
+	private String second; 
+	
+	/**
+	 * 3rd Highscore.
+	 */
+	private String third;
+	
 	private Highscore highscore = new Highscore();
+	
+	/**
+	 * Number of highscores available.
+	 */
 	private int n = 3;
+	
+	/**
+	 * Integer array containing all highscores.
+	 */
 	private Integer []hs = new Integer[n];
 	private Background background;
+	
+	/**
+	 * Pop-up Highscore scene.
+	 */
 	private Scene popupScene;
-	private Stage popuphs;
+	
+	/**
+	 * Pop-up Highscore stage.
+	 */
 	private static Stage pophsStage;
 	
 	
 
 	/**
-	 * Initialises {@link com.game.background.Background} object.
+	 * Initialises this.{@link com.game.background.Background} object.
 	 */
 	public PopUpHighscore(Background background) {
 		this.background = background;
@@ -47,17 +76,16 @@ public class PopUpHighscore {
 
 		popupScene = new Scene(layout, 380, 395);
 		
-		popuphs = new Stage();
+		pophsStage = new Stage();
 		
-		popuphs.setResizable(false);
-		popuphs.setTitle("Highscore");
-		popuphs.setX(545);
-		popuphs.setY(150);
+		pophsStage.setResizable(false);
+		pophsStage.setTitle("Highscore");
+		pophsStage.setX(545);
+		pophsStage.setY(150);
 		
-		pophsStage = popuphs;
 		
-		popuphs.setScene(popupScene);
-		popuphs.show();
+		pophsStage.setScene(popupScene);
+		pophsStage.show();
    
 	}
 	

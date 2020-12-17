@@ -1,6 +1,5 @@
 package com.menu;
 
-import java.io.IOException;
 
 import com.game.background.Background;
 
@@ -18,15 +17,14 @@ import javafx.stage.Stage;
  */
 public class MenuController {
 	Background bgame = new Background();
+	PopUpInstructionsView popINSv = new PopUpInstructionsView();
 	
 	/**
-	 * Displays Instructions as a pop-up window.
+	 * Displays Instructions as a pop-up window by calling {@link com.menu.PopUpInstructionsView#display(Stage)}.
 	 * @exception Exception On file not found.
 	 */
 	@FXML
 	private void displayInstructions() throws Exception {
-		
-		PopUpInstructionsView popINSv = new PopUpInstructionsView();
 
 		Stage popupins = new Stage();
 			
@@ -47,7 +45,7 @@ public class MenuController {
 	private void startGame(ActionEvent event) {
 		
 		bgame.runGameBackground();
-		bgame.runLevel(1);
+		bgame.runLevel(10);
 		
 		Scene gameScene = new Scene(bgame.myStage, 565, 798);
 		

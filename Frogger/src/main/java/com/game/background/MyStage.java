@@ -3,8 +3,8 @@ package com.game.background;
 import com.application.World;
 
 /**
- * Empty class used to store all the game objects. 
- * @see com.game.background.Background
+ * Empty class used by {@link com.game.background.Background} 
+ * to store all the {@link com.game.background} objects. 
  */
 public class MyStage extends World{
 

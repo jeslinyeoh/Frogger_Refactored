@@ -13,7 +13,6 @@ public class Turtle extends Actor{
 	Image turtle1, turtle2, turtle3, turtle4;
 	Image turtle1b, turtle1c;
 	double speed;
-	boolean bool = true;
 	boolean sunk = false;
 	
 	public Turtle() {}

@@ -11,18 +11,20 @@ import javafx.scene.image.Image;
  */
 public class BackgroundImage extends Actor{
 
+	
+	/**
+	 * Sets some of the background image's properties.
+	 * @param imageLink File path of the image used.
+	 */
+	public BackgroundImage(String imageLink) {
+		setImage(new Image(imageLink, 565, 800, true, true));	
+	}
+	
 	/**
 	 * Unused.
 	 */
 	@Override
 	public void act(long now) {	}
 	
-	/**
-	 * This method sets some of the background image's properties.
-	 * @param imageLink File path of the image used.
-	 */
-	public BackgroundImage(String imageLink) {
-		setImage(new Image(imageLink, 565, 800, true, true));	
-	}
 
 }

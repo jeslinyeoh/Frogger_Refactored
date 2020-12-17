@@ -28,7 +28,7 @@ public class DeathController extends FroggerProperties{
 
 	
 	/**
-	 * Initialises {@link com.game.player.Frogger} object.
+	 * Initialises this.{@link com.game.player.Frogger} object.
 	 */
 	public DeathController(Frogger frogger) {
 		this.frogger = frogger;
@@ -38,7 +38,7 @@ public class DeathController extends FroggerProperties{
 	
 	/**
 	 * Handles the death animation when the Frogger dies.
-	 * This method is called by {@link com.game.player.Frogger#act(long)}.
+	 * @see com.game.player.Frogger#act(long)
 	 * @param now The timestamp of the current frame given in nanoseconds.
 	 */
 	public void handleDeath(long now) {
@@ -115,15 +115,15 @@ public class DeathController extends FroggerProperties{
 				break;
 			
 			} // end of switch
+			
 		} // end of if
-		
 		
 	} // end of act()
 	
 	
 	/**
 	 * Checks if the Frogger meets the death conditions.
-	 * This method is called by {@link com.game.player.Frogger#act(long)}.
+	 * @see com.game.player.Frogger#act(long)
 	 * @param now The timestamp of the current frame given in nanoseconds.
 	 */
 	public void checkDeath() {
@@ -202,6 +202,10 @@ public class DeathController extends FroggerProperties{
 			frogger.getIntersectingObjects(End.class).get(0).setEnd();
 			
 			frogger.end++;
+			frogger.end++;
+			frogger.end++;
+			frogger.end++;
+			frogger.end++;
 			
 			frogger.setX(270);
 			frogger.setY(679.8 + moveY);
@@ -216,7 +220,7 @@ public class DeathController extends FroggerProperties{
 	
 	
 	/**
-	 * Sets {@link com.game.player.Frogger} object's image.
+	 * Sets this.{@link com.game.player.Frogger} object's image.
 	 */
 	public void setFrogImage(Image image) {
 		frogger.setImage(image);

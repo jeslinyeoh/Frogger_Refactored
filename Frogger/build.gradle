@@ -40,17 +40,23 @@ run {
 		systemProperty "java.library.path", "C:\tmp"
 	}
 	
-	
+}
+
 sourceSets {
   main {
     resources {
         srcDirs = ["src/main/java"]
+        //classpath = configurations.compile
     }
   }
 }
 
 
+task myJavadocs(type: Javadoc) {
+  source = sourceSets.main.allJava
 }
+
+
 
 
 

@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 public class PopUpInstructionsController {
 
 	/**
-	 * Displays the Main Menu.
+	 * Closes the Instructions window.
 	 * @param event Receives input from the "Back" button.
 	 */
 	@FXML

@@ -11,9 +11,8 @@ import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+
 
 
 /**
@@ -22,11 +21,16 @@ import javafx.scene.layout.StackPane;
  */
 public abstract class World extends Pane {
     private AnimationTimer timer;
+    
+    /**
+     * Conditions the refresh rate of the AnimationTimer.
+     */
     private long lastUpdate = 0;
     
     /**
 	 * Initialises a listener to make sure that the application
 	 * detects the player's input and handles it accordingly.
+	 * Uses {@link #getObjects(Class)}.
 	 */
     public World() {
     	
@@ -75,8 +79,9 @@ public abstract class World extends Pane {
 
     
     /**
-     * Calls the act() method in every frame when it is started. 
+     * Calls {@link #act(long)} method in every frame when it is started. 
      * Conditions were added to slow down the refresh rate of the AnimationTimer.
+     * Uses {@link #getObjects(Class)}.
      */
     public void createTimer() {
         timer = new AnimationTimer() {
@@ -97,6 +102,7 @@ public abstract class World extends Pane {
         };
     }
 
+    
     /**
      * Starts the AnimationTimer.
      */
@@ -133,11 +139,12 @@ public abstract class World extends Pane {
 
     
     /**
-     * Get an ArrayList object of a class.
+     * Gets an ArrayList object of a class.
      * @see #World()
      * @see #createTimer()
-     * @return Array containing {@link com.application.Actor} objects.
+     * @return ArrayList containing {@link com.application.Actor} objects.
      */
+	@SuppressWarnings("unchecked")
     public <A extends Actor> List<A> getObjects(Class<A> cls) {
         ArrayList<A> someArray = new ArrayList<A>();
         

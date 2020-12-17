@@ -13,21 +13,10 @@ public class MovementController extends FroggerProperties{
 	private Frogger frogger;
 	
 	/**
-	 * Initialises {@link com.game.player.Frogger} object 
-	 * and all the images of Frogger's movement.
+	 * Initialises this.{@link com.game.player.Frogger} object. 
 	 */
 	public MovementController(Frogger frogger){
 		this.frogger = frogger;
-		
-		imgW1 = new Image("file:Resources/Images/froggerUp.png", imgSize, imgSize, true, true);
-		imgA1 = new Image("file:Resources/Images/froggerLeft.png", imgSize, imgSize, true, true);
-		imgS1 = new Image("file:Resources/Images/froggerDown.png", imgSize, imgSize, true, true);
-		imgD1 = new Image("file:Resources/Images/froggerRight.png", imgSize, imgSize, true, true);
-		imgW2 = new Image("file:Resources/Images/froggerUpJump.png", imgSize, imgSize, true, true);
-		imgA2 = new Image("file:Resources/Images/froggerLeftJump.png", imgSize, imgSize, true, true);
-		imgS2 = new Image("file:Resources/Images/froggerDownJump.png", imgSize, imgSize, true, true);
-		imgD2 = new Image("file:Resources/Images/froggerRightJump.png", imgSize, imgSize, true, true);
-		
 	}
 	
 	
@@ -149,7 +138,7 @@ public class MovementController extends FroggerProperties{
 	
 	
 	/**
-	 * Sets {@link com.game.player.Frogger} object's image.
+	 * Sets this.{@link com.game.player.Frogger} object's image.
 	 */
 	public void setFrogImage(Image image) {
 		frogger.setImage(image);
