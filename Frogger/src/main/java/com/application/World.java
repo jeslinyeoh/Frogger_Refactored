@@ -27,6 +27,7 @@ public abstract class World extends Pane {
      */
     private long lastUpdate = 0;
     
+    
     /**
 	 * Initialises a listener to make sure that the application
 	 * detects the player's input and handles it accordingly.

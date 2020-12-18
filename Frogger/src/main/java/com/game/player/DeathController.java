@@ -35,7 +35,6 @@ public class DeathController extends FroggerProperties{
 	}
 	
 	
-	
 	/**
 	 * Handles the death animation when the Frogger dies.
 	 * @see com.game.player.Frogger#act(long)
@@ -124,14 +123,13 @@ public class DeathController extends FroggerProperties{
 	/**
 	 * Checks if Frogger is intersecting with other game objects and respond accordingly.
 	 * @see com.game.player.Frogger#act(long)
-	 * @param now The timestamp of the current frame given in nanoseconds.
 	 */
 	public void checkDeath() {
-		intersectVehicle = (frogger.getIntersectingObjects(Vehicle.class).size() >= 1)? true: false;
-		intersectLog = (frogger.getIntersectingObjects(Log.class).size() >= 1)? true: false;
-		intersectTurtleA = (frogger.getIntersectingObjects(TurtleA.class).size() >= 1)? true: false;
-		intersectTurtleB = (frogger.getIntersectingObjects(TurtleB.class).size() >= 1)? true: false;
-		intersectEnd = (frogger.getIntersectingObjects(End.class).size() >= 1)? true: false;
+		intersectVehicle = frogger.getIntersectingObjects(Vehicle.class).size() >= 1;
+		intersectLog = frogger.getIntersectingObjects(Log.class).size() >= 1;
+		intersectTurtleA = frogger.getIntersectingObjects(TurtleA.class).size() >= 1;
+		intersectTurtleB = frogger.getIntersectingObjects(TurtleB.class).size() >= 1;
+		intersectEnd = frogger.getIntersectingObjects(End.class).size() >= 1;
 		
 		if (intersectVehicle) {
 			frogger.carDeath = true;
@@ -140,22 +138,25 @@ public class DeathController extends FroggerProperties{
 		
 		if (intersectLog && !frogger.noMove) {
 			
-			if(frogger.getIntersectingObjects(Log.class).get(0).getLeft())
+			if(frogger.getOneIntersectingObject(Log.class).getLeft()) {
 				frogger.move(-2,0);
-			else
+			}
+			
+			else {
 				frogger.move (1,0);
+			}
 		}
 		
 		
-		else if (intersectTurtleA) {
+		else if (intersectTurtleA && !frogger.noMove) {
 			
-			if (frogger.getIntersectingObjects(TurtleA.class).get(0).isSunk()) {
+			if (frogger.getOneIntersectingObject(TurtleA.class).isSunk()) {
 				frogger.waterDeath = true;
 			} 
 			
 			else {
 				
-				if(frogger.getIntersectingObjects(TurtleA.class).get(0).getLeft()) {
+				if(frogger.getOneIntersectingObject(TurtleA.class).getLeft()) {
 					frogger.move(-1,0);
 				}
 
@@ -168,15 +169,15 @@ public class DeathController extends FroggerProperties{
 		}
 		
 		
-		else if (intersectTurtleB) {
+		else if (intersectTurtleB && !frogger.noMove) {
 			
-			if (frogger.getIntersectingObjects(TurtleB.class).get(0).isSunk()) {
+			if (frogger.getOneIntersectingObject(TurtleB.class).isSunk()) {
 				frogger.waterDeath = true;
 			} 
 			
 			else {
 				
-				if(frogger.getIntersectingObjects(TurtleB.class).get(0).getLeft()) {
+				if(frogger.getOneIntersectingObject(TurtleB.class).getLeft()) {
 					frogger.move(-1,0);
 				}
 
@@ -190,7 +191,7 @@ public class DeathController extends FroggerProperties{
 		
 		else if (intersectEnd) {
 			
-			if (frogger.getIntersectingObjects(End.class).get(0).isActivated()) {
+			if (frogger.getOneIntersectingObject(End.class).isActivated()) {
 				frogger.end--;
 				frogger.minusPoints();
 			}
@@ -199,7 +200,7 @@ public class DeathController extends FroggerProperties{
 			frogger.addPoints(50);
 			frogger.changeScore = true;
 			frogger.w = 800;
-			frogger.getIntersectingObjects(End.class).get(0).setEnd();
+			frogger.getOneIntersectingObject(End.class).setEnd();
 			
 			frogger.end++;
 			

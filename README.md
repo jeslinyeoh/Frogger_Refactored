@@ -18,7 +18,7 @@ contains all game objects categorised into 4 subpackages which are:
 - **Menu**
 contains the main menu and renders instructions. 
 
-B. All images, music and CSS files are stored under "Resources" in the project's root directory.
+B. All images, music, highscore and CSS files are stored under "Resources" in the project's root directory.
 
 ***
 
@@ -46,7 +46,7 @@ Classes are split into smaller classes to enhance encapsulation and obey the sin
 
 ### 3. **Applying Design Patterns**
 - **Mediator**
-  - _Level.java_ interacts with game object classes (_Log,java_, _TurtleA.java_, _TurtleB.java_ and _Vehicle.java_ [originally _Obstacle.java_]) on behalf of _Background.java_.
+  - _Level.java_ interacts with movable game object classes (_Log,java_, _TurtleA.java_, _TurtleB.java_ and _Vehicle.java_ [originally _Obstacle.java_]) on behalf of _Background.java_.
   - Advantage: All the game object classes and _Background.java_ are independent of each other and only collaborates via a mediator which is _Level.java_. As a result, the game objects can be reused in other forms of the application.
 
 - **Factory**
@@ -73,17 +73,23 @@ Classes are split into smaller classes to enhance encapsulation and obey the sin
 
 ### 5. **Removing Unnecessary Functions**
 - _Actor.java_
-  - `getWidth()`, `getHeight()`, `manageInput(InputEvent)` and `getOneIntersectingObject(java.lang.Class<A>)` are unused.
+  - `getWidth()`, `getHeight()` and `manageInput(InputEvent)` are unused.
 
 ***
 
 ### 6. **Slower Refresh Rate**
-- Conditions were added to the `AnimationTimer()` functions (_World.java_, _Score.java_, _Music.java_) and `act()` function in _Frogger.java_ to reduce the frequency of the functions.
+- Conditions were added to the `handle(long)` functions (_World.java_, _Score.java_, _Music.java_) and `act(long)` function in _Frogger.java_ to reduce the frequency of the functions.
 - Advantage: Smoothen animations and prevents lag.
 
 ***
 
 ### 7. **More Levels**
-- Added 9 more levels by changing obstacle count, speed and size to increase game difficulty.
+- Added 9 more levels by increasing difficulty.
+  - Level 1 to 5: More obstacles moving at faster speed.
+  - Level 6 to 10: Obstacles of various sizes moving at faster speed.
 
+***
+
+### 8. **Death Penalty**
+- Score is assigned to 0 if Frogger dies when the current score is not more than 50.
 

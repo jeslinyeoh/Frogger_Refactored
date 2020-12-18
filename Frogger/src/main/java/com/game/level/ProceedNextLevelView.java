@@ -20,7 +20,7 @@ public class ProceedNextLevelView {
 	 * Displays pop-up window that prompts player to proceed to the next level. 
 	 * @param stage Proceed Next Level's stage.
 	 * @see com.game.background.Background#checkNextLevel()
-	 * @exception Exception On file not found.
+	 * @exception IOException On file not found.
 	 */
 	public void displayPopUp(Stage stage) throws IOException {
 		

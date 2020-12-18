@@ -34,9 +34,11 @@ public abstract class Actor extends ImageView{
     
     /**
      * Checks if the current object is intersecting with other objects.
+     * @param <A> Class that extends Actor.
      * @param cls Other object's class.
+     * @return ArrayList containing intersecting objects.
+     * 
      * @see com.game.player.DeathController#checkDeath()
-     *
      */
     public <A extends Actor> java.util.List<A> getIntersectingObjects(java.lang.Class<A> cls){
         ArrayList<A> someArray = new ArrayList<A>();
@@ -46,6 +48,26 @@ public abstract class Actor extends ImageView{
             }
         }
         return someArray;
+    }
+    
+    
+    /**
+     * Checks if the current object is intersecting with other objects.
+     * @param <A> Class that extends Actor.
+     * @param cls Other object's class.
+     * @return The first object of the intersecting object ArrayList.
+     * 
+     * @see com.game.player.DeathController#checkDeath()
+     */
+    public <A extends Actor> A getOneIntersectingObject(java.lang.Class<A> cls) {
+        ArrayList<A> someArray = new ArrayList<A>();
+        for (A actor: getWorld().getObjects(cls)) {
+            if (actor != this && actor.intersects(this.getBoundsInLocal())) {
+                someArray.add(actor);
+                break;
+            }
+        }
+        return someArray.get(0);
     }
     
     

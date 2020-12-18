@@ -23,7 +23,6 @@ public class TurtleA extends Turtle{
 	}
 	
 	
-	
 	/**
 	 * Continuously switches image and moves the turtle in the horizontal direction. 
 	 *  More images to switch to as compared to {@link com.game.background.TurtleB}.

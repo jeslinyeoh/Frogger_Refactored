@@ -127,6 +127,7 @@ public class Frogger extends FroggerProperties{
 		return changeScore;
 	}
 	
+	
 	/**
 	 * Sets {@link Frogger#changeScore}.
 	 */
@@ -175,6 +176,7 @@ public class Frogger extends FroggerProperties{
 	public int getPoints() {
 		return points;
 	}
+	
 	
 	/**
 	 * Check if the level is cleared.

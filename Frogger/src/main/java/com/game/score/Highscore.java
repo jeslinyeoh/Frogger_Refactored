@@ -129,9 +129,9 @@ public class Highscore{
 				isHighscore = true;
 			}
 			
-			//replace the last element in the array
+			//replaces the last element in the array
 			if(isHighscore) {
-				hs[hs.length-1] = s; //replace last element
+				hs[hs.length-1] = s; //replaces last element
 				isHighscore = false;
 				break;
 			}
@@ -189,7 +189,7 @@ public class Highscore{
 		
 	
 	/**
-	 * Gets {@link Highscore#highScore}.
+	 * Gets {@link #highScore}.
 	 */
 	public Integer[] getHighScores() {
 		return highScore;
@@ -198,7 +198,7 @@ public class Highscore{
 	
 	
 	/**
-	 * Gets {@link Highscore#hs}.
+	 * Gets {@link #hs}.
 	 */
 	public int[] gethighscores() {
 		return hs;

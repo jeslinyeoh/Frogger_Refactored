@@ -19,6 +19,7 @@ public class MenuController {
 	Background bgame = new Background();
 	PopUpInstructionsView popINSv = new PopUpInstructionsView();
 	
+	
 	/**
 	 * Displays Instructions as a pop-up window by calling {@link com.menu.PopUpInstructionsView#display(Stage)}.
 	 * @exception Exception On file not found.

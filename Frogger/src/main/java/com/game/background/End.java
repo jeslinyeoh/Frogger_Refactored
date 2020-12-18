@@ -26,13 +26,6 @@ public class End extends Actor{
 	
 	
 	/**
-	 * Unused.
-	 */
-	@Override
-	public void act(long now) {}
-	
-	
-	/**
 	 * Change the end point's image.
 	 */
 	public void setEnd() {
@@ -47,6 +40,14 @@ public class End extends Actor{
 	public boolean isActivated() {
 		return activated;
 	}
+	
+	
+	/**
+	 * Unused.
+	 */
+	@Override
+	public void act(long now) {}
+	
 	
 
 }

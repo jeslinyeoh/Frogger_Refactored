@@ -1,6 +1,8 @@
 package com.game.background;
 
 
+import java.io.IOException;
+
 import com.application.World;
 import com.game.level.EndMessageView;
 import com.game.level.Level;
@@ -62,11 +64,11 @@ public class Background extends World{
 	 * 
 	 * @see com.game.level.ProceedNextLevelController
 	 * @see com.game.level.EndMessageController
+	 * @see com.game.score.Score#createTimer()
 	 * 
-	 * This method is called by {@link com.game.score.Score#createTimer()}.
-	 * @exception Exception On file not found. 
+	 * @exception IOException On file not found. 
 	 */
-	public void checkNextLevel() throws Exception {
+	public void checkNextLevel() throws IOException {
 		
 		if(lvl < 10) {	
 
@@ -209,7 +211,7 @@ public class Background extends World{
 	
 	
 	/**
-	 * Sets this.{@link Background#stage} object.
+	 * Sets this.{@link #stage} object.
 	 */
 	public void setStage(Stage stage) {
 		this.stage = stage;
@@ -217,7 +219,7 @@ public class Background extends World{
 	
 	
 	/**
-	 * Gets this.{@link Background#stage} object.
+	 * Gets this.{@link #stage} object.
 	 */
 	public Stage getStage() {
 		return stage;
@@ -284,7 +286,9 @@ public class Background extends World{
 	 */
 	@Override
 	public void act(long now) {	
+	
 	}
+	
 	
 	
 }

@@ -5,7 +5,6 @@ import com.application.Actor;
 import javafx.scene.image.Image;
 
 /**
- * 
  * Renders the digit images which reflects the player's score.
  */
 public class Digit extends Actor{

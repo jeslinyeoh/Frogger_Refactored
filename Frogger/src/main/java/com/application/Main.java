@@ -23,6 +23,7 @@ public class Main extends Application {
 	 */
 	private static Stage pStage;
 
+	
 	/**
 	 * The first function that is run when the program launches.
 	 * @param args Unused.

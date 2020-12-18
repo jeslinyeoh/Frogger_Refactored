@@ -20,6 +20,7 @@ public class BackgroundImage extends Actor{
 		setImage(new Image(imageLink, 565, 800, true, true));	
 	}
 	
+	
 	/**
 	 * Unused.
 	 */

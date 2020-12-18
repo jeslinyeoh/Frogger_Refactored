@@ -13,6 +13,7 @@ import javafx.stage.Stage;
  */
 public class PopUpInstructionsController {
 
+	
 	/**
 	 * Closes the Instructions window.
 	 * @param event Receives input from the "Back" button.
