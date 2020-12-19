@@ -10,7 +10,9 @@ import com.game.background.Vehicle;
 import javafx.scene.image.Image;
 
 /**
+ * 
  * Checks and handles Frogger's death.
+ * 
  * @author hcywy2
  *
  */
@@ -24,6 +26,9 @@ public class DeathController extends FroggerProperties{
 	private boolean intersectTurtleB;
 	private boolean intersectEnd;
 	
+	/**
+	 * Keeps track of the current death image.
+	 */
 	private int deathAnim = 0;
 
 	
@@ -121,7 +126,7 @@ public class DeathController extends FroggerProperties{
 	
 	
 	/**
-	 * Checks if Frogger is intersecting with other game objects and respond accordingly.
+	 * Checks if Frogger is intersecting with other game objects and responds accordingly.
 	 * @see com.game.player.Frogger#act(long)
 	 */
 	public void checkDeath() {

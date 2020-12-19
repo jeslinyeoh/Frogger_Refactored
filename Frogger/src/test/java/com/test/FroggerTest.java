@@ -8,7 +8,9 @@ import com.game.player.Frogger;
 import javafx.embed.swing.JFXPanel;
 
 /**
- * To test {@link com.game.player.Frogger} class.
+ * 
+ * Tests {@link com.game.player.Frogger} class.
+ * 
  * @author hcywy2
  *
  */
@@ -21,7 +23,7 @@ public class FroggerTest {
 
 	
 	/**
-	 * To test if the level is cleared when 5 Froggers has reached the end point.
+	 * Tests if the level is cleared when 5 Froggers has reached the end point.
 	 */
 	@Test
 	public void testGameEnd() {
@@ -38,7 +40,7 @@ public class FroggerTest {
 	
 	
 	/**
-	 * To test the adding points mechanism.
+	 * Tests the adding points mechanism.
 	 */
 	@Test
 	public void testAddPoints() {
@@ -51,7 +53,7 @@ public class FroggerTest {
 	
 	
 	/**
-	 * To test if the points are deducted accordingly 
+	 * Tests if the points are deducted accordingly 
 	 * when the current score is more than 50.
 	 */
 	@Test
@@ -65,7 +67,7 @@ public class FroggerTest {
 	
 	
 	/**
-	 * To test if the current score is lesser than or equal to 50, 
+	 * Tests if the current score is lesser than or equal to 50, 
 	 * then the score will be assigned to 0.
 	 */
 	@Test

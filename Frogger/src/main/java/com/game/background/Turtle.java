@@ -5,7 +5,9 @@ import com.application.Actor;
 import javafx.scene.image.Image;
 
 /**
+ * 
  * Initialises turtle's properties.
+ * 
  * @author hcywy2
  *
  */

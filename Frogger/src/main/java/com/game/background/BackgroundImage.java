@@ -7,6 +7,8 @@ import javafx.scene.image.Image;
 /**
  * 
  * Sets the background image.
+ * 
+ * @author hcywy2
  *
  */
 public class BackgroundImage extends Actor{

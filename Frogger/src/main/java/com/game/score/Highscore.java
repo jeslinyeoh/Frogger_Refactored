@@ -4,7 +4,9 @@ import java.io.*;
 import java.util.Scanner;
 
 /**
+ * 
  * Reads and writes new highscores into their respective files.
+ * 
  * @author hcywy2
  *
  */

@@ -14,9 +14,12 @@ import javafx.stage.Stage;
 
 
 /**
+ * 
  * Renders the Pop-up Highscore window.
+ * 
  * @author hcywy2
  * @see com.game.score.Highscore
+ * 
  */
 public class PopUpHighscore {
 	
@@ -154,6 +157,8 @@ public class PopUpHighscore {
 	/**
 	 * Allows other classes to have access to the Pop-up Highscore Stage.
 	 * @return pophsStage
+	 * @see com.game.level.EndMessageController#highscoreStage
+	 * @see com.game.level.ProceedNextLevelController#highscoreStage
 	 */
 	public static Stage gethsStage() {
 		return pophsStage;

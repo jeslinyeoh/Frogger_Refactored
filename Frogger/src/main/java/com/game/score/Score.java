@@ -8,7 +8,9 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.layout.VBox;
 
 /**
+ * 
  * Ensures real time score update during the game.
+ * 
  * @author hcywy2
  *
  */
@@ -68,7 +70,7 @@ public class Score {
                 		VBox layout = new VBox();
                 		popupHighscore.setRanking(layout);
                 		
-                		background.myStage.stop();
+                		background.getMyStage().stop();
                 		stop();
                 	
                 		popupHighscore.display(layout);
@@ -117,7 +119,7 @@ public class Score {
     	int shift = 0;
     	
     	if (n == 0) {
-			  background.myStage.add(new Digit(0, 30, 530-30, 25));
+			  background.getMyStage().add(new Digit(0, 30, 530-30, 25));
 		}
     	
     	while (n > 0) {
@@ -127,11 +129,11 @@ public class Score {
     		n = d;
     		  
     		if(n < 100) {
-    			background.myStage.add(new Digit(0, 30, 530-60, 25));
+    			background.getMyStage().add(new Digit(0, 30, 530-60, 25));
     			  
     		}
     		  
-    		  background.myStage.add(new Digit(k, 30, 530 - shift, 25));
+    		  background.getMyStage().add(new Digit(k, 30, 530 - shift, 25));
     		  shift += 30;
     	}
     }

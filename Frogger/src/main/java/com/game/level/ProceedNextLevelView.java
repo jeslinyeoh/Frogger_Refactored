@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 /**
  * 
  * View class for ProceedNextLevel.fxml.
+ * 
  * @author hcywy2
  *
  */

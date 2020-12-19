@@ -7,6 +7,8 @@ import javafx.scene.image.Image;
 /**
  * 
  * Renders the end point's images that will hold Frogger when it reaches.
+ * 
+ * @author hcywy2
  *
  */
 public class End extends Actor{

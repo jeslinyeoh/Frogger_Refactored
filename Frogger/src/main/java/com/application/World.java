@@ -16,7 +16,11 @@ import javafx.scene.layout.Pane;
 
 
 /**
- * Parent class of {@link com.game.background.Background}.
+ * 
+ * Parent class of {@link com.game.background.Background}
+ * and {@link com.game.background.MyStage}.
+ * 
+ *  @author hcywy2
  * 
  */
 public abstract class World extends Pane {

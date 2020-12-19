@@ -5,7 +5,9 @@ import com.application.Actor;
 import javafx.scene.image.Image;
 
 /**
+ * 
  * Initialises Frogger's properties and all the images of Frogger's movement.
+ * 
  * @author hcywy2
  *
  */

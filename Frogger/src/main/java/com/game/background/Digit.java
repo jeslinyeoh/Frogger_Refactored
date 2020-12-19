@@ -5,10 +5,14 @@ import com.application.Actor;
 import javafx.scene.image.Image;
 
 /**
+ * 
  * Renders the digit images which reflects the player's score.
+ * 
+ * @author hcywy2
+ * 
  */
 public class Digit extends Actor{
-	private Image im1;
+	private Image img;
 	
 	/**
 	 * Initialises the image of the current object. 
@@ -18,8 +22,8 @@ public class Digit extends Actor{
 	 * @param y y-position of the image.
 	 */
 	public Digit(int n, int dim, int x, int y) {
-		im1 = new Image("file:Resources/Images/"+n+".png", dim, dim, true, true);
-		setImage(im1);
+		img = new Image("file:Resources/Images/"+n+".png", dim, dim, true, true);
+		setImage(img);
 		setX(x);
 		setY(y);
 	}

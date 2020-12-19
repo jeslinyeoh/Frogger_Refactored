@@ -8,7 +8,9 @@ import com.game.score.Highscore;
 
 
 /**
- * To test {@link com.game.score.Highscore} class.
+ * 
+ * Tests {@link com.game.score.Highscore} class.
+ * 
  * @author hcywy2
  *
  */
@@ -20,7 +22,7 @@ public class HighscoreTest {
 
 	
 	/**
-	 * To test if the sample array is sorted in descending order.
+	 * Tests if the highscore list is sorted in descending order.
 	 */
 	@Test
 	public void testSortHighscores() {
@@ -34,7 +36,7 @@ public class HighscoreTest {
 
 	
 	/**
-	 * To test if the score is written to the file. 
+	 * Tests if the highscores are written to the file. 
 	 */
 	@Test
 	public void testWriteToFile() {
@@ -54,7 +56,7 @@ public class HighscoreTest {
 	
 	
 	/**
-	 * To test if adding existing score will make no change to the highscore list.
+	 * Tests if adding existing score will make no change to the highscore list.
 	 */
 	@Test
 	public void testAddExistingScores() {
@@ -75,7 +77,7 @@ public class HighscoreTest {
 	
 	
 	/**
-	 * To test if a new highscore is added into the highscore list.
+	 * Tests if a new highscore is added into the highscore list.
 	 */
 	@Test
 	public void testAddScore() {

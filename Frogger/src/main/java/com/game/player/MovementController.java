@@ -4,7 +4,9 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 
 /**
+ * 
  * Controls the Frogger's movement according to the player's input.
+ * 
  * @author hcywy2
  *
  */

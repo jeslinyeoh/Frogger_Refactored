@@ -7,7 +7,9 @@ import com.game.background.TurtleB;
 import com.game.background.Vehicle;
 
 /**
+ * 
  * Renders specific level's background objects.
+ * 
  * @author hcywy2
  *
  */
@@ -16,7 +18,7 @@ public class Level {
 
 	
 	/**
-	 * Initialises {@link com.game.background.MyStage} object.
+	 * Initialises this.{@link com.game.background.MyStage} object.
 	 */
 	public Level(MyStage myStage){
 		this.myStage = myStage;
@@ -24,7 +26,7 @@ public class Level {
 	
 
 	/**
-	 * Adds all the movable background objects into the game according to level. 
+	 * Adds all the movable background objects into the game for Level 1. 
 	 */
 	public void runLevel1() {
 		
@@ -66,7 +68,7 @@ public class Level {
 	
 	
 	/**
-	 * Adds all the movable background objects into the game according to level. 
+	 * Adds all the movable background objects into the game for Level 2. 
 	 */
 	public void runLevel2() {
 		
@@ -108,7 +110,7 @@ public class Level {
 	
 	
 	/**
-	 * Adds all the movable background objects into the game according to level. 
+	 * Adds all the movable background objects into the game for Level 3. 
 	 */
 	public void runLevel3() {
 		
@@ -148,7 +150,7 @@ public class Level {
 	
 	
 	/**
-	 * Adds all the movable background objects into the game according to level. 
+	 * Adds all the movable background objects into the game for Level 4. 
 	 */
 	public void runLevel4() {
 		
@@ -188,7 +190,7 @@ public class Level {
 	
 	
 	/**
-	 * Adds all the movable background objects into the game according to level. 
+	 * Adds all the movable background objects into the game for Level 5. 
 	 */
 	public void runLevel5() {
 		
@@ -227,7 +229,7 @@ public class Level {
 	
 	
 	/**
-	 * Adds all the movable background objects into the game according to level. 
+	 * Adds all the movable background objects into the game for Level 6. 
 	 */
 	public void runLevel6() {
 		
@@ -261,7 +263,7 @@ public class Level {
 	
 	
 	/**
-	 * Adds all the movable background objects into the game according to level. 
+	 * Adds all the movable background objects into the game for Level 7. 
 	 */
 	public void runLevel7() {
 
@@ -296,7 +298,7 @@ public class Level {
 	
 	
 	/**
-	 * Adds all the movable background objects into the game according to level. 
+	 * Adds all the movable background objects into the game for Level 8. 
 	 */
 	public void runLevel8() {
 
@@ -326,7 +328,7 @@ public class Level {
 	
 	
 	/**
-	 * Adds all the movable background objects into the game according to level. 
+	 * Adds all the movable background objects into the game for Level 9. 
 	 */
 	public void runLevel9() {
 		
@@ -352,7 +354,7 @@ public class Level {
 	
 	
 	/**
-	 * Adds all the movable background objects into the game according to level. 
+	 * Adds all the movable background objects into the game for Level 10. 
 	 */
 	public void runLevel10() {
 		

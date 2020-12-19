@@ -1,7 +1,9 @@
 package com.game.background;
 
 /**
+ * 
  * Renders movable turtle images in the game.
+ * 
  * @author hcywy2
  *
  */

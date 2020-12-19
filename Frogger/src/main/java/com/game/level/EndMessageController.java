@@ -12,7 +12,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
+ * 
  * Controller class for EndMessage.fxml.
+ * 
  * @author hcywy2
  *
  */
@@ -23,7 +25,7 @@ public class EndMessageController {
 	private Stage mainStage = Main.getPrimaryStage();
 	
 	/**
-	 * Gets stage from {@link com.game.score.PopUpHighscore} class.
+	 * Gets hsStage from {@link com.game.score.PopUpHighscore} class.
 	 */
 	private Stage highscoreStage = PopUpHighscore.gethsStage();
 	

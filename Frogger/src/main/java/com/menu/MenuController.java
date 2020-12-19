@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 /**
  * 
  * Controller class for Menu.fxml.
+ * 
  * @author hcywy2
  *
  */
@@ -48,14 +49,13 @@ public class MenuController {
 		bgame.runGameBackground();
 		bgame.runLevel(1);
 		
-		Scene gameScene = new Scene(bgame.myStage, 565, 798);
+		Scene gameScene = new Scene(bgame.getMyStage(), 565, 798);
 		
 		Stage currStage =(Stage)((Node)event.getSource()).getScene().getWindow();
 		
 		currStage.setScene(gameScene);
 		currStage.show();
 		
-		bgame.setStage(currStage);
 	}
 	
 	

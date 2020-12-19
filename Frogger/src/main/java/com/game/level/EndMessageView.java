@@ -8,7 +8,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
+ * 
  * View class for EndMessage.fxml.
+ * 
  * @author hcywy2
  *
  */

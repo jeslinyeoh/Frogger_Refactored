@@ -7,6 +7,8 @@ import javafx.scene.image.Image;
 /**
  * 
  * Renders movable log images in the game. 
+ * 
+ * @author hcywy2
  *
  */
 public class Log extends Actor {

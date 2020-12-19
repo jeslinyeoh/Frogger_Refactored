@@ -10,7 +10,9 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 /**
+ * 
  * Loads, plays and stops music.
+ * 
  * @author hcywy2
  *
  */

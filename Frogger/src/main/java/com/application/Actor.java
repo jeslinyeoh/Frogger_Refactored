@@ -6,9 +6,12 @@ import java.util.ArrayList;
 
 
 /**
- * Parent class of all the game objects in {@link com.game.background}
+ * 
+ * Parent class of all the game object classes in {@link com.game.background}
  * except {@link com.game.background.Background}
  * and {@link com.game.background.MyStage}. 
+ * 
+ *  @author hcywy2
  * 
  */
 public abstract class Actor extends ImageView{

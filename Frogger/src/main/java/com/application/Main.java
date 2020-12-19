@@ -10,7 +10,9 @@ import javafx.stage.Stage;
 
 
 /**
+ * 
  * Launches the application.
+ * 
  * @author hcywy2
  *
  */
@@ -56,6 +58,11 @@ public class Main extends Application {
 	/**
 	 * Allows other classes to have access to the primaryStage.
 	 * @return primaryStage
+	 * 
+	 * @see com.game.background.Background#mainStage
+	 * @see com.game.level.ProceedNextLevelController#mainStage
+	 * @see com.game.level.EndMessageController#mainStage
+	 * 
 	 */
 	public static Stage getPrimaryStage() {
 		return pStage;

@@ -8,6 +8,8 @@ import javafx.scene.image.Image;
  * 
  * Renders movable vehicle images in the game. 
  *
+ * @author hcywy2
+ * 
  */
 public class Vehicle extends Actor {
 	private double speed;

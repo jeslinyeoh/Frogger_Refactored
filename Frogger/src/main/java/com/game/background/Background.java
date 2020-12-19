@@ -3,6 +3,7 @@ package com.game.background;
 
 import java.io.IOException;
 
+import com.application.Main;
 import com.application.World;
 import com.game.level.EndMessageView;
 import com.game.level.Level;
@@ -12,13 +13,13 @@ import com.game.score.Score;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
- * This class renders all the objects during the game 
+ * 
+ * Renders all the objects during the game 
  * including {@link com.game.score.Score} 
  * and {@link com.game.background.Music} objects.
  * 
@@ -27,17 +28,15 @@ import javafx.stage.Stage;
  */
 public class Background extends World{
 	
-	/**
-	 * Made public to be accessible 
-	 * from the {@link com.game.level.Level} class.
-	 *  
-	 */
-	public MyStage myStage = new MyStage();
+	private MyStage myStage = new MyStage();
 
 	private ProceedNextLevelView proceedNLv = new ProceedNextLevelView();
 	private EndMessageView endMsgV = new EndMessageView();
 	
-	private Stage stage;
+	/**
+	 * Gets primaryStage from {@link com.application.Main} class.
+	 */
+	private Stage mainStage = Main.getPrimaryStage();
 	private Score score;
 	private Music music;
 	private Frogger frogger;
@@ -118,7 +117,7 @@ public class Background extends World{
 		
 		restartButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event){
-				restartLevel(event);
+				restartLevel();
 			} 
 			
 		});	
@@ -139,7 +138,8 @@ public class Background extends World{
 	
 	
 	/**
-	 * Renders specific game objects according to their levels.
+	 * Calls {@link com.game.level.Level} functions to
+	 * render specific game objects according to their levels.
 	 * @param l Level number to be run.
 	 */
 	public void runLevel(int l) {
@@ -190,11 +190,9 @@ public class Background extends World{
 	
 	/**
 	 * Restarts the current level when the "Restart" button is pressed.
-	 * @param event Receives input from the button.
 	 */
-	public void restartLevel(ActionEvent event) {
+	public void restartLevel() {
 		
-		Stage currStage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		stopMusic();
 		myStage.stop();
 		score.stop();
@@ -204,26 +202,11 @@ public class Background extends World{
 		runLevel(lvl);
 		
 		Scene gameScene = new Scene(myStage, 565, 798);
-		currStage.setScene(gameScene);
-		currStage.show();
+		mainStage.setScene(gameScene);
+		mainStage.show();
 		
 	}
 	
-	
-	/**
-	 * Sets this.{@link #stage} object.
-	 */
-	public void setStage(Stage stage) {
-		this.stage = stage;
-	}
-	
-	
-	/**
-	 * Gets this.{@link #stage} object.
-	 */
-	public Stage getStage() {
-		return stage;
-	}
 	
 	
 	/**

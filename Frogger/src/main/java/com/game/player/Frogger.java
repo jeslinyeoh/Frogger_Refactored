@@ -5,7 +5,9 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 
 /**
+ * 
  * Handles and reflects player's input.
+ * 
  * @author hcywy2
  *
  */

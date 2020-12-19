@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 /**
  * 
  * Controller class for ProceedNextLevel.fxml.
+ * 
  * @author hcywy2
  *
  */
@@ -25,7 +26,7 @@ public class ProceedNextLevelController {
 	/**
 	 * Gets current level from {@link com.game.background.Background} class.
 	 */
-	private static int lvl = Background.getLevel();
+	private int lvl = Background.getLevel();
 	
 	/**
 	 * Gets primaryStage from {@link com.application.Main} class.
@@ -33,7 +34,7 @@ public class ProceedNextLevelController {
 	private Stage mainStage = Main.getPrimaryStage();
 	
 	/**
-	 * Gets stage from {@link com.game.score.PopUpHighscore} class.
+	 * Gets hsStage from {@link com.game.score.PopUpHighscore} class.
 	 */
 	private Stage highscoreStage = PopUpHighscore.gethsStage();
 	
